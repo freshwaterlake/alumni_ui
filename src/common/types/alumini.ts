@@ -18,7 +18,7 @@ export type AdditionalInformation = {
     addressLine2: String;
     locality: String;
     pin: string;
-    year12Cirriculum: string;
+    year12Curriculum: string;
 };
 
 export type EducationalBackground = {
@@ -29,7 +29,7 @@ export type EducationalBackground = {
     startDateMonth: number;
     completionDateYear: number;
     completionDateMonth: number;
-    receiveScholorship: string;
+    receiveScholarship: string;
     gradingSystemCode: string;
     grade: string;
     appearForEntranceExam: string;
