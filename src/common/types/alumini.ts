@@ -1,4 +1,4 @@
-export type BasicInformation = {
+export type BasicInformation = {  
     firstName: string;
     lastName: string;
     gender: string;
