@@ -7,7 +7,9 @@ const SelectControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
     const { control, dataKey, parentDataKey } = { ...args };
     const data = getControlValueFromState(dataKey, state as State);
-    const parentData = getControlValueFromState(parentDataKey + '.' + control.props.parentId, state as State);
+    const parentData = control.props.parentId
+        ? getControlValueFromState(parentDataKey + '.' + control.props.parentId, state as State)
+        : undefined;
     const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
 
     const controlDomain = (state?.domain?.get(control.props.domainCategoryCode) as DomainElement[]).filter((domain: DomainElement) => {
@@ -17,9 +19,11 @@ const SelectControl = (args: SimpleFormControlArguments) => {
 
     return (
         <>
-            <label htmlFor={control.id} className='form-label'>
-                {`${control.props.label} ${control.props.required ? '*' : ''}`}
-            </label>
+            {control.props.label && (
+                <label htmlFor={control.id} className='form-label'>
+                    {`${control.props.label} ${control.props.required ? '*' : ''}`}
+                </label>
+            )}
             <select
                 id={control.id}
                 className={`form-select form-select-lg`}

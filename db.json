@@ -19,7 +19,6 @@
                                 "label": "First Name"
                             }
                         },
-
                         {
                             "id": "",
                             "type": "PHONE",
@@ -38,6 +37,32 @@
                                 "label": "Gender",
                                 "domainCategoryCode": "GENDER"
                             }
+                        },
+                        {
+                            "id": "",
+                            "type": "YEAR_AND_MONTH",
+                            "className": "col-md-6 col-sm-6",
+                            "props": {
+                                "label": "When did you start?"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "startYearCode",
+                                    "type": "SELECT",
+                                    "className": "col-md-6 col-sm-6",
+                                    "props": {
+                                        "domainCategoryCode": "STUDY_YEAR_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "startMonthCode",
+                                    "type": "SELECT",
+                                    "className": "col-md-6 col-sm-6",
+                                    "props": {
+                                        "domainCategoryCode": "MONTH_CODE"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "id": "headlines",
@@ -202,6 +227,27 @@
         { "categoryCode": "PHONE_COUNTRY", "code": "INDIA", "value": "India (+91)" },
         { "categoryCode": "PHONE_COUNTRY", "code": "US", "value": "USA (+1)" },
         { "categoryCode": "PHONE_COUNTRY", "code": "CHINA", "value": "China (+86)" },
-        { "categoryCode": "PHONE_COUNTRY", "code": "RUSSIA", "value": "Russia (+7)" }
+        { "categoryCode": "PHONE_COUNTRY", "code": "RUSSIA", "value": "Russia (+7)" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2010", "value": "2010" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2011", "value": "2011" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2012", "value": "2012" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2013", "value": "2013" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2014", "value": "2014" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2015", "value": "2015" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2016", "value": "2016" },
+        { "categoryCode": "STUDY_YEAR_CODE", "code": "2017", "value": "2017" },
+
+        { "categoryCode": "MONTH_CODE", "code": "JAN", "value": "Jan" },
+        { "categoryCode": "MONTH_CODE", "code": "FEB", "value": "Feb" },
+        { "categoryCode": "MONTH_CODE", "code": "MAR", "value": "Mar" },
+        { "categoryCode": "MONTH_CODE", "code": "APR", "value": "Apr" },
+        { "categoryCode": "MONTH_CODE", "code": "MAY", "value": "May" },
+        { "categoryCode": "MONTH_CODE", "code": "JUN", "value": "Jun" },
+        { "categoryCode": "MONTH_CODE", "code": "JUL", "value": "Jul" },
+        { "categoryCode": "MONTH_CODE", "code": "AUG", "value": "Aug" },
+        { "categoryCode": "MONTH_CODE", "code": "SEP", "value": "Sep" },
+        { "categoryCode": "MONTH_CODE", "code": "OCT", "value": "Oct" },
+        { "categoryCode": "MONTH_CODE", "code": "NOV", "value": "Nov" },
+        { "categoryCode": "MONTH_CODE", "code": "DEC", "value": "Dev" }
     ]
 }

@@ -22,6 +22,7 @@ export type FormControl = {
     width: number;
     className?: string;
     props: ControlProperties;
+    controlGroup: FormControl[];
 };
 
 // https://github.com/ngx-formly/ngx-formly/blob/main/src/core/src/lib/models/fieldconfig.ts

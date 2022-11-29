@@ -7,6 +7,7 @@ import RadioControl from '../SimpleControls/RadioControl';
 import SelectControl from '../SimpleControls/SelectControl';
 import TextAreaControl from '../SimpleControls/TextAreaControl';
 import TextControl from '../SimpleControls/TextControl';
+import YearAndMonthSelector from '../SimpleControls/YearAndMonthSelector';
 import LayoutBuilder from './LayoutBuilder';
 
 const FormBuilder = (args: FormBuilderArguments) => {
@@ -35,6 +36,9 @@ const FormBuilder = (args: FormBuilderArguments) => {
             case 'PHONE':
                 element = <PhoneControl control={control} dataKey={childDataKey} />;
                 break;
+            case 'YEAR_AND_MONTH':
+                element = <YearAndMonthSelector control={control} dataKey={childDataKey} />;
+                break;
             case 'TABLE':
                 element = <TableControl control={control} dataKey={dataKey} />;
                 break;
@@ -45,8 +49,10 @@ const FormBuilder = (args: FormBuilderArguments) => {
                 throw new Error();
         }
 
+        const keyVal = control.id ? control.id : 1 + Math.random() * 99999;
+
         return (
-            <div key={control.id} className={`has-validation ${control.className} p-2`}>
+            <div key={keyVal} className={`has-validation ${control.className} p-2`}>
                 {element}
             </div>
         );
