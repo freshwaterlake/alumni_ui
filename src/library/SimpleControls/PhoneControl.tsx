@@ -15,7 +15,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
             </label>
 
             <div className='input-group mb-3'>
-                <div className='col-3 rounded-0'>
+                <div className='col-5'>
                     <select
                         id={props.control.fields[0]}
                         data-testid={props.control.fields[0]}
@@ -27,7 +27,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                                 dispatch
                             )
                         }
-                        className='form-select form-select-lg'
+                        className='form-select form-select-lg text-end'
                         aria-label='Default select example'
                     >
                         {state?.domain?.get(props.control.props.domainCategoryCode)?.map((domain: DomainElement) => (
@@ -37,7 +37,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                         ))}
                     </select>
                 </div>
-                <div className='col-9'>
+                <div className='col-7'>
                     <input
                         id={props.control.fields[1]}
                         data-testid={props.control.fields[1]}

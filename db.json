@@ -20,6 +20,15 @@
                             }
                         },
                         {
+                            "id": "genderCode",
+                            "type": "RADIO",
+                            "className": "col-md-6 col-sm-6",
+                            "props": {
+                                "label": "Gender",
+                                "domainCategoryCode": "GENDER"
+                            }
+                        },
+                        {
                             "id": "",
                             "type": "PHONE",
                             "className": "col-md-6 col-sm-6",
@@ -136,6 +145,7 @@
             "details": {
                 "id": 1000,
                 "firstName": "Hello",
+                "genderCode": "FEMALE",
                 "lastName": "Hello",
                 "phoneCountryCode": "US",
                 "phoneNumber": "123456789",
@@ -158,12 +168,12 @@
         }
     ],
     "DOMAIN": [
-        { "categoryCode": "GENDER", "code": "MALE", "value": "Male", "parentCode": "" },
-        { "categoryCode": "GENDER", "code": "FEMALE", "value": "Female", "parentCode": "" },
-        { "categoryCode": "GENDER", "code": "OTHER", "value": "Other", "parentCode": "" },
-        { "categoryCode": "COUNTRY", "code": "INDIA", "value": "India", "parentCode": "" },
-        { "categoryCode": "COUNTRY", "code": "USA", "value": "America", "parentCode": "" },
-        { "categoryCode": "COUNTRY", "code": "AUSTRALIA", "value": "Australia", "parentCode": "" },
+        { "categoryCode": "GENDER", "code": "MALE", "value": "Male" },
+        { "categoryCode": "GENDER", "code": "FEMALE", "value": "Female" },
+        { "categoryCode": "GENDER", "code": "OTHER", "value": "Other" },
+        { "categoryCode": "COUNTRY", "code": "INDIA", "value": "India" },
+        { "categoryCode": "COUNTRY", "code": "USA", "value": "America" },
+        { "categoryCode": "COUNTRY", "code": "AUSTRALIA", "value": "Australia" },
         { "categoryCode": "STATE", "code": "MAHARASHTRA", "value": "Maharashtra", "parentCode": "INDIA" },
         { "categoryCode": "STATE", "code": "TELENGANA", "value": "Telengana", "parentCode": "INDIA" },
         { "categoryCode": "STATE", "code": "KARNATAKA", "value": "Karnataka", "parentCode": "INDIA" },

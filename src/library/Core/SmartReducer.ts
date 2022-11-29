@@ -19,9 +19,13 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             const nodes = action.payload.dataKey.split('.');
             let element: ObjectWithKeys = {};
             for (let i = 0; i < nodes.length; i++) {
-                if (i === 0) element = state.data[nodes[i]];
-                else if (i < nodes.length - 1) element = element[nodes[i]] as ObjectWithKeys;
-                else element[nodes[i]] = action.payload.value;
+                if (i === 0) {
+                    element = state.data[nodes[i]];
+                } else if (i < nodes.length - 1) {
+                    element = element[nodes[i]] as ObjectWithKeys;
+                } else {
+                    element[nodes[i]] = action.payload.value;
+                }
             }
             break;
 
