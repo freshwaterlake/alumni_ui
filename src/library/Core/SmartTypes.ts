@@ -142,6 +142,7 @@ export type PaginationArguments = {
 export type SimpleFormControlArguments = {
     control: FormControl;
     dataKey: string;
+    parentDataKey?: string;
 };
 
 export type ObjectWithKeys = {

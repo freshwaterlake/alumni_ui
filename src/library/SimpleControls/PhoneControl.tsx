@@ -5,8 +5,8 @@ import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartT
 
 const PhoneControl = (props: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
-    const phoneCountryCode = getControlValueFromState(props.dataKey + props.control.fields[0], state as State) as string;
-    const phoneNumber = getControlValueFromState(props.dataKey + props.control.fields[1], state as State) as string;
+    const phoneCountryCodeValue = getControlValueFromState(props.dataKey + props.control.fields[0], state as State) as string;
+    const phoneNumberValue = getControlValueFromState(props.dataKey + props.control.fields[1], state as State) as string;
 
     return (
         <div>
@@ -31,7 +31,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                         aria-label='Default select example'
                     >
                         {state?.domain?.get(props.control.props.domainCategoryCode)?.map((domain: DomainElement) => (
-                            <option key={domain.code} value={domain.code} defaultValue={phoneCountryCode}>
+                            <option key={domain.code} value={domain.code} defaultValue={phoneCountryCodeValue}>
                                 {domain.value}
                             </option>
                         ))}
@@ -42,7 +42,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                         id={props.control.fields[1]}
                         data-testid={props.control.fields[1]}
                         type='text'
-                        value={phoneNumber}
+                        value={phoneNumberValue}
                         onChange={(event) =>
                             handleControlValueChange(
                                 props.control.fields[1],

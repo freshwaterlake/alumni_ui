@@ -5,28 +5,29 @@ import { SimpleFormControlArguments, State } from '../Core/SmartTypes';
 
 const TextControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
-    const data = getControlValueFromState(args.dataKey, state as State);
+    const { control, dataKey } = { ...args };
+    const data = getControlValueFromState(dataKey, state as State);
     const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
 
     return (
         <>
-            <label htmlFor={args.control.id} className='form-label'>
-                {`${args.control.props.label} ${args.control.props.required ? '*' : ''}`}
+            <label htmlFor={control.id} className='form-label'>
+                {`${control.props.label} ${control.props.required ? '*' : ''}`}
             </label>
             <input
-                id={args.control.id}
-                data-testid={args.control.id}
-                type={args.control.type}
+                id={control.id}
+                data-testid={control.id}
+                type={control.type}
                 className={`form-control form-control-lg`}
-                placeholder={args.control.props.placeholder}
-                inputMode={args.control.props.inputMode}
+                placeholder={control.props.placeholder}
+                inputMode={control.props.inputMode}
                 value={data}
-                required={args.control.props.required}
-                onChange={(event) => handleControlValueChange(args.control.id, event.target.value, args.dataKey, dispatch)}
-                minLength={args.control.props.minLength}
-                maxLength={args.control.props.maxLength}
-                min={args.control.props.min}
-                max={args.control.props.max}
+                required={control.props.required}
+                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                minLength={control.props.minLength}
+                maxLength={control.props.maxLength}
+                min={control.props.min}
+                max={control.props.max}
                 ref={formControlRef}
             />
         </>

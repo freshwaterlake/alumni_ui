@@ -1,0 +1,42 @@
+import { useContext, useRef } from 'react';
+import { SmartContext } from '../Core/SmartContext';
+import { getControlValueFromState, handleControlValueChange } from '../Core/SmartFunctions';
+import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartTypes';
+
+const SelectControl = (args: SimpleFormControlArguments) => {
+    const { state, dispatch } = useContext(SmartContext);
+    const { control, dataKey, parentDataKey } = { ...args };
+    const data = getControlValueFromState(dataKey, state as State);
+    const parentData = getControlValueFromState(parentDataKey + '.' + control.props.parentId, state as State);
+    const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
+
+    const controlDomain = (state?.domain?.get(control.props.domainCategoryCode) as DomainElement[]).filter((domain: DomainElement) => {
+        if (control.props.parentId === null || control.props.parentId === undefined || control.props.parentId.length === 0) return true;
+        else return domain.parentCode === parentData;
+    });
+
+    return (
+        <>
+            <label htmlFor={control.id} className='form-label'>
+                {`${control.props.label} ${control.props.required ? '*' : ''}`}
+            </label>
+            <select
+                id={control.id}
+                className={`form-select form-select-lg`}
+                value={data}
+                required={control.props.required}
+                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                ref={formControlRef}
+            >
+                {!controlDomain.some((domain) => domain.code === '') && <option value={''}>{'--Select--'}</option>}
+                {controlDomain.map((domain) => (
+                    <option key={domain.code} value={domain.code} defaultValue={data}>
+                        {domain.value}
+                    </option>
+                ))}
+            </select>
+        </>
+    );
+};
+
+export default SelectControl;
