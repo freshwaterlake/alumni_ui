@@ -1,5 +1,5 @@
 const PhoneControl = () => {
-    return <div>PhoneControl</div>;
+    return <div>PhoneControl One</div>;
 };
 
 export default PhoneControl;
