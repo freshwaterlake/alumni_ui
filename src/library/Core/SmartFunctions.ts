@@ -6,7 +6,7 @@ export const isEmpty = (obj: any) => {
     return Object.entries(obj).length === 0 ? true : false;
 };
 
-export const getControlValueFromState = (key: string, state: State): any[] => {
+export const getControlValueFromState = (key: string, state: State): any[] | string | number => {
     if (isEmpty(state.data)) return [];
     return key.split('.').reduce((a, c) => a[c], state.data);
 };
@@ -24,3 +24,8 @@ export const convertDomainArrayToMap = (domain: DomainElement[]) => {
 
     return domainMap;
 };
+
+// export const getDomainValueForCode = (value: string, domain: string, categoryCode: string) => {
+//     if (isEmpty(value) || isEmpty(domain) || isEmpty(categoryCode)) return;
+//     return domain.get(categoryCode).find((element) => element.code === value)['value'];
+// };

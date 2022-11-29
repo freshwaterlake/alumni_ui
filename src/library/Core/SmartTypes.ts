@@ -16,6 +16,7 @@ export type FormSection = {
 
 export type FormControl = {
     id: string;
+    fields: string[];
     type: string;
     defaultValue?: any;
     width: number;
@@ -39,6 +40,8 @@ export type ControlProperties = {
     required?: boolean;
     readonly?: boolean;
     gridOptions: GridOptions;
+    domainCategoryCode: string;
+    parentId: string;
 };
 
 export type GridOptions = {
@@ -60,7 +63,7 @@ export type ApplicationContext = {
 export type State = {
     formConfig?: Page;
     data?: any;
-    domain?: Domain;
+    domain?: Map<string, []>;
     flags: StateFlags;
     internal: InternalState;
 };

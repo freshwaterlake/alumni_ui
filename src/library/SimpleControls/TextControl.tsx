@@ -17,7 +17,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                 id={args.control.id}
                 data-testid={args.control.id}
                 type={args.control.type}
-                className={`form-control`}
+                className={`form-control form-control-lg`}
                 placeholder={args.control.props.placeholder}
                 inputMode={args.control.props.inputMode}
                 value={data}

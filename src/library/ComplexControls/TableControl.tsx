@@ -8,7 +8,7 @@ import PaginationControl from './PaginationControl';
 const TableControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
     const { control, dataKey } = args;
-    const originalData = getControlValueFromState(args.dataKey, state as State);
+    const originalData = getControlValueFromState(args.dataKey, state as State) as any[];
 
     useEffect(() => {
         if (!state?.internal.gridState?.find((grid) => grid.id === control.id))

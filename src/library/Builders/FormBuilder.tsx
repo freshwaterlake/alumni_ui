@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import TableControl from '../ComplexControls/TableControl';
 import { SmartContext } from '../Core/SmartContext';
 import { FormBuilderArguments, FormControl, FormSection } from '../Core/SmartTypes';
+import PhoneControl from '../SimpleControls/PhoneControl';
 import TextControl from '../SimpleControls/TextControl';
 import LayoutBuilder from './LayoutBuilder';
 
@@ -18,6 +19,9 @@ const FormBuilder = (args: FormBuilderArguments) => {
         switch (control.type) {
             case 'TEXT':
                 element = <TextControl control={control} dataKey={childDataKey} />;
+                break;
+            case 'PHONE':
+                element = <PhoneControl control={control} dataKey={childDataKey} />;
                 break;
             case 'TABLE':
                 element = <TableControl control={control} dataKey={dataKey} />;
