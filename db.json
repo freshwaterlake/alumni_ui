@@ -19,6 +19,17 @@
                                 "label": "First Name"
                             }
                         },
+
+                        {
+                            "id": "",
+                            "type": "PHONE",
+                            "className": "col-md-6 col-sm-6",
+                            "fields": ["phoneCountryCode", "phoneNumber"],
+                            "props": {
+                                "label": "Phone",
+                                "domainCategoryCode": "PHONE_COUNTRY"
+                            }
+                        },
                         {
                             "id": "genderCode",
                             "type": "RADIO",
@@ -29,13 +40,12 @@
                             }
                         },
                         {
-                            "id": "",
-                            "type": "PHONE",
-                            "className": "col-md-6 col-sm-6",
-                            "fields": ["phoneCountryCode", "phoneNumber"],
+                            "id": "headlines",
+                            "type": "TEXTAREA",
+                            "className": "col-md-12 col-sm-12",
                             "props": {
-                                "label": "Phone",
-                                "domainCategoryCode": "PHONE_COUNTRY"
+                                "label": "Headlines",
+                                "numLines": 4
                             }
                         },
                         {
@@ -149,6 +159,7 @@
                 "lastName": "Hello",
                 "phoneCountryCode": "US",
                 "phoneNumber": "123456789",
+                "headlines": "",
                 "address": {
                     "addressLine1": "A 108, Lake Front",
                     "addressLine2": "Central London",

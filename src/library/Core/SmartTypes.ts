@@ -42,6 +42,7 @@ export type ControlProperties = {
     gridOptions: GridOptions;
     domainCategoryCode: string;
     parentId: string;
+    numLines: number; // For text area
 };
 
 export type GridOptions = {

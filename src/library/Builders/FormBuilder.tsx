@@ -5,6 +5,7 @@ import { FormBuilderArguments, FormControl, FormSection } from '../Core/SmartTyp
 import PhoneControl from '../SimpleControls/PhoneControl';
 import RadioControl from '../SimpleControls/RadioControl';
 import SelectControl from '../SimpleControls/SelectControl';
+import TextAreaControl from '../SimpleControls/TextAreaControl';
 import TextControl from '../SimpleControls/TextControl';
 import LayoutBuilder from './LayoutBuilder';
 
@@ -21,6 +22,9 @@ const FormBuilder = (args: FormBuilderArguments) => {
         switch (control.type) {
             case 'TEXT':
                 element = <TextControl control={control} dataKey={childDataKey} />;
+                break;
+            case 'TEXTAREA':
+                element = <TextAreaControl control={control} dataKey={childDataKey} />;
                 break;
             case 'RADIO':
                 element = <RadioControl control={control} dataKey={childDataKey} />;
