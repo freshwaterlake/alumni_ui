@@ -1,253 +1,571 @@
 {
-    "CONFIG": [
+  "CONFIG": [
+    {
+      "id": "STUDENT",
+      "title": "Student Information",
+      "urlPath": "STUDENT",
+      "sections": [
+        "details",
+        "education"
+      ],
+      "sectionRepository": [
         {
-            "id": "STUDENT",
-            "title": "Student Information",
-            "urlPath": "STUDENT",
-            "sections": ["details", "education"],
-            "sectionRepository": [
+          "id": "details",
+          "title": "Student Details",
+          "type": "SECTION_WITH_HEADER",
+          "controlGroup": [
+            {
+              "id": "college",
+              "type": "MULTI_SELECT_WAI",
+              "className": "col-md-12 col-sm-12",
+              "props": {
+                "label": "First Name"
+              },
+              "controlGroup": [
                 {
-                    "id": "details",
-                    "title": "Student Details",
-                    "type": "SECTION_WITH_HEADER",
-                    "controlGroup": [
-                        {
-                            "id": "firstName",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "First Name"
-                            }
-                        },
-                        {
-                            "id": "",
-                            "type": "PHONE",
-                            "className": "col-md-6 col-sm-6",
-                            "fields": ["phoneCountryCode", "phoneNumber"],
-                            "props": {
-                                "label": "Phone",
-                                "domainCategoryCode": "PHONE_COUNTRY"
-                            }
-                        },
-                        {
-                            "id": "genderCode",
-                            "type": "RADIO",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Gender",
-                                "domainCategoryCode": "GENDER"
-                            }
-                        },
-                        {
-                            "id": "",
-                            "type": "YEAR_AND_MONTH",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "When did you start?"
-                            },
-                            "controlGroup": [
-                                {
-                                    "id": "startYearCode",
-                                    "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
-                                    "props": {
-                                        "domainCategoryCode": "STUDY_YEAR_CODE"
-                                    }
-                                },
-                                {
-                                    "id": "startMonthCode",
-                                    "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
-                                    "props": {
-                                        "domainCategoryCode": "MONTH_CODE"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "id": "headlines",
-                            "type": "TEXTAREA",
-                            "className": "col-md-12 col-sm-12",
-                            "props": {
-                                "label": "Headlines",
-                                "numLines": 4
-                            }
-                        },
-                        {
-                            "id": "address",
-                            "type": "SMART",
-                            "className": "col-md-12 col-sm-12"
-                        }
-                    ]
+                  "id": "collegeCode",
+                  "type": "TEXT",
+                  "className": "col-md-12 col-sm-12",
+                  "props": {
+                    "icon": "bi bi-check-circle-fill text-success fs-4"
+                  }
                 },
                 {
-                    "id": "address",
-                    "title": "Communication Address",
-                    "type": "SECTION_WITH_HEADER",
-                    "controlGroup": [
-                        {
-                            "id": "addressLine1",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Address Line 1"
-                            }
-                        },
-                        {
-                            "id": "addressLine2",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Address Line 2"
-                            }
-                        },
-                        {
-                            "id": "cityCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "City",
-                                "domainCategoryCode": "CITY",
-                                "parentId": "stateCode"
-                            }
-                        },
-                        {
-                            "id": "stateCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "State",
-                                "domainCategoryCode": "STATE",
-                                "parentId": "countryCode"
-                            }
-                        },
-                        {
-                            "id": "countryCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Country",
-                                "domainCategoryCode": "COUNTRY"
-                            }
-                        }
-                    ]
+                  "id": "fieldOfStudyCode",
+                  "type": "SELECT",
+                  "className": "col-md-6 col-sm-6",
+                  "props": {
+                    "domainCategoryCode": "FIELD_OF_STUDY_CODE"
+                  }
                 },
                 {
-                    "id": "education",
-                    "title": "Education History",
-                    "type": "SECTION_WITH_HEADER",
-                    "controlGroup": [
-                        {
-                            "id": "education",
-                            "type": "TABLE",
-                            "className": "col-md-12 col-sm-12",
-                            "props": {
-                                "gridOptions": {
-                                    "columnDefs": [
-                                        {
-                                            "id": "class",
-                                            "label": "Class",
-                                            "width": 2
-                                        },
-                                        {
-                                            "id": "school",
-                                            "label": "School",
-                                            "width": 6
-                                        },
-                                        {
-                                            "id": "year",
-                                            "label": "Year",
-                                            "width": 2
-                                        },
-                                        {
-                                            "id": "grade",
-                                            "label": "Grade",
-                                            "width": 2
-                                        }
-                                    ],
-                                    "pageSize": 3
-                                }
-                            }
-                        }
-                    ]
+                  "id": "resultOfApplicationCode",
+                  "type": "SELECT",
+                  "className": "col-md-6 col-sm-6",
+                  "props": {
+                    "domainCategoryCode": "COLLEGE_APPLICATION_STATUS_CODE"
+                  }
                 }
-            ]
-        }
-    ],
-    "STUDENT": [
-        {
-            "id": 1000,
-            "details": {
-                "id": 1000,
-                "firstName": "Hello",
-                "genderCode": "FEMALE",
-                "lastName": "Hello",
-                "phoneCountryCode": "US",
-                "phoneNumber": "123456789",
-                "headlines": "",
-                "address": {
-                    "addressLine1": "A 108, Lake Front",
-                    "addressLine2": "Central London",
-                    "cityCode": "LONDON",
-                    "stateCode": "LONDON",
-                    "countryCode": "UK"
-                }
+              ]
             },
-            "education": [
-                { "class": "7TH_CLASS", "school": "CHAITANYA_SCHOOL", "year": 2010, "grade": "A" },
-                { "class": "8TH_CLASS", "school": "CHAITANYA_SCHOOL", "year": 2011, "grade": "B" },
-                { "class": "9TH_CLASS", "school": "DPS_SCHOOL", "year": 2011, "grade": "C" },
-                { "class": "10TH_CLASS", "school": "DPS_SCHOOL", "year": 2011, "grade": "C" },
-                { "class": "11TH_CLASS", "school": "DPS_SCHOOL", "year": 2011, "grade": "C" },
-                { "class": "12TH_CLASS", "school": "DPS_SCHOOL", "year": 2011, "grade": "C" }
-            ]
+            {
+              "id": "firstName",
+              "type": "TEXT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "First Name"
+              }
+            },
+            {
+              "id": "",
+              "type": "PHONE",
+              "className": "col-md-6 col-sm-6",
+              "fields": [
+                "phoneCountryCode",
+                "phoneNumber"
+              ],
+              "props": {
+                "label": "Phone",
+                "domainCategoryCode": "PHONE_COUNTRY"
+              }
+            },
+            {
+              "id": "genderCode",
+              "type": "RADIO",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "Gender",
+                "domainCategoryCode": "GENDER"
+              }
+            },
+            {
+              "id": "",
+              "type": "YEAR_AND_MONTH",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "When did you start?"
+              },
+              "controlGroup": [
+                {
+                  "id": "startYearCode",
+                  "type": "SELECT",
+                  "className": "col-md-6 col-sm-6",
+                  "props": {
+                    "domainCategoryCode": "STUDY_YEAR_CODE"
+                  }
+                },
+                {
+                  "id": "startMonthCode",
+                  "type": "SELECT",
+                  "className": "col-md-6 col-sm-6",
+                  "props": {
+                    "domainCategoryCode": "MONTH_CODE"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "headlines",
+              "type": "TEXTAREA",
+              "className": "col-md-12 col-sm-12",
+              "props": {
+                "label": "Headlines",
+                "numLines": 4
+              }
+            },
+            {
+              "id": "address",
+              "type": "SMART",
+              "className": "col-md-12 col-sm-12"
+            }
+          ]
+        },
+        {
+          "id": "address",
+          "title": "Communication Address",
+          "type": "SECTION_WITH_HEADER",
+          "controlGroup": [
+            {
+              "id": "addressLine1",
+              "type": "TEXT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "Address Line 1"
+              }
+            },
+            {
+              "id": "addressLine2",
+              "type": "TEXT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "Address Line 2"
+              }
+            },
+            {
+              "id": "cityCode",
+              "type": "SELECT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "City",
+                "domainCategoryCode": "CITY",
+                "parentId": "stateCode"
+              }
+            },
+            {
+              "id": "stateCode",
+              "type": "SELECT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "State",
+                "domainCategoryCode": "STATE",
+                "parentId": "countryCode"
+              }
+            },
+            {
+              "id": "countryCode",
+              "type": "SELECT",
+              "className": "col-md-6 col-sm-6",
+              "props": {
+                "label": "Country",
+                "domainCategoryCode": "COUNTRY"
+              }
+            }
+          ]
+        },
+        {
+          "id": "education",
+          "title": "Education History",
+          "type": "SECTION_WITH_HEADER",
+          "controlGroup": [
+            {
+              "id": "education",
+              "type": "TABLE",
+              "className": "col-md-12 col-sm-12",
+              "props": {
+                "gridOptions": {
+                  "columnDefs": [
+                    {
+                      "id": "class",
+                      "label": "Class",
+                      "width": 2
+                    },
+                    {
+                      "id": "school",
+                      "label": "School",
+                      "width": 6
+                    },
+                    {
+                      "id": "year",
+                      "label": "Year",
+                      "width": 2
+                    },
+                    {
+                      "id": "grade",
+                      "label": "Grade",
+                      "width": 2
+                    }
+                  ],
+                  "pageSize": 3
+                }
+              }
+            }
+          ]
         }
-    ],
-    "DOMAIN": [
-        { "categoryCode": "GENDER", "code": "MALE", "value": "Male" },
-        { "categoryCode": "GENDER", "code": "FEMALE", "value": "Female" },
-        { "categoryCode": "GENDER", "code": "OTHER", "value": "Other" },
-        { "categoryCode": "COUNTRY", "code": "INDIA", "value": "India" },
-        { "categoryCode": "COUNTRY", "code": "USA", "value": "America" },
-        { "categoryCode": "COUNTRY", "code": "AUSTRALIA", "value": "Australia" },
-        { "categoryCode": "STATE", "code": "MAHARASHTRA", "value": "Maharashtra", "parentCode": "INDIA" },
-        { "categoryCode": "STATE", "code": "TELENGANA", "value": "Telengana", "parentCode": "INDIA" },
-        { "categoryCode": "STATE", "code": "KARNATAKA", "value": "Karnataka", "parentCode": "INDIA" },
-        { "categoryCode": "STATE", "code": "NEW_YORK", "value": "New York", "parentCode": "USA" },
-        { "categoryCode": "STATE", "code": "PENNSYLVANIA", "value": "Pennsylvania", "parentCode": "USA" },
-        { "categoryCode": "STATE", "code": "CALIFORNIA", "value": "California", "parentCode": "USA" },
-        { "categoryCode": "CITY", "code": "HYDERABAD", "value": "Hyderabad", "parentCode": "TELENGANA" },
-        { "categoryCode": "CITY", "code": "PUNE", "value": "Pune", "parentCode": "MAHARASHTRA" },
-        { "categoryCode": "CITY", "code": "MUMBAI", "value": "Mumbai", "parentCode": "MAHARASHTRA" },
-        { "categoryCode": "CITY", "code": "NAVE_MUMBAI", "value": "Nave Mumbai", "parentCode": "MAHARASHTRA" },
-        { "categoryCode": "CITY", "code": "BANGALORE", "value": "Bangalore", "parentCode": "KARNATAKA" },
-        { "categoryCode": "CITY", "code": "NEW_YORK", "value": "New York", "parentCode": "NEW_YORK" },
-        { "categoryCode": "CITY", "code": "LOS_ANGLES", "value": "Los Angles", "parentCode": "CALIFORNIA" },
-        { "categoryCode": "CITY", "code": "CALIFORNIA", "value": "California", "parentCode": "CALIFORNIA" },
-        { "categoryCode": "PHONE_COUNTRY", "code": "INDIA", "value": "India (+91)" },
-        { "categoryCode": "PHONE_COUNTRY", "code": "US", "value": "USA (+1)" },
-        { "categoryCode": "PHONE_COUNTRY", "code": "CHINA", "value": "China (+86)" },
-        { "categoryCode": "PHONE_COUNTRY", "code": "RUSSIA", "value": "Russia (+7)" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2010", "value": "2010" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2011", "value": "2011" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2012", "value": "2012" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2013", "value": "2013" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2014", "value": "2014" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2015", "value": "2015" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2016", "value": "2016" },
-        { "categoryCode": "STUDY_YEAR_CODE", "code": "2017", "value": "2017" },
-
-        { "categoryCode": "MONTH_CODE", "code": "JAN", "value": "Jan" },
-        { "categoryCode": "MONTH_CODE", "code": "FEB", "value": "Feb" },
-        { "categoryCode": "MONTH_CODE", "code": "MAR", "value": "Mar" },
-        { "categoryCode": "MONTH_CODE", "code": "APR", "value": "Apr" },
-        { "categoryCode": "MONTH_CODE", "code": "MAY", "value": "May" },
-        { "categoryCode": "MONTH_CODE", "code": "JUN", "value": "Jun" },
-        { "categoryCode": "MONTH_CODE", "code": "JUL", "value": "Jul" },
-        { "categoryCode": "MONTH_CODE", "code": "AUG", "value": "Aug" },
-        { "categoryCode": "MONTH_CODE", "code": "SEP", "value": "Sep" },
-        { "categoryCode": "MONTH_CODE", "code": "OCT", "value": "Oct" },
-        { "categoryCode": "MONTH_CODE", "code": "NOV", "value": "Nov" },
-        { "categoryCode": "MONTH_CODE", "code": "DEC", "value": "Dev" }
-    ]
+      ]
+    }
+  ],
+  "STUDENT": [
+    {
+      "id": 1000,
+      "details": {
+        "id": 1000,
+        "firstName": "Hello",
+        "genderCode": "FEMALE",
+        "lastName": "Hello",
+        "phoneCountryCode": "US",
+        "phoneNumber": "123456789",
+        "headlines": "",
+        "address": {
+          "addressLine1": "A 108, Lake Front",
+          "addressLine2": "Central London",
+          "cityCode": "LONDON",
+          "stateCode": "LONDON",
+          "countryCode": "UK"
+        },
+        "college": [
+          {
+            "collegeCode": "MGIT_HYDERABAD",
+            "fieldOfStudyCode": "MECH",
+            "resultOfApplicationCode": "JOINED"
+          },
+          {
+            "collegeCode": "IIIT_HYDERABAD",
+            "fieldOfStudyCode": "CSE",
+            "resultOfApplicationCode": "ACCEPTED"
+          }
+        ],
+        "startYearCode": "2013",
+        "startMonthCode": "JUL"
+      },
+      "education": [
+        {
+          "class": "7TH_CLASS",
+          "school": "CHAITANYA_SCHOOL",
+          "year": 2010,
+          "grade": "A"
+        },
+        {
+          "class": "8TH_CLASS",
+          "school": "CHAITANYA_SCHOOL",
+          "year": 2011,
+          "grade": "B"
+        },
+        {
+          "class": "9TH_CLASS",
+          "school": "DPS_SCHOOL",
+          "year": 2011,
+          "grade": "C"
+        },
+        {
+          "class": "10TH_CLASS",
+          "school": "DPS_SCHOOL",
+          "year": 2011,
+          "grade": "C"
+        },
+        {
+          "class": "11TH_CLASS",
+          "school": "DPS_SCHOOL",
+          "year": 2011,
+          "grade": "C"
+        },
+        {
+          "class": "12TH_CLASS",
+          "school": "DPS_SCHOOL",
+          "year": 2011,
+          "grade": "C"
+        }
+      ]
+    }
+  ],
+  "DOMAIN": [
+    {
+      "categoryCode": "GENDER",
+      "code": "MALE",
+      "value": "Male"
+    },
+    {
+      "categoryCode": "GENDER",
+      "code": "FEMALE",
+      "value": "Female"
+    },
+    {
+      "categoryCode": "GENDER",
+      "code": "OTHER",
+      "value": "Other"
+    },
+    {
+      "categoryCode": "COUNTRY",
+      "code": "INDIA",
+      "value": "India"
+    },
+    {
+      "categoryCode": "COUNTRY",
+      "code": "USA",
+      "value": "America"
+    },
+    {
+      "categoryCode": "COUNTRY",
+      "code": "AUSTRALIA",
+      "value": "Australia"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "MAHARASHTRA",
+      "value": "Maharashtra",
+      "parentCode": "INDIA"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "TELENGANA",
+      "value": "Telengana",
+      "parentCode": "INDIA"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "KARNATAKA",
+      "value": "Karnataka",
+      "parentCode": "INDIA"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "NEW_YORK",
+      "value": "New York",
+      "parentCode": "USA"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "PENNSYLVANIA",
+      "value": "Pennsylvania",
+      "parentCode": "USA"
+    },
+    {
+      "categoryCode": "STATE",
+      "code": "CALIFORNIA",
+      "value": "California",
+      "parentCode": "USA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "HYDERABAD",
+      "value": "Hyderabad",
+      "parentCode": "TELENGANA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "PUNE",
+      "value": "Pune",
+      "parentCode": "MAHARASHTRA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "MUMBAI",
+      "value": "Mumbai",
+      "parentCode": "MAHARASHTRA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "NAVE_MUMBAI",
+      "value": "Nave Mumbai",
+      "parentCode": "MAHARASHTRA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "BANGALORE",
+      "value": "Bangalore",
+      "parentCode": "KARNATAKA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "NEW_YORK",
+      "value": "New York",
+      "parentCode": "NEW_YORK"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "LOS_ANGLES",
+      "value": "Los Angles",
+      "parentCode": "CALIFORNIA"
+    },
+    {
+      "categoryCode": "CITY",
+      "code": "CALIFORNIA",
+      "value": "California",
+      "parentCode": "CALIFORNIA"
+    },
+    {
+      "categoryCode": "PHONE_COUNTRY",
+      "code": "INDIA",
+      "value": "India (+91)"
+    },
+    {
+      "categoryCode": "PHONE_COUNTRY",
+      "code": "US",
+      "value": "USA (+1)"
+    },
+    {
+      "categoryCode": "PHONE_COUNTRY",
+      "code": "CHINA",
+      "value": "China (+86)"
+    },
+    {
+      "categoryCode": "PHONE_COUNTRY",
+      "code": "RUSSIA",
+      "value": "Russia (+7)"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2010",
+      "value": "2010"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2011",
+      "value": "2011"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2012",
+      "value": "2012"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2013",
+      "value": "2013"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2014",
+      "value": "2014"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2015",
+      "value": "2015"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2016",
+      "value": "2016"
+    },
+    {
+      "categoryCode": "STUDY_YEAR_CODE",
+      "code": "2017",
+      "value": "2017"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "JAN",
+      "value": "Jan"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "FEB",
+      "value": "Feb"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "MAR",
+      "value": "Mar"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "APR",
+      "value": "Apr"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "MAY",
+      "value": "May"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "JUN",
+      "value": "Jun"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "JUL",
+      "value": "Jul"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "AUG",
+      "value": "Aug"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "SEP",
+      "value": "Sep"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "OCT",
+      "value": "Oct"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "NOV",
+      "value": "Nov"
+    },
+    {
+      "categoryCode": "MONTH_CODE",
+      "code": "DEC",
+      "value": "Dev"
+    },
+    {
+      "categoryCode": "COLLEGE_NAME_CODE",
+      "code": "MGIT_HYDERABAD",
+      "value": "Mahatma Gandhi Institute of Technology"
+    },
+    {
+      "categoryCode": "COLLEGE_NAME_CODE",
+      "code": "IIIT_HYDERABAD",
+      "value": "IIIT Hyderabad"
+    },
+    {
+      "categoryCode": "COLLEGE_NAME_CODE",
+      "code": "NIT_WARANGAL",
+      "value": "IIIT Hyderabad"
+    },
+    {
+      "categoryCode": "COLLEGE_APPLICATION_STATUS_CODE",
+      "code": "REJECTED",
+      "value": "Rejected"
+    },
+    {
+      "categoryCode": "COLLEGE_APPLICATION_STATUS_CODE",
+      "code": "ACCEPTED",
+      "value": "Accepted"
+    },
+    {
+      "categoryCode": "COLLEGE_APPLICATION_STATUS_CODE",
+      "code": "JOINED",
+      "value": "Joined"
+    },
+    {
+      "categoryCode": "FIELD_OF_STUDY_CODE",
+      "code": "MECH",
+      "value": "Mechanical"
+    },
+    {
+      "categoryCode": "FIELD_OF_STUDY_CODE",
+      "code": "CSE",
+      "value": "Computer Science"
+    },
+    {
+      "categoryCode": "FIELD_OF_STUDY_CODE",
+      "code": "ECE",
+      "value": "Electronics And Communications"
+    }
+  ]
 }
