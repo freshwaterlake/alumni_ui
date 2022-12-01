@@ -1,6 +1,6 @@
 import { useContext, useRef } from 'react';
 import { SmartContext } from '../Core/SmartContext';
-import { getControlValueFromState, handleControlValueChange } from '../Core/SmartFunctions';
+import { getControlValueFromState, getDomainValueForCode, handleControlValueChange } from '../Core/SmartFunctions';
 import { SimpleFormControlArguments, State } from '../Core/SmartTypes';
 
 const TextControl = (args: SimpleFormControlArguments) => {
@@ -11,22 +11,33 @@ const TextControl = (args: SimpleFormControlArguments) => {
 
     const getTextControl = () => {
         return (
-            <input
-                id={control.id}
-                data-testid={control.id}
-                type={control.type}
-                className={`form-control form-control-lg`}
-                placeholder={control.props?.placeholder}
-                inputMode={control.props?.inputMode}
-                value={data}
-                required={control.props?.required}
-                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
-                minLength={control.props?.minLength}
-                maxLength={control.props?.maxLength}
-                min={control.props?.min}
-                max={control.props?.max}
-                ref={formControlRef}
-            />
+            <>
+                <input
+                    id={control.id}
+                    data-testid={control.id}
+                    type={control.type}
+                    hidden={control.props.isCode}
+                    className={`form-control form-control-lg`}
+                    placeholder={control.props?.placeholder}
+                    inputMode={control.props?.inputMode}
+                    value={data}
+                    required={control.props?.required}
+                    onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                    minLength={control.props?.minLength}
+                    maxLength={control.props?.maxLength}
+                    min={control.props?.min}
+                    max={control.props?.max}
+                    ref={formControlRef}
+                />
+                {control?.props?.isCode && (
+                    <input
+                        type={control.type}
+                        className={`form-control form-control-lg`}
+                        value={getDomainValueForCode(data as string, state?.domain?.get(control.props.domainCategoryCode) as any[])}
+                        onChange={() => {}}
+                    />
+                )}
+            </>
         );
     };
 

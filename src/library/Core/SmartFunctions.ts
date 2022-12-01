@@ -28,7 +28,7 @@ export const convertDomainArrayToMap = (domain: DomainElement[]) => {
 export const getDataStructureFromControls = (controls: FormControl[]) =>
     controls.reduce((accumulator, control) => Object.assign(accumulator, { [control.id]: undefined }), {});
 
-// export const getDomainValueForCode = (value: string, domain: string, categoryCode: string) => {
-//     if (isEmpty(value) || isEmpty(domain) || isEmpty(categoryCode)) return;
-//     return domain.get(categoryCode).find((element) => element.code === value)['value'];
-// };
+export const getDomainValueForCode = (code: string, domain: any[]) => {
+    if (isEmpty(code) || isEmpty(domain)) return '';
+    return domain?.find((element) => element.code === code)['value'];
+};

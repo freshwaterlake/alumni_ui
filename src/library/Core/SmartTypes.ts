@@ -33,6 +33,7 @@ export type ControlProperties = {
     disabled?: boolean;
     description?: string;
     icon?: string;
+    isCode?: boolean;
     hidden?: boolean;
     max?: number;
     min?: number;
