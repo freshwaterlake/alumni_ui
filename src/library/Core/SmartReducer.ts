@@ -29,6 +29,19 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             }
             break;
 
+        case 'ADD_NEW_RECORD_IN_ARRAY':
+            const arrayNode = action.payload.dataKey.split('.');
+            let element1: ObjectWithKeys = {};
+            for (let i = 0; i < arrayNode.length; i++) {
+                if (i === 0) {
+                    element1 = state.data[arrayNode[i]];
+                } else if (i < arrayNode.length - 1) {
+                    element1 = element1[arrayNode[i]] as ObjectWithKeys;
+                } else {
+                    element1[arrayNode[i]] = [...(element1[arrayNode[i]] as any[]), action.payload.value];
+                }
+            }
+            break;
         case 'GRID_INTERNAL_STATE_INIT':
             state.internal.gridState.push(
                 getGridInitialState(

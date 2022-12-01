@@ -1,4 +1,4 @@
-import { DispatchEvent, DomainElement, State } from './SmartTypes';
+import { DispatchEvent, DomainElement, FormControl, State } from './SmartTypes';
 
 export const isEmpty = (obj: any) => {
     if (obj === null || obj === undefined) return true;
@@ -24,6 +24,9 @@ export const convertDomainArrayToMap = (domain: DomainElement[]) => {
 
     return domainMap;
 };
+
+export const getDataStructureFromControls = (controls: FormControl[]) =>
+    controls.reduce((accumulator, control) => Object.assign(accumulator, { [control.id]: undefined }), {});
 
 // export const getDomainValueForCode = (value: string, domain: string, categoryCode: string) => {
 //     if (isEmpty(value) || isEmpty(domain) || isEmpty(categoryCode)) return;

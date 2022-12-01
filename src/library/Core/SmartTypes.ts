@@ -149,7 +149,7 @@ export type SimpleFormControlArguments = {
 };
 
 export type ObjectWithKeys = {
-    [key: string]: string | number | ObjectWithKeys;
+    [key: string]: string | number | ObjectWithKeys | any[];
 };
 
 export type LayoutArguments = {
