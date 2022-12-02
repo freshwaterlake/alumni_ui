@@ -34,20 +34,10 @@ const MultiSelectWithAdditionalInputs_2 = (args: SimpleFormControlArguments) => 
             </div>
             {data &&
                 data.map((row, index) => (
-                    <div key={`${dataKey}-${index}`} className='card mb-2'>
-                        <div className='card-body bg-light'>
-                            <div className='row'>
-                                {getControlFromFactory(
-                                    control.controlGroup[0],
-                                    dataKey,
-                                    dataKey + `.${index}.` + control.controlGroup[0].id
-                                )}
-                                {getControlFromFactory(
-                                    control.controlGroup[1],
-                                    dataKey,
-                                    dataKey + `.${index}.` + control.controlGroup[1].id
-                                )}
-                            </div>
+                    <div key={`${dataKey}-${index}`} className='py-1'>
+                        <div className='d-grid bg-light border d-flex'>
+                            {getControlFromFactory(control.controlGroup[0], dataKey, dataKey + `.${index}.` + control.controlGroup[0].id)}
+                            {getControlFromFactory(control.controlGroup[1], dataKey, dataKey + `.${index}.` + control.controlGroup[1].id)}
                         </div>
                     </div>
                 ))}
