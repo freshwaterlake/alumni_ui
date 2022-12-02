@@ -14,26 +14,28 @@ const RadioControl = (args: SimpleFormControlArguments) => {
 
     return (
         <fieldset>
-            <legend className='col-form-label col-sm-2 pt-0'>{control.props.label}</legend>
-            <div className='d-flex flex-wrap form-check'>
-                {controlDomain.map((domain) => (
-                    <div className='col-4' key={domain.code}>
-                        <input
-                            id={control.id}
-                            data-testid={control.id}
-                            className={`form-check-input`}
-                            type='radio'
-                            name={control.id}
-                            value={domain.code}
-                            checked={data === domain.code}
-                            onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
-                            ref={formControlRef}
-                        />
-                        <label className='form-check-label' htmlFor={domain.code}>
-                            {domain.value}
-                        </label>
-                    </div>
-                ))}
+            {control.props.label && <legend className='col-form-label col-sm-2 pt-0'>{control.props.label}</legend>}
+            <div className='form-check'>
+                <div className='d-flex flex-wrap '>
+                    {controlDomain.map((domain) => (
+                        <div className='col-4' key={dataKey + domain.code}>
+                            <input
+                                id={control.id}
+                                data-testid={control.id}
+                                className={`form-check-input`}
+                                type='radio'
+                                name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
+                                value={domain.code}
+                                checked={data === domain.code}
+                                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                                ref={formControlRef}
+                            />
+                            <label className='form-check-label' htmlFor={control.id}>
+                                {domain.value}
+                            </label>
+                        </div>
+                    ))}
+                </div>
             </div>
         </fieldset>
     );

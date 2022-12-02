@@ -12,8 +12,35 @@
                     "type": "SECTION_WITH_HEADER",
                     "controlGroup": [
                         {
+                            "id": "preferredIndustry",
+                            "type": "MULTI_SELECT_WAI_2",
+                            "className": "col-md-12 col-sm-12",
+                            "props": {
+                                "label": "Preferred Industry",
+                                "domainCategoryCode": "INDUSTRY_CODE"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "industryCode",
+                                    "type": "TEXT_AS_LABEL",
+                                    "className": "col-md-6 col-sm-6",
+                                    "props": {
+                                        "domainCategoryCode": "INDUSTRY_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "preferenceCode",
+                                    "type": "RADIO",
+                                    "className": "col-md-6 col-sm-6",
+                                    "props": {
+                                        "domainCategoryCode": "PREFERENCE_CODE"
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "id": "college",
-                            "type": "MULTI_SELECT_WAI",
+                            "type": "MULTI_SELECT_WAI_1",
                             "className": "col-md-12 col-sm-12",
                             "props": {
                                 "label": "Which other College/University did you apply?",
@@ -240,6 +267,21 @@
                         "collegeCode": "IIIT_PUNE",
                         "fieldOfStudyCode": "CSE",
                         "resultOfApplicationCode": "ACCEPTED"
+                    },
+                    {
+                        "collegeCode": "MGIT_HYDERABAD_3",
+                        "fieldOfStudyCode": "MECH",
+                        "resultOfApplicationCode": "ACCEPTED"
+                    }
+                ],
+                "preferredIndustry": [
+                    {
+                        "industryCode": "ADVERTISING",
+                        "preferenceCode": "NEED_GUIDANCE"
+                    },
+                    {
+                        "industryCode": "INFRASTRUCTURE",
+                        "preferenceCode": "TOTALLY_SURE"
                     }
                 ],
                 "startYearCode": "2013",
@@ -609,6 +651,31 @@
             "categoryCode": "FIELD_OF_STUDY_CODE",
             "code": "ECE",
             "value": "Electronics And Communications"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "INTERNET_E_COMMERCE",
+            "value": "Internet and ECommerce"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "ADVERTISING",
+            "value": "Advertising, Entertainment and Media"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "INFRASTRUCTURE",
+            "value": "Infrastructure & Construction"
+        },
+        {
+            "categoryCode": "PREFERENCE_CODE",
+            "code": "TOTALLY_SURE",
+            "value": "Totally Sure"
+        },
+        {
+            "categoryCode": "PREFERENCE_CODE",
+            "code": "NEED_GUIDANCE",
+            "value": "Need Guidance"
         }
     ]
 }
