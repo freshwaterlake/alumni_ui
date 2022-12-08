@@ -4,12 +4,13 @@
             "id": "STUDENT",
             "title": "Student Information",
             "urlPath": "STUDENT",
-            "sections": ["details", "education"],
+            "sections": ["search", "education", "details"],
             "sectionRepository": [
                 {
                     "id": "details",
                     "title": "Student Details",
                     "type": "SECTION_WITH_HEADER",
+                    "className": "col-md-12 col-sm-12",
                     "controlGroup": [
                         {
                             "id": "preferredIndustry",
@@ -201,6 +202,7 @@
                     "id": "education",
                     "title": "Education History",
                     "type": "SECTION_WITH_HEADER",
+                    "className": "col-md-10 col-sm-10",
                     "controlGroup": [
                         {
                             "id": "education",
@@ -233,6 +235,43 @@
                                     "pageSize": 3
                                 }
                             }
+                        }
+                    ]
+                },
+                {
+                    "id": "search",
+                    "title": "Search Here",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-2 col-sm-2",
+                    "controlGroup": [
+                        {
+                            "id": "search",
+                            "type": "SEARCH_FILTER",
+                            "className": "col-md-12 col-sm-12",
+                            "props": {
+                                "label": "Pass Out Year",
+                                "domainCategoryCode": "STUDY_YEAR_CODE"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "passOutYear",
+                                    "type": "LIST",
+                                    "className": "col-md-12 col-sm-12",
+                                    "props": {
+                                        "label": "Pass Out Year",
+                                        "domainCategoryCode": "STUDY_YEAR_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "countryCode",
+                                    "type": "LIST",
+                                    "className": "col-md-12 col-sm-12",
+                                    "props": {
+                                        "label": "Country",
+                                        "domainCategoryCode": "COUNTRY"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }

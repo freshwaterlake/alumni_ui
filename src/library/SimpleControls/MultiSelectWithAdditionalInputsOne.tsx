@@ -4,7 +4,7 @@ import { SmartContext } from '../Core/SmartContext';
 import { getControlValueFromState, getDataStructureFromControls } from '../Core/SmartFunctions';
 import { DomainElement, ObjectWithKeys, SimpleFormControlArguments, State } from '../Core/SmartTypes';
 
-const MultiSelectWithAdditionalInputs_1 = (args: SimpleFormControlArguments) => {
+const MultiSelectWithAdditionalInputsOne = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
     const { control, dataKey } = { ...args };
 
@@ -81,4 +81,4 @@ const MultiSelectWithAdditionalInputs_1 = (args: SimpleFormControlArguments) => 
     );
 };
 
-export default MultiSelectWithAdditionalInputs_1;
+export default MultiSelectWithAdditionalInputsOne;

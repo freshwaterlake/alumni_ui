@@ -49,14 +49,15 @@ const PageBuilder = (args: PageBuilderArguments) => {
             {/* TODO: Error display condition to be added*/}
             {!state?.flags.isDataLoading && (
                 <form className='needs-validation m-3' noValidate onSubmit={handleSubmit}>
-                    {state?.formConfig?.sections.map((section) => (
-                        <FormBuilder
-                            key={section}
-                            section={getSectionConfig(section) as FormSection}
-                            dataKey={getSectionConfig(section)?.id as string}
-                        />
-                    ))}
-
+                    <div className='d-flex flex-row flex-wrap'>
+                        {state?.formConfig?.sections.map((section) => (
+                            <FormBuilder
+                                key={section}
+                                section={getSectionConfig(section) as FormSection}
+                                dataKey={getSectionConfig(section)?.id as string}
+                            />
+                        ))}
+                    </div>
                     <button type='submit' className='btn btn-primary m-3'>
                         Submit
                     </button>

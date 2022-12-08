@@ -11,6 +11,7 @@ export type FormSection = {
     id?: string; // If ID is not present, no ID will be added
     title: string;
     type: 'COMPLEX_CONTROL' | 'SECTION_WITH_HEADER' | 'SECTION_WITHOUT_HEADER';
+    className: string;
     controlGroup: FormControl[];
 };
 

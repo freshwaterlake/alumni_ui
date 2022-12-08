@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useEffect } from 'react';
 import './App.css';
-import Dashboard from './features/dashboard/Dashboard';
+import Demo from './features/demo/Demo';
 
 function App() {
     useEffect(() => {
@@ -14,7 +14,7 @@ function App() {
 
     return (
         <div className='App'>
-            <Dashboard />
+            <Demo />
         </div>
     );
 }

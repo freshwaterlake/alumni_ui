@@ -1,6 +1,8 @@
 import TableControl from '../ComplexControls/TableControl';
-import MultiSelectWithAdditionalInputs_2 from '../SimpleControls/MultiSelectWithAdditionalAttributes_2';
-import MultiSelectWithAdditionalInputs_1 from '../SimpleControls/MultiSelectWithAdditionalInputs';
+import FiltersControl from '../SimpleControls/FiltersControl';
+import ListControl from '../SimpleControls/ListControl';
+import MultiSelectWithAdditionalInputsTwo from '../SimpleControls/MultiSelectWithAdditionalAttributesTwo';
+import MultiSelectWithAdditionalInputsOne from '../SimpleControls/MultiSelectWithAdditionalInputsOne';
 import PhoneControl from '../SimpleControls/PhoneControl';
 import RadioControl from '../SimpleControls/RadioControl';
 import SelectControl from '../SimpleControls/SelectControl';
@@ -30,6 +32,9 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
         case 'SELECT':
             element = <SelectControl control={control} dataKey={childDataKey} parentDataKey={dataKey} />;
             break;
+        case 'LIST':
+            element = <ListControl control={control} dataKey={childDataKey} parentDataKey={dataKey} />;
+            break;
         case 'PHONE':
             element = <PhoneControl control={control} dataKey={childDataKey} />;
             break;
@@ -37,10 +42,13 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
             element = <YearAndMonthSelector key={keyVal} control={control} dataKey={childDataKey} />;
             break;
         case 'MULTI_SELECT_WAI_1':
-            element = <MultiSelectWithAdditionalInputs_1 key={keyVal} control={control} dataKey={childDataKey} />;
+            element = <MultiSelectWithAdditionalInputsOne key={keyVal} control={control} dataKey={childDataKey} />;
             break;
         case 'MULTI_SELECT_WAI_2':
-            element = <MultiSelectWithAdditionalInputs_2 key={keyVal} control={control} dataKey={childDataKey} />;
+            element = <MultiSelectWithAdditionalInputsTwo key={keyVal} control={control} dataKey={childDataKey} />;
+            break;
+        case 'SEARCH_FILTER':
+            element = <FiltersControl key={keyVal} control={control} dataKey={childDataKey} />;
             break;
         case 'TABLE':
             element = <TableControl control={control} dataKey={dataKey} />;
