@@ -1,0 +1,35 @@
+.white-block {
+    background-color: #ffffff !important;
+    box-shadow: 0px 3px 6px #0000001a;
+    border: 1px solid #d2d2d2;
+    border-radius: 6px;
+    opacity: 1;
+    padding: 30px;
+}
+
+.white-block-notopborderradius {
+    border-radius: 0 0 6px 6px;
+    border-top: 0;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+.max-1140 {
+    max-width: 1140px;
+    width: 94%;
+}
+
+.p-0 {
+    padding: 0 !important;
+}
+
+.max-630 {
+    max-width: 630px;
+    width: 90%;
+}
+
+.basicInformation {
+    padding: 30px 20px 40px 0;
+}

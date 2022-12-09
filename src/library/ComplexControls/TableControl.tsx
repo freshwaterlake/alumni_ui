@@ -11,11 +11,11 @@ const TableControl = (args: SimpleFormControlArguments) => {
     const originalData = getControlValueFromState(args.dataKey, state as State) as any[];
 
     useEffect(() => {
-        if (!state?.internal.gridState?.find((grid) => grid.id === control.id))
+        if (!state?.internal?.gridState?.find((grid) => grid.id === control.id))
             dispatch({ type: 'GRID_INTERNAL_STATE_INIT', payload: { control, originalData } });
     }, []);
 
-    let gridState = state?.internal.gridState.find((grid) => grid.id === control.id) as GridInternalData;
+    let gridState = state?.internal?.gridState.find((grid) => grid.id === control.id) as GridInternalData;
     gridState = gridState ? gridState : getGridInitialState(control.id, originalData, control.props.gridOptions.pageSize);
 
     const handleSearchCriteriaChange = (id: string, value: string) => {

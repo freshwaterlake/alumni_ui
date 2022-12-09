@@ -4,7 +4,7 @@
             "id": "STUDENT",
             "title": "Student Information",
             "urlPath": "STUDENT",
-            "sections": ["search", "education", "details"],
+            "sections": ["search", "education", "details", "personList"],
             "sectionRepository": [
                 {
                     "id": "details",
@@ -202,12 +202,12 @@
                     "id": "education",
                     "title": "Education History",
                     "type": "SECTION_WITH_HEADER",
-                    "className": "col-md-10 col-sm-10",
+                    "className": "col-10",
                     "controlGroup": [
                         {
                             "id": "education",
                             "type": "TABLE",
-                            "className": "col-md-12 col-sm-12",
+                            "className": "col-12",
                             "props": {
                                 "gridOptions": {
                                     "columnDefs": [
@@ -242,7 +242,7 @@
                     "id": "search",
                     "title": "Search Here",
                     "type": "SECTION_WITHOUT_HEADER",
-                    "className": "col-md-2 col-sm-2",
+                    "className": "col-2",
                     "controlGroup": [
                         {
                             "id": "search",
@@ -270,6 +270,27 @@
                                         "label": "Country",
                                         "domainCategoryCode": "COUNTRY"
                                     }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "personList",
+                    "title": "Person List",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-12",
+                    "controlGroup": [
+                        {
+                            "type": "GRID_CARD",
+                            "className": "col-md-12 col-sm-12",
+                            "props": {
+                                "label": "Country"
+                            },
+                            "controlGroup": [
+                                {
+                                    "type": "PERSON_CARD",
+                                    "className": "col-md-12 col-sm-12"
                                 }
                             ]
                         }
@@ -363,7 +384,8 @@
                     "year": 2011,
                     "grade": "C"
                 }
-            ]
+            ],
+            "personList": [{ "name": "John Doe" }, { "name": "Jane Doe" }]
         }
     ],
     "DOMAIN": [

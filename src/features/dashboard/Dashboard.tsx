@@ -1,16 +1,11 @@
-import GridCardsControl from '../../library/ComplexControls/GridCardsControl';
-
-const dashboard = () => {
+const Dashboard = () => {
     return (
         <>
             <div className='row'>
-                <div className='col-3'>{/* <FiltersControl /> */}</div>
-                <div className='col-9'>
-                    <GridCardsControl />
-                </div>
+                <div className='col-4'>{/* <PersonCardControl /> */}</div>
             </div>
         </>
     );
 };
 
-export default dashboard;
+export default Dashboard;

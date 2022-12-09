@@ -1,3 +1,4 @@
+import GridCardsControl from '../ComplexControls/GridCardsControl';
 import TableControl from '../ComplexControls/TableControl';
 import FiltersControl from '../SimpleControls/FiltersControl';
 import ListControl from '../SimpleControls/ListControl';
@@ -10,6 +11,7 @@ import TextAreaControl from '../SimpleControls/TextAreaControl';
 import TextAsLabelControl from '../SimpleControls/TextAsLabelControl';
 import TextControl from '../SimpleControls/TextControl';
 import YearAndMonthSelector from '../SimpleControls/YearAndMonthSelector';
+import { ChildWrapperControl } from './ChildWrapperControl';
 import { FormControl } from './SmartTypes';
 
 export const getControlFromFactory = (control: FormControl, dataKey: string, childDataKey: string) => {
@@ -50,11 +52,14 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
         case 'SEARCH_FILTER':
             element = <FiltersControl key={keyVal} control={control} dataKey={childDataKey} />;
             break;
+        case 'GRID_CARD':
+            element = <GridCardsControl key={keyVal} control={control} dataKey={childDataKey} />;
+            break;
         case 'TABLE':
             element = <TableControl control={control} dataKey={dataKey} />;
             break;
         default:
-            throw new Error();
+            element = <ChildWrapperControl type={control.type} control={control} dataKey={childDataKey} parentDataKey={dataKey} />;
     }
 
     return (

@@ -71,6 +71,7 @@ export type State = {
     domain?: Map<string, []>;
     flags: StateFlags;
     internal: InternalState;
+    customControls?: ObjectWithComponents;
 };
 
 export type InternalState = {
@@ -150,8 +151,19 @@ export type SimpleFormControlArguments = {
     parentDataKey?: string;
 };
 
+export type ChildControlArguments = {
+    type: string;
+    control: FormControl;
+    dataKey: string;
+    parentDataKey?: string;
+};
+
 export type ObjectWithKeys = {
     [key: string]: string | number | ObjectWithKeys | any[];
+};
+
+export type ObjectWithComponents = {
+    [key: string]: (props: any) => JSX.Element;
 };
 
 export type LayoutArguments = {

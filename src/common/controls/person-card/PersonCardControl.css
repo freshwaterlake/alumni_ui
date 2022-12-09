@@ -1,0 +1,54 @@
+.alumni_college {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #d2d2d2;
+    border-radius: 6px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.alumni_college_yr {
+    position: absolute;
+    background: #0b3454 0% 0% no-repeat padding-box;
+    border-radius: 0px 6px 0px 15px;
+    color: #fff;
+    height: 25px;
+    font-size: 14px;
+    padding: 0 14px;
+    top: -1px;
+    right: -1px;
+    line-height: 24px;
+}
+
+.alumni_college_bottom {
+    background: #f2f9ff 0% 0% no-repeat padding-box;
+    border-radius: 0px 0px 6px 6px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    padding: 5px 15px 15px;
+}
+
+.alumni_college_top {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 15px 8px;
+}
+
+.alumni_college_top p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.alumni_college_profileimg {
+    margin-right: 20px;
+}
+
+.alumni_college_bottom label {
+    color: #d52941;
+    font-size: 13px;
+    font-weight: 500;
+}
