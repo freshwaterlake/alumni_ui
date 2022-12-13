@@ -2,295 +2,141 @@
     "CONFIG": [
         {
             "id": "STUDENT",
-            "title": "Student Information",
-            "urlPath": "STUDENT",
-            "sections": ["search", "education", "details", "personList"],
+            "title": "Job / Internship Preferences",
+            "breadCrumbs": [
+                {
+                    "Name": "My Dashboard",
+                    "URL": "https://miles.univariety.com/alumni/dashboard"
+                },
+                {
+                    "Name": "Profile",
+                    "URL": "https://miles.univariety.com/alumni/myprofile"
+                }
+            ],
+            "sections": ["jobPreferences"],
             "sectionRepository": [
                 {
-                    "id": "details",
-                    "title": "Student Details",
-                    "type": "SECTION_WITH_HEADER",
-                    "className": "col-md-12 col-sm-12",
+                    "id": "jobPreferences",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-12",
                     "controlGroup": [
                         {
+                            "id": "preferredJobLocation",
+                            "type": "MULTI_SELECT_WAI_3",
+                            "className": "col-md-12",
+                            "props": {
+                                "label": "Preferred Job Location",
+                                "className": "col-md-12"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "countryCode",
+                                    "type": "SELECT",
+                                    "className": "col-md-6",
+                                    "props": {
+                                        "domainCategoryCode": "COUNTRY_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "cityCode",
+                                    "type": "SELECT",
+                                    "className": "col-md-6",
+                                    "props": {
+                                        "domainCategoryCode": "CITY_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "locationPreferenceCode",
+                                    "type": "RADIO",
+                                    "className": "col-md-6",
+                                    "props": {
+                                        "domainCategoryCode": "LOCATION_PREFERENCE_CODE",
+                                        "radioTextClassName": "col-md-6"
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "id": "preferredIndustry",
-                            "type": "MULTI_SELECT_WAI_2",
-                            "className": "col-md-12 col-sm-12",
+                            "type": "MULTI_SELECT_WAI_3",
+                            "className": "col-md-12",
                             "props": {
                                 "label": "Preferred Industry",
-                                "domainCategoryCode": "INDUSTRY_CODE"
+                                "className": "col-md-12"
                             },
                             "controlGroup": [
                                 {
                                     "id": "industryCode",
-                                    "type": "TEXT_AS_LABEL",
-                                    "className": "col-md-6 col-sm-6",
+                                    "type": "SELECT",
+                                    "className": "col-md-12",
                                     "props": {
                                         "domainCategoryCode": "INDUSTRY_CODE"
                                     }
                                 },
                                 {
-                                    "id": "preferenceCode",
+                                    "id": "industryPreferenceCode",
                                     "type": "RADIO",
-                                    "className": "col-md-6 col-sm-6",
+                                    "className": "col-md-12",
                                     "props": {
-                                        "domainCategoryCode": "PREFERENCE_CODE"
+                                        "domainCategoryCode": "INDUSTRY_PREFERENCE_CODE",
+                                        "radioTextClassName": "col-md-6"
                                     }
                                 }
                             ]
                         },
                         {
-                            "id": "college",
-                            "type": "MULTI_SELECT_WAI_1",
-                            "className": "col-md-12 col-sm-12",
+                            "id": "preferredFunctionalArea",
+                            "type": "MULTI_SELECT_WAI_3",
+                            "className": "col-md-12",
                             "props": {
-                                "label": "Which other College/University did you apply?",
-                                "icon": "bi bi-search text-success fs-4",
-                                "domainCategoryCode": "COLLEGE_CODE"
+                                "label": "Preferred Functional Area",
+                                "className": "col-md-12"
                             },
                             "controlGroup": [
                                 {
-                                    "id": "collegeCode",
-                                    "type": "TEXT",
-                                    "className": "col-md-12 col-sm-12",
+                                    "id": "functionalAreaCode",
+                                    "type": "SELECT",
+                                    "className": "col-md-4",
                                     "props": {
-                                        "icon": "bi bi-check-circle-fill text-success fs-4",
-                                        "isCode": true,
-                                        "domainCategoryCode": "COLLEGE_CODE"
+                                        "domainCategoryCode": "FUNCTIONAL_AREA_CODE"
                                     }
                                 },
                                 {
-                                    "id": "fieldOfStudyCode",
-                                    "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
+                                    "id": "functionalAreaPreferenceCode",
+                                    "type": "RADIO",
+                                    "className": "col-md-8",
                                     "props": {
-                                        "domainCategoryCode": "FIELD_OF_STUDY_CODE"
-                                    }
-                                },
-                                {
-                                    "id": "resultOfApplicationCode",
-                                    "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
-                                    "props": {
-                                        "domainCategoryCode": "COLLEGE_APPLICATION_STATUS_CODE"
+                                        "domainCategoryCode": "FUNCTIONAL_AREA_PREFERENCE_CODE",
+                                        "radioTextClassName": "col-md-4 px-2"
                                     }
                                 }
                             ]
                         },
                         {
-                            "id": "firstName",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
+                            "id": "dreamCompanies",
+                            "type": "MULTI_SELECT_WAI_3",
+                            "className": "col-md-12",
                             "props": {
-                                "label": "First Name"
-                            }
-                        },
-                        {
-                            "id": "",
-                            "type": "PHONE",
-                            "className": "col-md-6 col-sm-6",
-                            "fields": ["phoneCountryCode", "phoneNumber"],
-                            "props": {
-                                "label": "Phone",
-                                "domainCategoryCode": "PHONE_COUNTRY"
-                            }
-                        },
-                        {
-                            "id": "genderCode",
-                            "type": "RADIO",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Gender",
-                                "domainCategoryCode": "GENDER"
-                            }
-                        },
-                        {
-                            "id": "",
-                            "type": "YEAR_AND_MONTH",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "When did you start?"
+                                "label": "Dream Companies",
+                                "className": "col-md-12"
                             },
                             "controlGroup": [
                                 {
-                                    "id": "startYearCode",
+                                    "id": "companyCode",
                                     "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
+                                    "className": "col-md-4",
                                     "props": {
-                                        "domainCategoryCode": "STUDY_YEAR_CODE"
+                                        "domainCategoryCode": "COMPANY_CODE"
                                     }
                                 },
                                 {
-                                    "id": "startMonthCode",
-                                    "type": "SELECT",
-                                    "className": "col-md-6 col-sm-6",
+                                    "id": "companyPreferenceCode",
+                                    "type": "RADIO",
+                                    "className": "col-md-8",
                                     "props": {
-                                        "domainCategoryCode": "MONTH_CODE"
+                                        "domainCategoryCode": "COMPANY_PREFERENCE_CODE",
+                                        "radioTextClassName": "col-md-4 px-2"
                                     }
-                                }
-                            ]
-                        },
-                        {
-                            "id": "headlines",
-                            "type": "TEXTAREA",
-                            "className": "col-md-12 col-sm-12",
-                            "props": {
-                                "label": "Headlines",
-                                "numLines": 4
-                            }
-                        },
-                        {
-                            "id": "address",
-                            "type": "SMART",
-                            "className": "col-md-12 col-sm-12"
-                        }
-                    ]
-                },
-                {
-                    "id": "address",
-                    "title": "Communication Address",
-                    "type": "SECTION_WITH_HEADER",
-                    "controlGroup": [
-                        {
-                            "id": "addressLine1",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Address Line 1"
-                            }
-                        },
-                        {
-                            "id": "addressLine2",
-                            "type": "TEXT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Address Line 2"
-                            }
-                        },
-                        {
-                            "id": "cityCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "City",
-                                "domainCategoryCode": "CITY",
-                                "parentId": "stateCode"
-                            }
-                        },
-                        {
-                            "id": "stateCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "State",
-                                "domainCategoryCode": "STATE",
-                                "parentId": "countryCode"
-                            }
-                        },
-                        {
-                            "id": "countryCode",
-                            "type": "SELECT",
-                            "className": "col-md-6 col-sm-6",
-                            "props": {
-                                "label": "Country",
-                                "domainCategoryCode": "COUNTRY"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "education",
-                    "title": "Education History",
-                    "type": "SECTION_WITH_HEADER",
-                    "className": "col-10",
-                    "controlGroup": [
-                        {
-                            "id": "education",
-                            "type": "TABLE",
-                            "className": "col-12",
-                            "props": {
-                                "gridOptions": {
-                                    "columnDefs": [
-                                        {
-                                            "id": "class",
-                                            "label": "Class",
-                                            "width": 2
-                                        },
-                                        {
-                                            "id": "school",
-                                            "label": "School",
-                                            "width": 6
-                                        },
-                                        {
-                                            "id": "year",
-                                            "label": "Year",
-                                            "width": 2
-                                        },
-                                        {
-                                            "id": "grade",
-                                            "label": "Grade",
-                                            "width": 2
-                                        }
-                                    ],
-                                    "pageSize": 3
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    "id": "search",
-                    "title": "Search Here",
-                    "type": "SECTION_WITHOUT_HEADER",
-                    "className": "col-2",
-                    "controlGroup": [
-                        {
-                            "id": "search",
-                            "type": "SEARCH_FILTER",
-                            "className": "col-md-12 col-sm-12",
-                            "props": {
-                                "label": "Pass Out Year",
-                                "domainCategoryCode": "STUDY_YEAR_CODE"
-                            },
-                            "controlGroup": [
-                                {
-                                    "id": "passOutYear",
-                                    "type": "LIST",
-                                    "className": "col-md-12 col-sm-12",
-                                    "props": {
-                                        "label": "Pass Out Year",
-                                        "domainCategoryCode": "STUDY_YEAR_CODE"
-                                    }
-                                },
-                                {
-                                    "id": "countryCode",
-                                    "type": "LIST",
-                                    "className": "col-md-12 col-sm-12",
-                                    "props": {
-                                        "label": "Country",
-                                        "domainCategoryCode": "COUNTRY"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": "personList",
-                    "title": "Person List",
-                    "type": "SECTION_WITHOUT_HEADER",
-                    "className": "col-12",
-                    "controlGroup": [
-                        {
-                            "type": "GRID_CARD",
-                            "className": "col-md-12 col-sm-12",
-                            "props": {
-                                "label": "Country"
-                            },
-                            "controlGroup": [
-                                {
-                                    "type": "PERSON_CARD",
-                                    "className": "col-md-12 col-sm-12"
                                 }
                             ]
                         }
@@ -302,90 +148,59 @@
     "STUDENT": [
         {
             "id": 1000,
-            "details": {
-                "id": 1000,
-                "firstName": "Hello",
-                "genderCode": "FEMALE",
-                "lastName": "Hello",
-                "phoneCountryCode": "US",
-                "phoneNumber": "123456789",
-                "headlines": "",
-                "address": {
-                    "addressLine1": "A 108, Lake Front",
-                    "addressLine2": "Central London",
-                    "cityCode": "LONDON",
-                    "stateCode": "LONDON",
-                    "countryCode": "UK"
-                },
-                "college": [
+            "jobPreferences": {
+                "preferredJobLocation": [
                     {
-                        "collegeCode": "MGIT_HYDERABAD",
-                        "fieldOfStudyCode": "MECH",
-                        "resultOfApplicationCode": "JOINED"
+                        "countryCode": "INDIA",
+                        "cityCode": "HYDERABAD",
+                        "locationPreferenceCode": "MAY_CONSIDER_CHANGING"
                     },
                     {
-                        "collegeCode": "IIIT_PUNE",
-                        "fieldOfStudyCode": "CSE",
-                        "resultOfApplicationCode": "ACCEPTED"
+                        "countryCode": "INDIA",
+                        "cityCode": "PUNE",
+                        "locationPreferenceCode": "WONT_CHANGE"
                     },
                     {
-                        "collegeCode": "MGIT_HYDERABAD_3",
-                        "fieldOfStudyCode": "MECH",
-                        "resultOfApplicationCode": "ACCEPTED"
+                        "countryCode": "INDIA",
+                        "cityCode": "BANGALORE",
+                        "locationPreferenceCode": "WONT_CHANGE"
                     }
                 ],
                 "preferredIndustry": [
                     {
-                        "industryCode": "ADVERTISING",
-                        "preferenceCode": "NEED_GUIDANCE"
+                        "industryCode": "ACCOUNTING_AUDITING_AND_FINANCIAL_SERVICES",
+                        "industryPreferenceCode": "TOTALLY_SURE"
                     },
                     {
-                        "industryCode": "INFRASTRUCTURE",
-                        "preferenceCode": "TOTALLY_SURE"
+                        "industryCode": "FASHION_AND_TEXTILE",
+                        "industryPreferenceCode": "TOTALLY_SURE"
+                    },
+                    {
+                        "industryCode": "HOSPITALITY_TOURISM",
+                        "industryPreferenceCode": "NEED_GUIDANCE"
                     }
                 ],
-                "startYearCode": "2013",
-                "startMonthCode": "JUL"
-            },
-            "education": [
-                {
-                    "class": "7TH_CLASS",
-                    "school": "CHAITANYA_SCHOOL",
-                    "year": 2010,
-                    "grade": "A"
-                },
-                {
-                    "class": "8TH_CLASS",
-                    "school": "CHAITANYA_SCHOOL",
-                    "year": 2011,
-                    "grade": "B"
-                },
-                {
-                    "class": "9TH_CLASS",
-                    "school": "DPS_SCHOOL",
-                    "year": 2011,
-                    "grade": "C"
-                },
-                {
-                    "class": "10TH_CLASS",
-                    "school": "DPS_SCHOOL",
-                    "year": 2011,
-                    "grade": "C"
-                },
-                {
-                    "class": "11TH_CLASS",
-                    "school": "DPS_SCHOOL",
-                    "year": 2011,
-                    "grade": "C"
-                },
-                {
-                    "class": "12TH_CLASS",
-                    "school": "DPS_SCHOOL",
-                    "year": 2011,
-                    "grade": "C"
-                }
-            ],
-            "personList": [{ "name": "John Doe" }, { "name": "Jane Doe" }]
+                "preferredFunctionalArea": [
+                    {
+                        "functionalAreaCode": "QUALITY_ASSURANCE",
+                        "functionalAreaPreferenceCode": "TOTALLY_CONFIDENT"
+                    },
+                    {
+                        "functionalAreaCode": "SOURCING_AND_PROCUREMENT",
+                        "functionalAreaPreferenceCode": "TOTALLY_CONFIDENT"
+                    },
+                    {
+                        "functionalAreaCode": "LEGAL",
+                        "functionalAreaPreferenceCode": "SOMEWHAT_CONFIDENT"
+                    }
+                ],
+                "dreamCompanies": [
+                    {
+                        "companyCode": "MICROSOFT",
+                        "companyPreferenceCode": "SOMEWHAT_CONFIDENT"
+                    }
+                ]
+            }
         }
     ],
     "DOMAIN": [
@@ -405,100 +220,100 @@
             "value": "Other"
         },
         {
-            "categoryCode": "COUNTRY",
+            "categoryCode": "COUNTRY_CODE",
             "code": "INDIA",
             "value": "India"
         },
         {
-            "categoryCode": "COUNTRY",
+            "categoryCode": "COUNTRY_CODE",
             "code": "USA",
             "value": "America"
         },
         {
-            "categoryCode": "COUNTRY",
+            "categoryCode": "COUNTRY_CODE",
             "code": "AUSTRALIA",
             "value": "Australia"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "MAHARASHTRA",
             "value": "Maharashtra",
             "parentCode": "INDIA"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "TELENGANA",
             "value": "Telengana",
             "parentCode": "INDIA"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "KARNATAKA",
             "value": "Karnataka",
             "parentCode": "INDIA"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "NEW_YORK",
             "value": "New York",
             "parentCode": "USA"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "PENNSYLVANIA",
             "value": "Pennsylvania",
             "parentCode": "USA"
         },
         {
-            "categoryCode": "STATE",
+            "categoryCode": "STATE_CODE",
             "code": "CALIFORNIA",
             "value": "California",
             "parentCode": "USA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "HYDERABAD",
             "value": "Hyderabad",
             "parentCode": "TELENGANA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "PUNE",
             "value": "Pune",
             "parentCode": "MAHARASHTRA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "MUMBAI",
             "value": "Mumbai",
             "parentCode": "MAHARASHTRA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "NAVE_MUMBAI",
             "value": "Nave Mumbai",
             "parentCode": "MAHARASHTRA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "BANGALORE",
             "value": "Bangalore",
             "parentCode": "KARNATAKA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "NEW_YORK",
             "value": "New York",
             "parentCode": "NEW_YORK"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "LOS_ANGLES",
             "value": "Los Angles",
             "parentCode": "CALIFORNIA"
         },
         {
-            "categoryCode": "CITY",
+            "categoryCode": "CITY_CODE",
             "code": "CALIFORNIA",
             "value": "California",
             "parentCode": "CALIFORNIA"
@@ -737,6 +552,251 @@
             "categoryCode": "PREFERENCE_CODE",
             "code": "NEED_GUIDANCE",
             "value": "Need Guidance"
+        },
+        {
+            "categoryCode": "LOCATION_PREFERENCE_CODE",
+            "code": "WONT_CHANGE",
+            "value": "Won't Change"
+        },
+        {
+            "categoryCode": "LOCATION_PREFERENCE_CODE",
+            "code": "MAY_CONSIDER_CHANGING",
+            "value": "May Consider Changing"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "MAY_CONSIDER_CHANGING",
+            "value": "May Consider Changing"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "ACCOUNTING_AUDITING_AND_FINANCIAL_SERVICES",
+            "value": "Accounting, Auditing and Financial Services"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "ADVERTISING_ENTERTAINMENT_AND_MEDIA",
+            "value": "Advertising, Entertainment and Media"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "AGRICULTURE_FORESTRY",
+            "value": "Agriculture & Forestry"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "BFSI",
+            "value": "BFSI"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "BPO/KPO",
+            "value": "BPO/KPO"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "CONSUMER_RETAIL",
+            "value": "Consumer Retail"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "EDUCATION",
+            "value": "Education"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "ENERGY_AND_POWER",
+            "value": "Energy and Power"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "FASHION_AND_TEXTILE",
+            "value": "Fashion and Textile"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "HEALTHCARE_AND_LIFE_SCIENCES",
+            "value": "Healthcare and Life Sciences"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "HOSPITALITY_TOURISM",
+            "value": "Hospitality & Tourism"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "INFRASTRUCTURE_CONSTRUCTION",
+            "value": "Infrastructure & Construction"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "INTERNET_AND_ECOMMERCE",
+            "value": "Internet and ECommerce"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "IT/ITES/SOFTWARE",
+            "value": "IT/ITeS/Software"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "LAW_AND_LEGAL_CONSULTING",
+            "value": "Law and Legal Consulting"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "LAW_ENFORCEMENT_AND_SECURITY_SERVICES",
+            "value": "Law Enforcement and Security Services"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "LOGISTICS_AND_SUPPLY_CHAIN",
+            "value": "Logistics and Supply Chain"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "MANUFACTURING_PRODUCTION",
+            "value": "Manufacturing & Production"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "PUBLIC_ADMINISTRATION",
+            "value": "Public Administration"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "REAL_ESTATE",
+            "value": "Real Estate"
+        },
+        {
+            "categoryCode": "INDUSTRY_CODE",
+            "code": "TELECOM",
+            "value": "Telecom"
+        },
+        {
+            "categoryCode": "INDUSTRY_PREFERENCE_CODE",
+            "code": "TOTALLY_SURE",
+            "value": "Totally Sure"
+        },
+        {
+            "categoryCode": "INDUSTRY_PREFERENCE_CODE",
+            "code": "NEED_GUIDANCE",
+            "value": "Need Guidance"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "CUSTOMER_SUPPORT_AND_SERVICING",
+            "value": "Customer Support and Servicing"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "ENGINEERING_AND_DESIGN",
+            "value": "Engineering and Design"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "FINANCE_AND_ACCOUNTS",
+            "value": "Finance and Accounts"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "HR_AND_ADMIN",
+            "value": "HR and Admin"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "IT_AND_INFRA",
+            "value": "IT and Infra"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "LEARNING_AND_TRAINING",
+            "value": "Learning and Training"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "LEGAL",
+            "value": "Legal"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "MARKETING_AND_BRANDING",
+            "value": "Marketing and Branding"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "OPERATIONS",
+            "value": "Operations"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "QUALITY_ASSURANCE",
+            "value": "Quality Assurance"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "RESEARCH_AND_DEVELOPMENT",
+            "value": "Research and Development"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "SALES_AND_BD",
+            "value": "Sales and BD"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "SOURCING_AND_PROCUREMENT",
+            "value": "Sourcing and Procurement"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_CODE",
+            "code": "STRATEGY_AND_CONSULTING",
+            "value": "Strategy and Consulting"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_PREFERENCE_CODE",
+            "code": "TOTALLY_CONFIDENT",
+            "value": "Totally Confident"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_PREFERENCE_CODE",
+            "code": "SOMEWHAT_CONFIDENT",
+            "value": "Somewhat Confident"
+        },
+        {
+            "categoryCode": "FUNCTIONAL_AREA_PREFERENCE_CODE",
+            "code": "NEED_HELP_WITH_PREPARATION",
+            "value": "Need Help with preparation"
+        },
+        {
+            "categoryCode": "COMPANY_CODE",
+            "code": "GOOGLE",
+            "value": "Google"
+        },
+        {
+            "categoryCode": "COMPANY_CODE",
+            "code": "MICROSOFT",
+            "value": "Microsoft"
+        },
+        {
+            "categoryCode": "COMPANY_CODE",
+            "code": "FACEBOOK",
+            "value": "Facebook"
+        },
+        {
+            "categoryCode": "COMPANY_PREFERENCE_CODE",
+            "code": "TOTALLY_CONFIDENT",
+            "value": "Totally Confident"
+        },
+        {
+            "categoryCode": "COMPANY_PREFERENCE_CODE",
+            "code": "SOMEWHAT_CONFIDENT",
+            "value": "Somewhat Confident"
+        },
+        {
+            "categoryCode": "COMPANY_PREFERENCE_CODE",
+            "code": "NEED_HELP_WITH_PREPARATION",
+            "value": "Need Help with preparation"
         }
     ]
 }

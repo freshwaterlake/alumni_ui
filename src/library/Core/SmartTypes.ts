@@ -47,6 +47,7 @@ export type ControlProperties = {
     domainCategoryCode: string;
     parentId: string;
     numLines: number; // For text area
+    radioTextClassName?: string;
 };
 
 export type GridOptions = {
@@ -149,6 +150,7 @@ export type SimpleFormControlArguments = {
     control: FormControl;
     dataKey: string;
     parentDataKey?: string;
+    handleChangeEvent?: (id: string, value: any, dataKey: string) => void;
 };
 
 export type ChildControlArguments = {

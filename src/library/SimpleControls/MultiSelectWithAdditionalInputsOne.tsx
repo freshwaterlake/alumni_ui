@@ -41,13 +41,15 @@ const MultiSelectWithAdditionalInputsOne = (args: SimpleFormControlArguments) =>
                 {control.props.label}
             </label>
             <div className='input-group'>
-                <span className='input-group-text'>
-                    <i className={control.props.icon}></i>
-                </span>
+                {control.props.icon && (
+                    <span className='input-group-text'>
+                        <i className={control.props.icon}></i>
+                    </span>
+                )}
                 <input
                     type='text'
                     className='form-control form-control-lg'
-                    placeholder='Username'
+                    placeholder={control.props.placeholder}
                     aria-label='Username'
                     aria-describedby='basic-addon1'
                     value={searchWord}

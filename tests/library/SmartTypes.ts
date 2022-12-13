@@ -38,6 +38,8 @@ export type ControlProperties = {
     pattern?: string | RegExp;
     required?: boolean;
     readonly?: boolean;
+    domainCategoryCode?: string;
+    radioTextClassName?: string;
 };
 
 export type ApplicationContext = {
@@ -46,7 +48,7 @@ export type ApplicationContext = {
 };
 
 export type State = {
-    formConfig?: Page;
+    formConfig?: PageConfig;
     data?: any;
     domain?: Domain;
     flags: StateFlags;
@@ -77,7 +79,7 @@ export type ControlValueChange = {
 };
 
 export type FormDataFromDBReceived = {
-    config: Page;
+    config: PageConfig;
     data: any;
     domain: DomainElement[];
 };

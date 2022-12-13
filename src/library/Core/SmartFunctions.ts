@@ -1,4 +1,4 @@
-import { DispatchEvent, DomainElement, FormControl, State } from './SmartTypes';
+import { DispatchEvent, DomainElement, FormControl, ObjectWithKeys, State } from './SmartTypes';
 
 export const isEmpty = (obj: any) => {
     if (obj === null || obj === undefined) return true;
@@ -6,9 +6,14 @@ export const isEmpty = (obj: any) => {
     return Object.entries(obj).length === 0 ? true : false;
 };
 
-export const getControlValueFromState = (key: string, state: State): any[] | string | number => {
+export const getControlValueFromState = (key: string, state: State): any[] | string | number | undefined => {
     if (isEmpty(state.data)) return [];
-    return key.split('.').reduce((a, c) => a[c], state.data);
+    try {
+        return key.split('.').reduce((a, c) => a[c], state.data);
+    } catch (e) {
+        console.error('Error while reading data!!!');
+    }
+    return undefined;
 };
 
 export const handleControlValueChange = (id: string, value: any, dataKey: string, dispatch: (dispatchEvent: DispatchEvent) => void) =>
@@ -31,4 +36,19 @@ export const getDataStructureFromControls = (controls: FormControl[]) =>
 export const getDomainValueForCode = (code: string, domain: any[]) => {
     if (isEmpty(code) || isEmpty(domain)) return '';
     return domain?.find((element) => element.code === code)['value'];
+};
+
+export const range = (from: number, to: number) => [...Array(to - from)].map((_, i) => i + from);
+
+export const getFieldValuesConcatenatedFromRecord = (record: ObjectWithKeys, config: FormControl[], fieldNames: string, domain: any) => {
+    return fieldNames
+        .split(',')
+        .map((value) => value.trim())
+        .map((fieldName) => {
+            const controlConfig = config.find((ctrl) => ctrl.id === fieldName);
+            return controlConfig?.props.domainCategoryCode
+                ? getDomainValueForCode(record[fieldName] as string, domain.get(controlConfig?.props.domainCategoryCode))
+                : record[fieldName];
+        })
+        .join(' - ');
 };

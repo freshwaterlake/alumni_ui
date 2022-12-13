@@ -5,8 +5,11 @@ import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartT
 
 const SelectControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
-    const { control, dataKey, parentDataKey } = { ...args };
-    const data = getControlValueFromState(dataKey, state as State);
+    const { control, dataKey, parentDataKey, handleChangeEvent } = { ...args };
+
+    let data = getControlValueFromState(dataKey, state as State);
+    if (Array.isArray(data)) data = undefined;
+
     const parentData = control.props.parentId
         ? getControlValueFromState(parentDataKey + '.' + control.props.parentId, state as State)
         : undefined;
@@ -29,7 +32,11 @@ const SelectControl = (args: SimpleFormControlArguments) => {
                 className={`form-select form-select-lg`}
                 value={data}
                 required={control.props.required}
-                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                onChange={(event) =>
+                    handleChangeEvent
+                        ? handleChangeEvent(control.id, event.target.value, dataKey)
+                        : handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
+                }
                 ref={formControlRef}
             >
                 {!controlDomain.some((domain) => domain.code === '') && <option value={''}>{'--Select--'}</option>}

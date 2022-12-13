@@ -18,7 +18,7 @@ const RadioControl = (args: SimpleFormControlArguments) => {
             <div className='form-check'>
                 <div className='d-flex flex-wrap '>
                     {controlDomain.map((domain) => (
-                        <div className='col-4' key={dataKey + domain.code}>
+                        <div className={control.props.radioTextClassName} key={dataKey + domain.code}>
                             <input
                                 id={control.id}
                                 data-testid={control.id}
