@@ -3,140 +3,147 @@
         {
             "id": "STUDENT",
             "title": "Job / Internship Preferences",
+            "sections": ["higherStudiesPreferences"],
             "breadCrumbs": [
-                {
-                    "Name": "My Dashboard",
-                    "URL": "https://miles.univariety.com/alumni/dashboard"
-                },
-                {
-                    "Name": "Profile",
-                    "URL": "https://miles.univariety.com/alumni/myprofile"
-                }
+                { "URL": "https://miles.univariety.com/alumni/dashboard", "Name": "My Dashboard" },
+                { "URL": "https://miles.univariety.com/alumni/myprofile", "Name": "Profile" }
             ],
-            "sections": ["jobPreferences"],
             "sectionRepository": [
                 {
-                    "id": "jobPreferences",
+                    "id": "higherStudiesPreferences",
                     "type": "SECTION_WITHOUT_HEADER",
                     "className": "col-md-12",
                     "controlGroup": [
                         {
-                            "id": "preferredJobLocation",
-                            "type": "MULTI_SELECT_WAI_3",
-                            "className": "col-md-12",
+                            "id": "interestedInHigherStudiesCode",
+                            "type": "RADIO",
                             "props": {
-                                "label": "Preferred Job Location",
-                                "className": "col-md-12"
+                                "label": "Are you interested in higher studies ?",
+                                "domainCategoryCode": "INTERESTED_IN_HIGHER_STUDIES_CODE",
+                                "radioTextClassName": "col-md-2"
                             },
+                            "className": "col-md-12",
+                            "controlGroup": []
+                        },
+                        {
+                            "id": "programTypeCode",
+                            "type": "RADIO",
+                            "props": {
+                                "label": "What would be your preferred program type?",
+                                "domainCategoryCode": "PROGRAM_TYPE_CODE",
+                                "radioTextClassName": "col-md-3"
+                            },
+                            "className": "col-md-12",
+                            "controlGroup": []
+                        },
+                        {
+                            "id": "modeOfProgramCode",
+                            "type": "RADIO",
+                            "props": {
+                                "label": "Preferred mode of program",
+                                "domainCategoryCode": "MODE_OF_PROGRAM_CODE",
+                                "radioTextClassName": "col-md-3"
+                            },
+                            "className": "col-md-12",
+                            "controlGroup": []
+                        },
+                        {
+                            "id": "preferredLocationOfStudy",
+                            "type": "MULTI_SELECT_WAI_3",
+                            "props": { "label": "Any preferred location of study?", "className": "col-md-12" },
+                            "className": "col-md-12",
                             "controlGroup": [
                                 {
                                     "id": "countryCode",
                                     "type": "SELECT",
-                                    "className": "col-md-6",
-                                    "props": {
-                                        "domainCategoryCode": "COUNTRY_CODE"
-                                    }
+                                    "props": { "domainCategoryCode": "COUNTRY_CODE" },
+                                    "className": "col-md-6"
                                 },
                                 {
                                     "id": "cityCode",
                                     "type": "SELECT",
-                                    "className": "col-md-6",
-                                    "props": {
-                                        "domainCategoryCode": "CITY_CODE"
-                                    }
+                                    "props": { "domainCategoryCode": "CITY_CODE" },
+                                    "className": "col-md-6"
                                 },
                                 {
                                     "id": "locationPreferenceCode",
                                     "type": "RADIO",
-                                    "className": "col-md-6",
-                                    "props": {
-                                        "domainCategoryCode": "LOCATION_PREFERENCE_CODE",
-                                        "radioTextClassName": "col-md-6"
-                                    }
+                                    "props": { "label": "Preference", "domainCategoryCode": "LOCATION_PREFERENCE_CODE" },
+                                    "className": "col-md-12"
                                 }
                             ]
                         },
                         {
-                            "id": "preferredIndustry",
+                            "id": "preferredFieldOfStudy",
                             "type": "MULTI_SELECT_WAI_3",
+                            "props": { "label": "Any preferred field of study?", "className": "col-md-12" },
                             "className": "col-md-12",
-                            "props": {
-                                "label": "Preferred Industry",
-                                "className": "col-md-12"
-                            },
                             "controlGroup": [
                                 {
-                                    "id": "industryCode",
+                                    "id": "fieldOfStudyCode",
                                     "type": "SELECT",
-                                    "className": "col-md-12",
-                                    "props": {
-                                        "domainCategoryCode": "INDUSTRY_CODE"
-                                    }
+                                    "props": { "domainCategoryCode": "FIELD_OF_STUDY_CODE" },
+                                    "className": "col-md-12"
                                 },
                                 {
-                                    "id": "industryPreferenceCode",
+                                    "id": "fieldOfStudyPreferenceCode",
                                     "type": "RADIO",
-                                    "className": "col-md-12",
                                     "props": {
-                                        "domainCategoryCode": "INDUSTRY_PREFERENCE_CODE",
-                                        "radioTextClassName": "col-md-6"
-                                    }
+                                        "domainCategoryCode": "FIELD_OF_STUDY_PREFERENCE_CODE",
+                                        "radioTextClassName": "col-md-3"
+                                    },
+                                    "className": "col-md-12"
                                 }
                             ]
                         },
                         {
-                            "id": "preferredFunctionalArea",
+                            "id": "preferredUniversities",
                             "type": "MULTI_SELECT_WAI_3",
+                            "props": { "label": "Preferred Universities", "className": "col-md-12" },
                             "className": "col-md-12",
-                            "props": {
-                                "label": "Preferred Functional Area",
-                                "className": "col-md-12"
-                            },
                             "controlGroup": [
                                 {
-                                    "id": "functionalAreaCode",
+                                    "id": "universityCode",
                                     "type": "SELECT",
-                                    "className": "col-md-4",
-                                    "props": {
-                                        "domainCategoryCode": "FUNCTIONAL_AREA_CODE"
-                                    }
+                                    "props": { "domainCategoryCode": "UNIVERSITY_CODE" },
+                                    "className": "col-md-12"
                                 },
                                 {
-                                    "id": "functionalAreaPreferenceCode",
+                                    "id": "universityPreferenceCode",
                                     "type": "RADIO",
-                                    "className": "col-md-8",
-                                    "props": {
-                                        "domainCategoryCode": "FUNCTIONAL_AREA_PREFERENCE_CODE",
-                                        "radioTextClassName": "col-md-4 px-2"
-                                    }
+                                    "props": { "domainCategoryCode": "UNIVERSITY_PREFERENCE_CODE", "radioTextClassName": "col-md-3" },
+                                    "className": "col-md-12"
                                 }
                             ]
                         },
                         {
-                            "id": "dreamCompanies",
-                            "type": "MULTI_SELECT_WAI_3",
-                            "className": "col-md-12",
+                            "id": "confidentOfGettingAdmission",
+                            "type": "RADIO",
                             "props": {
-                                "label": "Dream Companies",
-                                "className": "col-md-12"
+                                "label": "Are you confident about getting admission to your preferred universities?",
+                                "domainCategoryCode": "CONFIDENT_OF_GETTING_ADMISSION",
+                                "radioTextClassName": "col-md-4"
                             },
+                            "className": "col-md-12",
+                            "controlGroup": []
+                        },
+                        {
+                            "id": "preferredSessionOfAdmission",
+                            "type": "YEAR_AND_MONTH",
+                            "props": { "label": "Preferred Session of Admission", "className": "col-md-6" },
+                            "className": "col-md-6",
                             "controlGroup": [
                                 {
-                                    "id": "companyCode",
+                                    "id": "sessionOfAdmissionYearCode",
                                     "type": "SELECT",
-                                    "className": "col-md-4",
-                                    "props": {
-                                        "domainCategoryCode": "COMPANY_CODE"
-                                    }
+                                    "props": { "domainCategoryCode": "STUDY_YEAR_CODE" },
+                                    "className": "col-md-12"
                                 },
                                 {
-                                    "id": "companyPreferenceCode",
-                                    "type": "RADIO",
-                                    "className": "col-md-8",
-                                    "props": {
-                                        "domainCategoryCode": "COMPANY_PREFERENCE_CODE",
-                                        "radioTextClassName": "col-md-4 px-2"
-                                    }
+                                    "id": "sessionOfAdmissionMonthMonth",
+                                    "type": "SELECT",
+                                    "props": { "domainCategoryCode": "MONTH_CODE" },
+                                    "className": "col-md-12"
                                 }
                             ]
                         }
@@ -200,6 +207,12 @@
                         "companyPreferenceCode": "SOMEWHAT_CONFIDENT"
                     }
                 ]
+            },
+            "higherStudiesPreferences": {
+                "preferredLocationOfStudy": [],
+                "preferredFieldOfStudy": [],
+                "preferredUniversities": [],
+                "preferredSessionOfAdmission": []
             }
         }
     ],
@@ -797,6 +810,26 @@
             "categoryCode": "COMPANY_PREFERENCE_CODE",
             "code": "NEED_HELP_WITH_PREPARATION",
             "value": "Need Help with preparation"
-        }
+        },
+        { "categoryCode": "INTERESTED_IN_HIGHER_STUDIES_CODE", "code": "YES", "value": "Yes" },
+        { "categoryCode": "INTERESTED_IN_HIGHER_STUDIES_CODE", "code": "NO", "value": "No" },
+        { "categoryCode": "PROGRAM_TYPE_CODE", "code": "REGULAR_DEGREE", "value": "Regular Degree" },
+        { "categoryCode": "PROGRAM_TYPE_CODE", "code": "CERTIFICATE", "value": "Certificate" },
+        { "categoryCode": "PROGRAM_TYPE_CODE", "code": "DIPLOMA", "value": "Diploma" },
+        { "categoryCode": "MODE_OF_PROGRAM_CODE", "code": "FULL_TIME", "value": "Full Time" },
+        { "categoryCode": "MODE_OF_PROGRAM_CODE", "code": "PART_TIME", "value": "Part time" },
+        { "categoryCode": "MODE_OF_PROGRAM_CODE", "code": "CORRESPONDENCE", "value": "Correspondence" },
+        { "categoryCode": "MODE_OF_PROGRAM_CODE", "code": "ONLINE", "value": "Online" },
+        { "categoryCode": "MODE_OF_PROGRAM_CODE", "code": "DISTANCE_LEARNING", "value": "Distance Learning" },
+        { "categoryCode": "FIELD_OF_STUDY_PREFERENCE_CODE", "code": "TOTALLY_SURE", "value": "Totally Sure" },
+        { "categoryCode": "FIELD_OF_STUDY_PREFERENCE_CODE", "code": "MAY_CHANGE", "value": "May Change" },
+        { "categoryCode": "UNIVERSITY_CODE", "code": "JNTU_KAKINADA", "value": "JNTU College of Engineering, Kakinada" },
+        { "categoryCode": "UNIVERSITY_CODE", "code": "JNTU_HYDERABAD", "value": "JNTU College of Engineering, Hyderabad" },
+        { "categoryCode": "CONFIDENT_OF_GETTING_ADMISSION", "code": "TOTALLY_CONFIDENT", "value": "Totally Confident" },
+        { "categoryCode": "CONFIDENT_OF_GETTING_ADMISSION", "code": "SOMEWHAT_CONFIDENT", "value": "Somewhat Confident" },
+        { "categoryCode": "CONFIDENT_OF_GETTING_ADMISSION", "code": "NEED_HELP_WITH_PREPARATION", "value": "Need Help With Preparation" },
+        { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "FIRST_CHOICE", "value": "First Choice" },
+        { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "SECOND_CHOICE", "value": "Second Choice" },
+        { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "THIRD_CHOICE", "value": "Third Choice" }
     ]
 }
