@@ -2,31 +2,36 @@ import './PageTitleControl.css';
 const PageTitleControl = () => {
     return (
         <div>
-            <div className='container bg-white'>
-                <div className='d-flex flex-wrap justify-content-between align-items-center' style={{ width: '90%' }}>
-                    <nav aria-label='custom_breadcrumb' data-aos='fade-left' data-aos-delay='600' className='aos-init aos-animate'>
-                        <ol className='custom_breadcrumb'>
-                            <li className='custom_breadcrumb-item'>
-                                <a
-                                    className='text-burgandi text-decoration-none font-16'
-                                    href='https://miles.univariety.com/alumni/dashboard'
-                                >
-                                    My Dashboard
-                                </a>
-                            </li>
-                            <li className='custom_breadcrumb-item'>
-                                <a
-                                    className='text-burgandi text-decoration-none font-16'
-                                    href='https://miles.univariety.com/alumni/myprofile'
-                                >
-                                    Profile
-                                </a>
-                            </li>
-                            <li className='custom_breadcrumb-item active w-100 font-35 font-600 text-black mb-3' aria-current='page'>
-                                Show off your skills
-                            </li>
-                        </ol>
-                    </nav>
+            <div className='container' style={{ padding: 0 }}>
+                <div className='d-flex flex-wrap justify-content-start' style={{ width: '80%' }}>
+                    <span className='col-12 pt-3'>
+                        <nav aria-label='breadcrumb' data-aos='fade-left' data-aos-delay='600' className='aos-init aos-animate'>
+                            <ol className='breadcrumb'>
+                                <li className='breadcrumb-item'>
+                                    <a
+                                        className='text-burgandi text-decoration-none font-16'
+                                        href='https://miles.univariety.com/alumni/dashboard'
+                                    >
+                                        My Dashboard
+                                    </a>
+                                </li>
+                                <li className='breadcrumb-item'>
+                                    <a
+                                        className='text-burgandi text-decoration-none font-16'
+                                        href='https://miles.univariety.com/alumni/myprofile'
+                                    >
+                                        Profile
+                                    </a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </span>
+
+                    <div>
+                        <p className='col-12' style={{ fontFamily: 'Jost", sans-serif', fontSize: '30px', fontWeight: 600 }}>
+                            Show off your skills
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

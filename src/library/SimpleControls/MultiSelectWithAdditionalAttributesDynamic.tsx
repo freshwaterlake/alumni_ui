@@ -61,12 +61,14 @@ const MultiSelectWithAdditionalInputsDynamic = (args: SimpleFormControlArguments
                                     state?.domain
                                 )}
                             </label>
-                            {getControlFromFactory(
-                                control.controlGroup[control.controlGroup.length - 1],
-                                dataKey,
-                                dataKey + `.${index}.` + control.controlGroup[control.controlGroup.length - 1].id,
-                                handleItemAdd
-                            )}
+                            <div className='col-md-8'>
+                                {getControlFromFactory(
+                                    control.controlGroup[control.controlGroup.length - 1],
+                                    dataKey,
+                                    dataKey + `.${index}.` + control.controlGroup[control.controlGroup.length - 1].id,
+                                    handleItemAdd
+                                )}
+                            </div>
                         </div>
                     </div>
                 ))}

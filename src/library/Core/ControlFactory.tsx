@@ -1,5 +1,6 @@
 import GridCardsControl from '../ComplexControls/GridCardsControl';
 import TableControl from '../ComplexControls/TableControl';
+import FileUploader from '../SimpleControls/FileUploader';
 import FiltersControl from '../SimpleControls/FiltersControl';
 import ListControl from '../SimpleControls/ListControl';
 import MultiSelectWithAdditionalInputsDynamic from '../SimpleControls/MultiSelectWithAdditionalAttributesDynamic';
@@ -22,6 +23,9 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
     switch (control.type) {
         case 'TEXT':
             element = <TextControl control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            break;
+        case 'FILE_UPLOAD':
+            element = <FileUploader control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
             break;
         case 'TEXT_AS_LABEL':
             element = <TextAsLabelControl control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;

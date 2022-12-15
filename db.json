@@ -213,6 +213,9 @@
                 "preferredFieldOfStudy": [],
                 "preferredUniversities": [],
                 "preferredSessionOfAdmission": []
+            },
+            "skillProfile": {
+                "skills": []
             }
         }
     ],
@@ -830,6 +833,46 @@
         { "categoryCode": "CONFIDENT_OF_GETTING_ADMISSION", "code": "NEED_HELP_WITH_PREPARATION", "value": "Need Help With Preparation" },
         { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "FIRST_CHOICE", "value": "First Choice" },
         { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "SECOND_CHOICE", "value": "Second Choice" },
-        { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "THIRD_CHOICE", "value": "Third Choice" }
+        { "categoryCode": "UNIVERSITY_PREFERENCE_CODE", "code": "THIRD_CHOICE", "value": "Third Choice" },
+        { "categoryCode": "SKILL_CODE", "code": "ACCOUNTING", "value": "Accounting" },
+        { "categoryCode": "SKILL_CODE", "code": "ACTIVE_LISTENING", "value": "Active Listening" },
+        { "categoryCode": "SKILL_CODE", "code": "ADAPTABILITY", "value": "Adaptability" },
+        { "categoryCode": "SKILL_CODE", "code": "ADMINISTRATIVE_SKILLS", "value": "Administrative skills" },
+        { "categoryCode": "SKILL_CODE", "code": "ATTENTION_TO_DETAIL", "value": "Attention to detail" },
+        { "categoryCode": "SKILL_CODE", "code": "BIG_DATA", "value": "Big Data" },
+        { "categoryCode": "SKILL_CODE", "code": "CLOUD_COMPUTING", "value": "Cloud Computing" },
+        { "categoryCode": "SKILL_CODE", "code": "COLLABORATION", "value": "Collaboration" },
+        { "categoryCode": "SKILL_CODE", "code": "COMMUNICATION", "value": "Communication" },
+        { "categoryCode": "SKILL_CODE", "code": "CONFLICT_MANAGEMENT", "value": "Conflict management" },
+        { "categoryCode": "SKILL_CODE", "code": "CREATIVITY", "value": "Creativity" },
+        { "categoryCode": "SKILL_CODE", "code": "CRITICAL_THINKING", "value": "Critical thinking" },
+        { "categoryCode": "SKILL_CODE", "code": "DATA_SCIENCE", "value": "Data Science" },
+        { "categoryCode": "SKILL_CODE", "code": "DATA_VISUALIZATION_AND_REPORTING", "value": "Data Visualization and Reporting" },
+        { "categoryCode": "SKILL_CODE", "code": "DECISION_MAKING", "value": "Decision Making" },
+        { "categoryCode": "SKILL_CODE", "code": "DIGITAL_MARKETING", "value": "Digital marketing" },
+        { "categoryCode": "SKILL_CODE", "code": "EMOTIONAL_INTELLIGENCE", "value": "Emotional intelligence" },
+        { "categoryCode": "SKILL_CODE", "code": "EMPATHY", "value": "Empathy" },
+        { "categoryCode": "SKILL_CODE", "code": "INTERPERSONAL_SKILLS", "value": "Interpersonal Skills" },
+        { "categoryCode": "SKILL_CODE", "code": "LANGUAGE_SKILLS", "value": "Language skills" },
+        { "categoryCode": "SKILL_CODE", "code": "LEADERSHIP_SKILLS", "value": "Leadership skills" },
+        { "categoryCode": "SKILL_CODE", "code": "MICROSOFT_OFFICE", "value": "Microsoft Office" },
+        { "categoryCode": "SKILL_CODE", "code": "NEGOTIATION", "value": "Negotiation" },
+        { "categoryCode": "SKILL_CODE", "code": "PLANNING_AND_STRATEGY", "value": "Planning and Strategy" },
+        { "categoryCode": "SKILL_CODE", "code": "PERSUASION", "value": "Persuasion" },
+        { "categoryCode": "SKILL_CODE", "code": "PROBLEM_SOLVING", "value": "Problem Solving" },
+        { "categoryCode": "SKILL_CODE", "code": "PROJECT_MANAGEMENT", "value": "Project Management" },
+        { "categoryCode": "SKILL_CODE", "code": "PUBLIC_SPEAKING", "value": "Public speaking" },
+        { "categoryCode": "SKILL_CODE", "code": "RESEARCH_AND_DATA_ANALYSIS", "value": "Research and data analysis" },
+        { "categoryCode": "SKILL_CODE", "code": "SOCIAL_MEDIA_MARKETING", "value": "Social media marketing" },
+        { "categoryCode": "SKILL_CODE", "code": "STORYTELLING", "value": "Storytelling" },
+        { "categoryCode": "SKILL_CODE", "code": "STRESS_MANAGEMENT", "value": "Stress management" },
+        { "categoryCode": "SKILL_CODE", "code": "TEAMWORK_SKILLS", "value": "Teamwork skills" },
+        { "categoryCode": "SKILL_CODE", "code": "TIME_MANAGEMENT", "value": "Time management" },
+        { "categoryCode": "SKILL_CODE", "code": "VENDOR_MANAGEMENT", "value": "Vendor Management" },
+        { "categoryCode": "SKILL_PREFERENCE_CODE", "code": "NOVICE", "value": "Novice" },
+        { "categoryCode": "SKILL_PREFERENCE_CODE", "code": "MODERATELY_SKILLED", "value": "Moderately Skilled" },
+        { "categoryCode": "SKILL_PREFERENCE_CODE", "code": "HIGHLY_SKILLED", "value": "Highly Skilled" },
+        { "categoryCode": "INTERESTED_IN_UPSKILLING_CODE", "code": "YES", "value": "Yes" },
+        { "categoryCode": "INTERESTED_IN_UPSKILLING_CODE", "code": "NO", "value": "No" }
     ]
 }

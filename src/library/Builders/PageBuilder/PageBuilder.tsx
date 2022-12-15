@@ -56,7 +56,7 @@ const PageBuilder = (args: PageBuilderArguments) => {
         <div className='bg-light'>
             {state?.flags.isDataLoading && <div>Loading...</div>}
             {/* TODO: Error display condition to be added*/}
-            <div>
+            <div className='bg-light'>
                 <PageTitleControl />
             </div>
 
