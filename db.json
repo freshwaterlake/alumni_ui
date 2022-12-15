@@ -1,7 +1,7 @@
 {
     "CONFIG": [
         {
-            "id": "STUDENT",
+            "id": "myHigherStudiesInfo",
             "title": "Job / Internship Preferences",
             "sections": ["higherStudiesPreferences"],
             "breadCrumbs": [
@@ -152,7 +152,7 @@
             ]
         }
     ],
-    "STUDENT": [
+    "alumni": [
         {
             "id": 1000,
             "jobPreferences": {

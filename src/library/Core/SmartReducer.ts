@@ -7,10 +7,10 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             state.flags.isDataLoading = true;
             break;
 
-        case 'FETCH_PAGE_DATA_END':
+        case 'DATA_INIT':
             state.data = action.payload.data;
             state.domain = action.payload.domain;
-            state.formConfig = action.payload.config;
+            state.formConfig = action.payload.formConfig;
             state.internal = action.payload.internal;
             state.flags.isDataLoading = false;
             break;

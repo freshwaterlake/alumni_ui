@@ -1,0 +1,23 @@
+// import { createBrowserRouter } from 'react-router-dom';
+// import ProfileLoader from '../../features/profile/ProfileLoader';
+// import PageBuilder from '../../library/Builders/PageBuilder/PageBuilder';
+
+// // const router = () => {
+// //     let element = useRoutes([
+// //         {
+// //             element: <MenuLayout />,
+// //             children: [{ path: 'alumni/:id/:pageName', loader: ProfileLoader, element: <PageBuilder /> }],
+// //         },
+// //     ]);
+// //     return element;
+// // };
+
+// const router = createBrowserRouter([
+//     {
+//         path: '/alumni/:id/:pageName',
+//         loader: ProfileLoader(params),
+//         element: <PageBuilder />,
+//     },
+// ]);
+
+// export default router;

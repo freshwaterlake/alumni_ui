@@ -69,7 +69,7 @@ export type ApplicationContext = {
 export type State = {
     formConfig?: Page;
     data?: any;
-    domain?: Map<string, []>;
+    domain?: Map<string, DomainElement[]>;
     flags: StateFlags;
     internal: InternalState;
     customControls?: ObjectWithComponents;
