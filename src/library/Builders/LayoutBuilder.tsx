@@ -11,7 +11,7 @@ const LayoutBuilder = (args: LayoutArguments) => {
         }
     };
 
-    return <div className={`${args.section.className}`}>{getLayout()}</div>;
+    return <div className={`d-flex flex-wrap ${args.section.className}`}>{getLayout()}</div>;
 };
 
 export default LayoutBuilder;

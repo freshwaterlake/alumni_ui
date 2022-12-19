@@ -17,7 +17,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                     data-testid={control.id}
                     type={control.type}
                     hidden={control.props.isCode}
-                    className={`form-control flex-1`}
+                    className={`form-control form-control-lg flex-1`}
                     placeholder={control.props?.placeholder}
                     inputMode={control.props?.inputMode}
                     value={data}
@@ -44,7 +44,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
     return (
         <>
             {control.props?.label && (
-                <label htmlFor={control.id} className='form-label'>
+                <label htmlFor={control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
                     {`${control.props.label} ${control.props.required ? '*' : ''}`}
                 </label>
             )}

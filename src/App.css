@@ -9,3 +9,25 @@
     box-shadow: 8px 10px 10px 0px #e8e8e8;
     border-bottom: 1px solid #dbdbdb;
 }
+
+.form-control {
+    border: 1px solid #848484 !important;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.form-select {
+    border: 1px solid #848484 !important;
+    border-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.form-check-input {
+    border: 1px solid #848484 !important;
+}

@@ -5,25 +5,28 @@ import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartT
 
 const PhoneControl = (props: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
-    const phoneCountryCodeValue = getControlValueFromState(props.dataKey + props.control.fields[0], state as State) as string;
-    const phoneNumberValue = getControlValueFromState(props.dataKey + props.control.fields[1], state as State) as string;
+    const phoneCountryCodeValue = getControlValueFromState(
+        props.parentDataKey + props.control.controlGroup[0]['id'],
+        state as State
+    ) as string;
+    const phoneNumberValue = getControlValueFromState(props.parentDataKey + props.control.controlGroup[1]['id'], state as State) as string;
 
     return (
         <div>
-            <label htmlFor={props.control.id} className='form-label'>
+            <label htmlFor={props.control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
                 {`${props.control.props.label} ${props.control.props.required ? '*' : ''}`}
             </label>
 
             <div className='input-group mb-3'>
                 <div className='col-5'>
                     <select
-                        id={props.control.fields[0]}
-                        data-testid={props.control.fields[0]}
+                        id={props.control.controlGroup[0]['id']}
+                        data-testid={props.control.controlGroup[0]['id']}
                         onChange={(event) =>
                             handleControlValueChange(
-                                props.control.fields[0],
+                                props.control.controlGroup[0]['id'],
                                 event.target.value,
-                                props.dataKey + props.control.fields[0],
+                                props.parentDataKey + props.control.controlGroup[0]['id'],
                                 dispatch
                             )
                         }
@@ -39,15 +42,15 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                 </div>
                 <div className='col-7'>
                     <input
-                        id={props.control.fields[1]}
-                        data-testid={props.control.fields[1]}
+                        id={props.control.controlGroup[1]['id']}
+                        data-testid={props.control.controlGroup[1]['id']}
                         type='text'
                         value={phoneNumberValue}
                         onChange={(event) =>
                             handleControlValueChange(
-                                props.control.fields[1],
+                                props.control.controlGroup[1]['id'],
                                 event.target.value,
-                                props.dataKey + props.control.fields[1],
+                                props.parentDataKey + props.control.controlGroup[1]['id'],
                                 dispatch
                             )
                         }

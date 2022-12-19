@@ -56,27 +56,25 @@ const PageBuilder = (args: PageBuilderArguments) => {
         <div className='bg-light'>
             {state?.flags.isDataLoading && <div>Loading...</div>}
             {/* TODO: Error display condition to be added*/}
-            <div className='bg-light'>
+            <div className='page_ttl_row border-bottom border-2 custom-border-gray p-4 pb-3'>
                 <PageTitleControl />
             </div>
 
             {!state?.flags.isDataLoading && (
                 <form className='needs-validation' noValidate onSubmit={handleSubmit}>
                     <div className='container bg-white border-top border-dark'>
-                        <div className='row justify-content-center mx-auto' style={{ width: '90%' }}>
-                            <div className='d-flex flex-wrap'>
-                                {state?.formConfig?.sections.map((section) => (
-                                    <FormBuilder
-                                        key={section}
-                                        section={getSectionConfig(section) as FormSection}
-                                        dataKey={getSectionConfig(section)?.id as string}
-                                    />
-                                ))}
+                        <div className='d-flex flex-wrap justify-content-between align-items-center mx-auto max-630 pt-4 pt-sm-5 pb-5'>
+                            {state?.formConfig?.sections.map((section) => (
+                                <FormBuilder
+                                    key={section}
+                                    section={getSectionConfig(section) as FormSection}
+                                    dataKey={getSectionConfig(section)?.id as string}
+                                />
+                            ))}
 
-                                <button type='submit' className='btn btn-primary m-3'>
-                                    Submit
-                                </button>
-                            </div>
+                            <button type='submit' className='btn btn-primary m-3'>
+                                Submit
+                            </button>
                         </div>
                     </div>
                 </form>

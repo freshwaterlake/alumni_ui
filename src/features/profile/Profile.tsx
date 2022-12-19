@@ -24,7 +24,19 @@ const Profile = () => {
 
     return (
         <SmartContext.Provider value={{ state, dispatch }}>
-            <PageBuilder pageName={pageName as string} id={parseInt(id as string)} />
+            <div className='main flex-1'>
+                <section className='updatebasicinformation'>
+                    <div className='container max-1140 px-lg-0 overflow-hidden'>
+                        <div className='row'>
+                            <div className='col-md-12 mb-4'>
+                                <div className='white-block white-block-notopborderradius p-0 h-100'>
+                                    <PageBuilder pageName={pageName as string} id={parseInt(id as string)} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </SmartContext.Provider>
     );
 };

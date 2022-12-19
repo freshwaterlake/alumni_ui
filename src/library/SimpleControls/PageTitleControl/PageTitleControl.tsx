@@ -1,5 +1,8 @@
+import { useContext } from 'react';
+import { SmartContext } from '../../Core/SmartContext';
 import './PageTitleControl.css';
 const PageTitleControl = () => {
+    const { state, dispatch } = useContext(SmartContext);
     return (
         <div>
             <div className='container' style={{ padding: 0 }}>
@@ -29,7 +32,7 @@ const PageTitleControl = () => {
 
                     <div>
                         <p className='col-12' style={{ fontFamily: 'Jost", sans-serif', fontSize: '30px', fontWeight: 600 }}>
-                            Show off your skills
+                            {state?.formConfig?.title}
                         </p>
                     </div>
                 </div>

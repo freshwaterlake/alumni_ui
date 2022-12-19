@@ -185,6 +185,7 @@
     "alumni": [
         {
             "id": 1000,
+            "basicInfo": {},
             "jobPreferences": {
                 "preferredJobLocation": [
                     {
@@ -262,17 +263,17 @@
     ],
     "DOMAIN": [
         {
-            "categoryCode": "GENDER",
+            "categoryCode": "GENDER_CODE",
             "code": "MALE",
             "value": "Male"
         },
         {
-            "categoryCode": "GENDER",
+            "categoryCode": "GENDER_CODE",
             "code": "FEMALE",
             "value": "Female"
         },
         {
-            "categoryCode": "GENDER",
+            "categoryCode": "GENDER_CODE",
             "code": "OTHER",
             "value": "Other"
         },
@@ -914,6 +915,17 @@
         { "categoryCode": "SKILL_PREFERENCE_CODE", "code": "MODERATELY_SKILLED", "value": "Moderately Skilled" },
         { "categoryCode": "SKILL_PREFERENCE_CODE", "code": "HIGHLY_SKILLED", "value": "Highly Skilled" },
         { "categoryCode": "INTERESTED_IN_UPSKILLING_CODE", "code": "YES", "value": "Yes" },
-        { "categoryCode": "INTERESTED_IN_UPSKILLING_CODE", "code": "NO", "value": "No" }
+        { "categoryCode": "INTERESTED_IN_UPSKILLING_CODE", "code": "NO", "value": "No" },
+        { "categoryCode": "YES_NO_CODE", "code": "NO", "value": "No" },
+        { "categoryCode": "YES_NO_CODE", "code": "YES", "value": "Yes" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "PURSUING_UG", "value": "Pursuing UG" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "PURSUING_PG", "value": "Pursuing PG" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "IN_DEFENCE", "value": "In Defence" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "WORKING", "value": "Working" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "PROFESSIONAL_PRACTICE", "value": "Professional Practice" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "ENTREPRENEURSHIP", "value": "Entrepreneurship" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "HOMEMAKER", "value": "Homemaker" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "NOT_WORKING", "value": "Not working" },
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "OTHERS", "value": "Others" }
     ]
 }

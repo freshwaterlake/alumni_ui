@@ -14,7 +14,7 @@ const RadioControl = (args: SimpleFormControlArguments) => {
 
     return (
         <fieldset>
-            {control.props.label && <legend className='col-form-label'>{control.props.label}</legend>}
+            {control.props.label && <legend className='col-form-label m-0 mb-1 font-16 font-500 w-100'>{control.props.label}</legend>}
             <div className='form-check'>
                 <div className='row my-1 flex-column flex-md-row'>
                     <div className='col-auto'>
@@ -36,7 +36,7 @@ const RadioControl = (args: SimpleFormControlArguments) => {
                                             ref={formControlRef}
                                         />
                                         <div className='col blue d-flex flex-wrap mb-3 mb-md-0'>
-                                            <label className='form-check-label' htmlFor={control.id}>
+                                            <label className='form-check-label m-0 mb-1 font-16 font-500 w-100' htmlFor={control.id}>
                                                 {domain.value}
                                             </label>
                                         </div>

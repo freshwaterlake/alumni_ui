@@ -47,7 +47,9 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
             );
             break;
         case 'PHONE':
-            element = <PhoneControl control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            element = (
+                <PhoneControl control={control} dataKey={childDataKey} parentDataKey={dataKey} handleChangeEvent={handleChangeEvent} />
+            );
             break;
         case 'YEAR_AND_MONTH':
             element = <YearAndMonthSelector key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;

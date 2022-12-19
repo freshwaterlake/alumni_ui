@@ -11,7 +11,7 @@ const TextAreaControl = (args: SimpleFormControlArguments) => {
 
     return (
         <>
-            <label htmlFor={control.id} className='form-label'>
+            <label htmlFor={control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
                 {`${control.props.label} ${control.props.required ? '*' : ''}`}
             </label>
             <textarea

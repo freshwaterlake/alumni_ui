@@ -71,6 +71,11 @@ const MenuLayout = () => {
                                             Achievements
                                         </a>
                                     </li>
+                                    <li>
+                                        <a className='dropdown-item' href='/alumni/1000/myBasicInfo'>
+                                            Basic Info
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
