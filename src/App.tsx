@@ -4,9 +4,13 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useEffect } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import MenuLayout from './common/menu/MenuLayout';
+import './css/style.css';
+import Dashboard from './features/dashboard/Dashboard';
+import DashboardLoader from './features/dashboard/DashboardLoader';
+import Demo from './features/demo/Demo';
 import Profile from './features/profile/Profile';
 import ProfileLoader from './features/profile/ProfileLoader';
 
@@ -27,7 +31,18 @@ function App() {
                     },
                     element: <Profile />,
                 },
+                {
+                    path: '/dashboard/:id',
+                    loader: async ({ params }) => {
+                        return await DashboardLoader(params);
+                    },
+                    element: <Dashboard />,
+                },
             ],
+        },
+        {
+            path: '/demo',
+            element: <Demo />,
         },
     ]);
 

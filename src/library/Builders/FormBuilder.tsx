@@ -15,6 +15,7 @@ const FormBuilder = (args: FormBuilderArguments) => {
 
         const getSectionConfig = (sectionName: string) =>
             state?.formConfig?.sectionRepository.find((section) => section.id === sectionName);
+
         const keyVal = control.id ? control.id : 1 + Math.random() * 99999;
         let element;
 

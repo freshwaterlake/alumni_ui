@@ -20,6 +20,7 @@ export type FormControl = {
     defaultValue?: any;
     width: number;
     className?: string;
+    dataKey?: 'USE_PARENT' | 'USE_SELF' | string;
     props: ControlProperties;
 };
 

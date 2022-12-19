@@ -2,7 +2,7 @@ import axios from 'axios';
 import { convertDomainArrayToMap } from '../../library/Core/SmartFunctions';
 
 const ProfileLoader = (params: any) => {
-    const URL_FOR_CONFIG = `http://localhost:3008/config/page/${params.pageName}`;
+    const URL_FOR_CONFIG = `http://localhost:3009/api/v1/pageConfig/${params.pageName}`;
     const URL_FOR_FORM_DATA = `http://localhost:3007/alumni/${params.id}`;
     const URL_FOR_DOMAIN_DATA = `http://localhost:3007/domain`;
 

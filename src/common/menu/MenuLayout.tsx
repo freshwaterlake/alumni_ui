@@ -30,12 +30,12 @@ const MenuLayout = () => {
                                 </div>
                                 <ul className='dropdown-menu'>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/mySkillsInfo'>
+                                        <a className='dropdown-item' href='/demo'>
                                             Getting Started
                                         </a>
                                     </li>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/mySkillsInfo'>
+                                        <a className='dropdown-item' href='/dashboard/1000'>
                                             Dashboard
                                         </a>
                                     </li>

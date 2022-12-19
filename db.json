@@ -1,6 +1,36 @@
 {
     "CONFIG": [
         {
+            "id": "dashboard",
+            "title": "Dashboard",
+            "sections": ["activitiesGroup"],
+            "sectionRepository": [
+                {
+                    "id": "activitiesGroup",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-12",
+                    "controlGroup": [
+                        {
+                            "id": "activitiesGroup",
+                            "type": "GRID_CARD",
+                            "props": {},
+                            "className": "col-md-12",
+                            "dataKey": "USE_PARENT",
+                            "controlGroup": [
+                                {
+                                    "id": "activitiesGroup",
+                                    "type": "ACTIVITY_GROUP",
+                                    "props": {},
+                                    "className": "col-md-12",
+                                    "controlGroup": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": "myHigherStudiesInfo",
             "title": "Job / Internship Preferences",
             "sections": ["higherStudiesPreferences"],
@@ -217,6 +247,17 @@
             "skillProfile": {
                 "skills": []
             }
+        }
+    ],
+    "activities": [
+        {
+            "id": 1000,
+            "activitiesGroup": [
+                {
+                    "id": "MY_CONTACT_DETAILS",
+                    "statusCode": "COMPLETE"
+                }
+            ]
         }
     ],
     "DOMAIN": [

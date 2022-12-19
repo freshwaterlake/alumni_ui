@@ -19,6 +19,7 @@ export type FormControl = {
     id: string;
     fields: string[];
     type: string;
+    dataKey: 'USE_PARENT' | string;
     defaultValue?: any;
     width: number;
     className?: string;
@@ -77,6 +78,7 @@ export type State = {
 
 export type InternalState = {
     gridState: GridInternalData[];
+    activitiesConfig?: any[];
 };
 
 export type GridInternalData = {

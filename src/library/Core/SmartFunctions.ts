@@ -52,3 +52,8 @@ export const getFieldValuesConcatenatedFromRecord = (record: ObjectWithKeys, con
         })
         .join(' - ');
 };
+
+export const findTheRightDataKey = (control: FormControl, dataKey: string, parentDataKey: string) => {
+    if (!control?.dataKey) return dataKey;
+    return control?.dataKey === 'USE_PARENT' ? parentDataKey : control.dataKey;
+};

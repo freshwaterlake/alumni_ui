@@ -86,7 +86,15 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
             element = <FiltersControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
             break;
         case 'GRID_CARD':
-            element = <GridCardsControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            element = (
+                <GridCardsControl
+                    key={keyVal}
+                    control={control}
+                    dataKey={childDataKey}
+                    parentDataKey={dataKey}
+                    handleChangeEvent={handleChangeEvent}
+                />
+            );
             break;
         case 'TABLE':
             element = <TableControl control={control} dataKey={dataKey} handleChangeEvent={handleChangeEvent} />;
