@@ -53,7 +53,7 @@ const PageBuilder = (args: PageBuilderArguments) => {
     const getSectionConfig = (sectionName: string) => state?.formConfig?.sectionRepository.find((section) => section.id === sectionName);
 
     return (
-        <div className='bg-light'>
+        <div className='bg-white'>
             {state?.flags.isDataLoading && <div>Loading...</div>}
             {/* TODO: Error display condition to be added*/}
             <div className='page_ttl_row border-bottom border-2 custom-border-gray p-4 pb-3'>
