@@ -11,6 +11,8 @@ import './css/style.css';
 import Dashboard from './features/dashboard/Dashboard';
 import DashboardLoader from './features/dashboard/DashboardLoader';
 import Demo from './features/demo/Demo';
+import Directory from './features/directory/Directory';
+import DirectoryLoader from './features/directory/DirectoryLoader';
 import Profile from './features/profile/Profile';
 import ProfileLoader from './features/profile/ProfileLoader';
 
@@ -37,6 +39,11 @@ function App() {
                         return await DashboardLoader(params);
                     },
                     element: <Dashboard />,
+                },
+                {
+                    path: '/directory/:id',
+                    loader: async ({ params }) => await DirectoryLoader(params),
+                    element: <Directory />,
                 },
             ],
         },

@@ -39,6 +39,11 @@ const MenuLayout = () => {
                                             Dashboard
                                         </a>
                                     </li>
+                                    <li>
+                                        <a className='dropdown-item' href='/directory/1000'>
+                                            Directory
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li className='nav-item dropdown'>

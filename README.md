@@ -7,3 +7,13 @@
 ### References
 
 https://github.com/SrinivasPT/dynamic-react-forms
+
+# To Run
+
+### For running the fake server
+
+npm run db
+
+### For running the application
+
+npm start

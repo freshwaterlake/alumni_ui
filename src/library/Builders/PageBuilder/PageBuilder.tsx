@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { SmartContext } from '../../Core/SmartContext';
 import { FormSection, PageBuilderArguments } from '../../Core/SmartTypes';
-import PageTitleControl from '../../SimpleControls/PageTitleControl/PageTitleControl';
 import FormBuilder from '../FormBuilder';
 
 const PageBuilder = (args: PageBuilderArguments) => {
@@ -56,14 +55,14 @@ const PageBuilder = (args: PageBuilderArguments) => {
         <div className='bg-white'>
             {state?.flags.isDataLoading && <div>Loading...</div>}
             {/* TODO: Error display condition to be added*/}
-            <div className='page_ttl_row border-bottom border-2 custom-border-gray p-4 pb-3'>
+            {/* <div className='page_ttl_row border-bottom border-2 custom-border-gray p-4 pb-3'>
                 <PageTitleControl />
-            </div>
+            </div> */}
 
             {!state?.flags.isDataLoading && (
                 <form className='needs-validation' noValidate onSubmit={handleSubmit}>
                     <div className='container bg-white border-top border-dark'>
-                        <div className='d-flex flex-wrap justify-content-between align-items-center mx-auto max-630 pt-4 pt-sm-5 pb-5'>
+                        <div className='d-flex flex-wrap justify-content-between align-items-center p-2'>
                             {state?.formConfig?.sections.map((section) => (
                                 <FormBuilder
                                     key={section}
@@ -72,9 +71,9 @@ const PageBuilder = (args: PageBuilderArguments) => {
                                 />
                             ))}
 
-                            <button type='submit' className='btn btn-primary m-3'>
+                            {/* <button type='submit' className='btn btn-primary m-3'>
                                 Submit
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </form>

@@ -1,6 +1,50 @@
 {
     "CONFIG": [
         {
+            "id": "directory",
+            "title": null,
+            "sections": ["searchCriteria"],
+            "sectionRepository": [
+                {
+                    "id": "searchCriteria",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-12",
+                    "controlGroup": [
+                        {
+                            "id": "passOutYear",
+                            "type": "SEARCH_FILTER",
+                            "className": "col-md-12",
+                            "props": {
+                                "label": "Pass out Year"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "searchWithInList",
+                                    "type": "LIST",
+                                    "className": "col-md-12",
+                                    "controlGroup": [],
+                                    "props": {
+                                        "label": "Study Year",
+                                        "domainCategoryCode": "STUDY_YEAR_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "list",
+                                    "type": "LIST",
+                                    "className": "col-md-12",
+                                    "controlGroup": [],
+                                    "props": {
+                                        "label": "Show Profiles",
+                                        "domainCategoryCode": "PROFILE_TYPE_CODE"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": "dashboard",
             "title": "Dashboard",
             "sections": ["activitiesGroup"],
@@ -185,7 +229,11 @@
     "alumni": [
         {
             "id": 1000,
-            "basicInfo": {},
+            "basicInfo": {
+                "firstName": "John",
+                "lastName": "Doe"
+            },
+            "searchCriteria": {},
             "jobPreferences": {
                 "preferredJobLocation": [
                     {
@@ -926,6 +974,11 @@
         { "categoryCode": "PRESENT_STATUS_CODE", "code": "ENTREPRENEURSHIP", "value": "Entrepreneurship" },
         { "categoryCode": "PRESENT_STATUS_CODE", "code": "HOMEMAKER", "value": "Homemaker" },
         { "categoryCode": "PRESENT_STATUS_CODE", "code": "NOT_WORKING", "value": "Not working" },
-        { "categoryCode": "PRESENT_STATUS_CODE", "code": "OTHERS", "value": "Others" }
+        { "categoryCode": "PRESENT_STATUS_CODE", "code": "OTHERS", "value": "Others" },
+        { "categoryCode": "PROFILE_TYPE_CODE", "code": "OTHERS", "value": "Others" },
+        { "categoryCode": "PROFILE_TYPE_CODE", "code": "FROM_PRESTIGIOUS_COLLEGES", "value": "From Prestigious Colleges" },
+        { "categoryCode": "PROFILE_TYPE_CODE", "code": "NOTABLE_IN_THEIR_FIELDS", "value": "Notable In Their Fields" },
+        { "categoryCode": "PROFILE_TYPE_CODE", "code": "WITH_SIMILAR_SKILLS", "value": "With Similar Skills" },
+        { "categoryCode": "PROFILE_TYPE_CODE", "code": "WITH_SAME_JOB_PREFERENCES", "value": "With Same Job Preferences" }
     ]
 }
