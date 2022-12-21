@@ -13,6 +13,8 @@ import DashboardLoader from './features/dashboard/DashboardLoader';
 import Demo from './features/demo/Demo';
 import Directory from './features/directory/Directory';
 import DirectoryLoader from './features/directory/DirectoryLoader';
+import JobListing from './features/job/JobListing';
+import JobLoader from './features/job/JobLoader';
 import Profile from './features/profile/Profile';
 import ProfileLoader from './features/profile/ProfileLoader';
 
@@ -44,6 +46,11 @@ function App() {
                     path: '/directory/:id',
                     loader: async ({ params }) => await DirectoryLoader(params),
                     element: <Directory />,
+                },
+                {
+                    path: '/jobListing',
+                    loader: async ({ params }) => await JobLoader(params),
+                    element: <JobListing />,
                 },
             ],
         },

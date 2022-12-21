@@ -74,6 +74,7 @@ export type State = {
     flags: StateFlags;
     internal: InternalState;
     customControls?: ObjectWithComponents;
+    actions: ObjectWithFunctions;
 };
 
 export type InternalState = {
@@ -168,6 +169,10 @@ export type ObjectWithKeys = {
 
 export type ObjectWithComponents = {
     [key: string]: (props: any) => JSX.Element;
+};
+
+export type ObjectWithFunctions = {
+    [key: string]: () => void;
 };
 
 export type LayoutArguments = {

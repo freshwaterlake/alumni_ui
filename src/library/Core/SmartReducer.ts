@@ -13,6 +13,7 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             state.formConfig = action.payload.formConfig;
             state.internal = action.payload.internal;
             state.customControls = action.payload.customControls;
+            state.actions = action.payload.actions;
             state.flags.isDataLoading = false;
             break;
 

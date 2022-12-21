@@ -39,12 +39,7 @@ const Directory = () => {
                         <FiltersApplied />
                     </div>
                     <div className='d-flex flex-wrap'>
-                        <AlumniCard />
-                        <AlumniCard />
-                        <AlumniCard />
-                        <AlumniCard />
-                        <AlumniCard />
-                        <AlumniCard />
+                        {state?.data?.alumni && state?.data?.alumni.map((alumni: any) => <AlumniCard key={alumni.id} data={alumni} />)}
                     </div>
                 </div>
             </div>

@@ -1,4 +1,60 @@
-const AlumniCard = () => {
+const AlumniCard = (props: any) => {
+    const data = props.data;
+
+    // TODO: Codes need to be finalized
+    const getDataConfigForType = (type: string): any => {
+        switch (type) {
+            case 'HOMEMAKER':
+            case 'TAKING_GAP_YEAR':
+            case 'PURSUING_UG':
+                return getDataConfigForUniqueTypes('UG');
+            case 'PURSUING_PG':
+                return data.pgDepartment ? getDataConfigForUniqueTypes('PG') : getDataConfigForUniqueTypes('UG');
+            case 'IN_DEFENSE':
+                return data.defenseDesignation ? getDataConfigForUniqueTypes('DEFENSE') : getDataConfigForUniqueTypes('UG');
+            case 'WORKING':
+                return data.designation ? getDataConfigForUniqueTypes('WORKING') : getDataConfigForUniqueTypes('UG');
+            case 'PROFESSIONAL_PRACTICE':
+            case 'ENTREPRENEURSHIP':
+                return data.designation ? getDataConfigForUniqueTypes('WORKING') : getDataConfigForUniqueTypes('UG');
+            default:
+                return getDataConfigForUniqueTypes('UG');
+        }
+    };
+
+    const getDataConfigForUniqueTypes = (type: string): any => {
+        let titleConfig = { firstLabel: '', firstValue: '', secondLabel: '', secondValue: '' };
+        switch (type) {
+            case 'UG':
+                titleConfig.firstLabel = 'Course';
+                titleConfig.secondLabel = 'College';
+                titleConfig.firstValue = data.fieldOfStudy ? data.fieldOfStudy : '-';
+                titleConfig.secondValue = data.collegeName ? data.collegeName : '-';
+                break;
+            case 'PG':
+                titleConfig.firstLabel = 'Course';
+                titleConfig.secondLabel = 'College';
+                titleConfig.firstValue = data.fieldOfStudy ? data.fieldOfStudy : '-';
+                titleConfig.secondValue = data.collegeName ? data.collegeName : '-';
+                break;
+            case 'DEFENSE':
+                titleConfig.firstLabel = 'Designation';
+                titleConfig.secondLabel = 'In Defense';
+                titleConfig.firstValue = data.defenseDesignation ? data.defenseDesignation : '-';
+                titleConfig.secondValue = 'In Defense';
+                break;
+            case 'WORKING':
+                titleConfig.firstLabel = 'Company';
+                titleConfig.secondLabel = 'Designation';
+                titleConfig.firstValue = data.companyName ? data.companyName : '-';
+                titleConfig.secondValue = data.designation ? data.designation : '-';
+                break;
+        }
+        return titleConfig;
+    };
+
+    const cardConfig: any = getDataConfigForType(data.type);
+
     return (
         <div className='col-sm-6 p-2 Dusers'>
             <div className='alumni_college'>
@@ -18,17 +74,17 @@ const AlumniCard = () => {
                             className='text-decoration-none'
                             style={{ color: 'black' }}
                         >
-                            <p>varsha p</p>
+                            <p>{data.name}</p>
                         </a>
                     </div>
                 </div>
                 <div className='alumni_college_bottom'>
                     <div className='courseLabel'>
-                        <label>Course</label>
-                        <div className='course_name'>Computer Science &amp; Information Technology</div>
+                        <label>{cardConfig.secondLabel}</label>
+                        <div className='course_name'>{cardConfig.secondValue}</div>
                     </div>
                     <div className='CollegeLabel'>
-                        <label>College</label>
+                        <label>{cardConfig.firstLabel}</label>
                         <div className='college_name'>
                             <span
                                 className='alumni_university'
@@ -36,7 +92,7 @@ const AlumniCard = () => {
                                 title=''
                                 data-bs-original-title='All India Institute of Medical Sciences (AIIMS), New Delhi'
                             >
-                                All India Institute of Medical Sciences (AIIMS), New Delhi
+                                {cardConfig.firstValue}
                             </span>
                             <span
                                 className='prestigious-colleges-badge'

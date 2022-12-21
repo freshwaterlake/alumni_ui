@@ -6,7 +6,7 @@ export const isEmpty = (obj: any) => {
     return Object.entries(obj).length === 0 ? true : false;
 };
 
-export const getControlValueFromState = (key: string, state: State): any[] | string | number | undefined => {
+export const getControlValueFromState = (key: string, state: State): any[] | string | number | undefined | any => {
     if (isEmpty(state.data)) return [];
     try {
         return key.split('.').reduce((a, c) => a[c], state.data);

@@ -83,6 +83,23 @@ const MenuLayout = () => {
                                     </li>
                                 </ul>
                             </li>
+                            <li className='nav-item dropdown'>
+                                <div
+                                    className='nav-link dropdown-toggle text-white'
+                                    role='button'
+                                    data-bs-toggle='dropdown'
+                                    aria-expanded='false'
+                                >
+                                    CONTRIBUTE
+                                </div>
+                                <ul className='dropdown-menu'>
+                                    <li>
+                                        <a className='dropdown-item' href='/jobListing'>
+                                            Job Listing
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

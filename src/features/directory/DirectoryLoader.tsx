@@ -2,8 +2,8 @@ import axios from 'axios';
 import { convertDomainArrayToMap } from '../../library/Core/SmartFunctions';
 
 const DirectoryLoader = (params: any) => {
-    const URL_FOR_CONFIG = `http://localhost:3007/CONFIG/directory`;
-    const URL_FOR_FORM_DATA = `http://localhost:3007/alumni/${params.id}`;
+    const URL_FOR_CONFIG = `http://localhost:3007/LISTING/jobListing`;
+    const URL_FOR_FORM_DATA = `http://localhost:3007/alumni/directory`;
     const URL_FOR_DOMAIN_DATA = `http://localhost:3007/domain`;
 
     const state: any = {};

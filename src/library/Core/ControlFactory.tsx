@@ -9,6 +9,7 @@ import MultiSelectWithAdditionalInputsOne from '../SimpleControls/MultiSelectWit
 import PhoneControl from '../SimpleControls/PhoneControl';
 import RadioControl from '../SimpleControls/RadioControl';
 import SelectControl from '../SimpleControls/SelectControl';
+import SummaryPillsControl from '../SimpleControls/SummaryPillsControl';
 import TextAreaControl from '../SimpleControls/TextAreaControl';
 import TextAsLabelControl from '../SimpleControls/TextAsLabelControl';
 import TextControl from '../SimpleControls/TextControl';
@@ -86,6 +87,9 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
             break;
         case 'SEARCH_FILTER':
             element = <FiltersControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            break;
+        case 'SUMMARY_PILLS':
+            element = <SummaryPillsControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
             break;
         case 'GRID_CARD':
             element = (

@@ -1,4 +1,61 @@
 {
+    "LISTING": [
+        {
+            "id": "jobListing",
+            "title": "Jobs & Internships",
+            "sections": ["summary"],
+            "sectionRepository": [
+                {
+                    "id": "summary",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-12",
+                    "controlGroup": [
+                        {
+                            "id": "jobListingCounts",
+                            "type": "SUMMARY_PILLS",
+                            "className": "col-md-12",
+                            "props": {},
+                            "controlGroup": [
+                                {
+                                    "id": "activeListing",
+                                    "type": "NONE",
+                                    "props": { "label": "Active Listings" }
+                                },
+                                {
+                                    "id": "saved",
+                                    "type": "NONE",
+                                    "props": { "label": "Saved" }
+                                },
+                                {
+                                    "id": "sentInterest",
+                                    "type": "NONE",
+                                    "props": { "label": "Sent Interest" }
+                                },
+                                {
+                                    "id": "listedByYou",
+                                    "type": "NONE",
+                                    "props": { "label": "Listed by You" }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "DATA": [
+        {
+            "id": 1000,
+            "summary": {
+                "jobListingCounts": {
+                    "activeListing": 28,
+                    "saved": 0,
+                    "sentInterest": 4,
+                    "listedByYou": 0
+                }
+            }
+        }
+    ],
     "CONFIG": [
         {
             "id": "directory",
@@ -296,6 +353,78 @@
             "skillProfile": {
                 "skills": []
             }
+        },
+        {
+            "id": "directory",
+            "alumni": [
+                {
+                    "id": "1000",
+                    "name": "John Doe",
+                    "type": "HOMEMAKER",
+                    "university": "All India Institute of Medical Sciences (AIIMS), New Delhi",
+                    "courseName": "Computer Science & Information Technology",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1001",
+                    "name": "Jane Doe",
+                    "type": "TAKING_GAP_YEAR",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Mechanical",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1002",
+                    "name": "Adam Smith",
+                    "type": "PURSUING_UG",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Electronics and Communications",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1003",
+                    "name": "Nikola Tesla",
+                    "type": "PURSUING_PG",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Electronics and Communications",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1004",
+                    "name": "Nikola Tesla",
+                    "type": "IN_DEFENSE",
+                    "defenseDesignation": "Major",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Electronics and Communications",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1005",
+                    "name": "John Doe",
+                    "type": "WORKING",
+                    "companyName": "Infosys LTD",
+                    "designation": "Manager",
+                    "collegeName": "All India Institute of Medical Sciences (AIIMS), New Delhi",
+                    "fieldOfStudy": "Computer Science & Information Technology",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1006",
+                    "name": "Jane Doe",
+                    "type": "PROFESSIONAL_PRACTICE",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Mechanical",
+                    "isPrestigiousCollege": 1
+                },
+                {
+                    "id": "1007",
+                    "name": "Adam Smith",
+                    "type": "ENTREPRENEURSHIP",
+                    "collegeName": "My University 1",
+                    "fieldOfStudy": "Electronics and Communications",
+                    "isPrestigiousCollege": 1
+                }
+            ]
         }
     ],
     "activities": [
