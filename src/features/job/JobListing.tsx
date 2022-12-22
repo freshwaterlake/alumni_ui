@@ -4,8 +4,14 @@ import { useImmerReducer } from 'use-immer';
 import PageBuilder from '../../library/Builders/PageBuilder/PageBuilder';
 import { SmartContext } from '../../library/Core/SmartContext';
 import smartReducer from '../../library/Core/SmartReducer';
-import { DispatchEvent, ObjectWithFunctions, State } from '../../library/Core/SmartTypes';
-import { handleShowActiveListing, handleShowListedByYouListing, handleShowSavedListing, handleShowSentInterestListing } from './actions';
+import { DispatchEvent, State } from '../../library/Core/SmartTypes';
+import {
+    handleSearch,
+    handleShowActiveListing,
+    handleShowListedByYouListing,
+    handleShowSavedListing,
+    handleShowSentInterestListing,
+} from './actions';
 
 const JobListing = () => {
     const { id, pageName } = useParams();
@@ -16,11 +22,12 @@ const JobListing = () => {
 
     const { formConfig, data, domain, internal } = useLoaderData() as State;
 
-    const actions: ObjectWithFunctions = {
+    const actions = {
         activeListing: handleShowActiveListing,
         saved: handleShowSavedListing,
         sentInterest: handleShowSentInterestListing,
         listedByYou: handleShowListedByYouListing,
+        search: handleSearch,
     };
 
     useEffect(() => {
@@ -45,6 +52,9 @@ const JobListing = () => {
                     </div>
                 </section>
             </div>
+            <button className='bg-primary' onClick={() => console.log(state)}>
+                Print State
+            </button>
         </SmartContext.Provider>
     );
 };

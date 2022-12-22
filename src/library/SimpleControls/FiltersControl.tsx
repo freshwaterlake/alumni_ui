@@ -1,11 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { getControlFromFactory } from '../Core/ControlFactory';
 import { SmartContext } from '../Core/SmartContext';
 import { SimpleFormControlArguments } from '../Core/SmartTypes';
 
 const FiltersControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
-    const { control, dataKey } = { ...args };
+    const { control, dataKey, parentDataKey } = { ...args };
+
+    useEffect(() => {
+        state?.actions['search'](state.data.searchCriteria);
+    }, [state?.data.searchCriteria]);
+
+    const handleSearchCriteriaAddition = (id: string, value: any, dataKey: string) => {
+        dispatch({ type: 'ADD_NEW_RECORD_IN_ARRAY', payload: { dataKey, value } });
+    };
+
     return (
         <>
             {control.controlGroup.map((subControl) => (
@@ -24,7 +33,14 @@ const FiltersControl = (args: SimpleFormControlArguments) => {
                         </span>
                     </button>
                     <div className='collapse' id={`${subControl.id}`}>
-                        <div className='card card-body'>{getControlFromFactory(subControl, dataKey, dataKey + `.` + subControl.id)}</div>
+                        <div className='card card-body'>
+                            {getControlFromFactory(
+                                subControl,
+                                parentDataKey as string,
+                                parentDataKey + `.` + subControl.id,
+                                handleSearchCriteriaAddition
+                            )}
+                        </div>
                     </div>
                 </div>
             ))}

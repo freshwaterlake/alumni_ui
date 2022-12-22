@@ -24,7 +24,7 @@ const PageBuilder = (args: PageBuilderArguments) => {
             {!state?.flags.isDataLoading && (
                 <form className='needs-validation' noValidate onSubmit={handleSubmit}>
                     <div className='container bg-white border-top border-dark'>
-                        <div className='d-flex flex-wrap justify-content-between align-items-center p-2'>
+                        <div className='d-flex flex-wrap justify-content-between p-2'>
                             {state?.formConfig?.sections.map((section) => (
                                 <FormBuilder
                                     key={section}

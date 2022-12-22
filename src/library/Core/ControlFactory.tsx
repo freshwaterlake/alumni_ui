@@ -1,7 +1,9 @@
 import GridCardsControl from '../ComplexControls/GridCardsControl';
 import TableControl from '../ComplexControls/TableControl';
 import FileUploader from '../SimpleControls/FileUploader';
+import FiltersApplied from '../SimpleControls/FiltersApplied';
 import FiltersControl from '../SimpleControls/FiltersControl';
+import JobCardControl from '../SimpleControls/JobCardControl';
 import ListControl from '../SimpleControls/ListControl';
 import MultiSelectWithAdditionalInputsDynamic from '../SimpleControls/MultiSelectWithAdditionalAttributesDynamic';
 import MultiSelectWithAdditionalInputsTwo from '../SimpleControls/MultiSelectWithAdditionalAttributesTwo';
@@ -86,7 +88,26 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
             );
             break;
         case 'SEARCH_FILTER':
-            element = <FiltersControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            element = (
+                <FiltersControl
+                    key={keyVal}
+                    control={control}
+                    dataKey={childDataKey}
+                    parentDataKey={dataKey}
+                    handleChangeEvent={handleChangeEvent}
+                />
+            );
+            break;
+        case 'APPLIED_FILTER':
+            element = (
+                <FiltersApplied
+                    key={keyVal}
+                    control={control}
+                    dataKey={childDataKey}
+                    parentDataKey={dataKey}
+                    handleChangeEvent={handleChangeEvent}
+                />
+            );
             break;
         case 'SUMMARY_PILLS':
             element = <SummaryPillsControl key={keyVal} control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
@@ -94,6 +115,17 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
         case 'GRID_CARD':
             element = (
                 <GridCardsControl
+                    key={keyVal}
+                    control={control}
+                    dataKey={childDataKey}
+                    parentDataKey={dataKey}
+                    handleChangeEvent={handleChangeEvent}
+                />
+            );
+            break;
+        case 'JOB_CARD':
+            element = (
+                <JobCardControl
                     key={keyVal}
                     control={control}
                     dataKey={childDataKey}

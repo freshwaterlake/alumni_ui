@@ -3,7 +3,7 @@
         {
             "id": "jobListing",
             "title": "Jobs & Internships",
-            "sections": ["summary"],
+            "sections": ["summary", "searchCriteria", "jobGrid"],
             "sectionRepository": [
                 {
                     "id": "summary",
@@ -37,6 +37,63 @@
                                     "props": { "label": "Listed by You" }
                                 }
                             ]
+                        },
+                        {
+                            "type": "APPLIED_FILTER",
+                            "className": "col-md-12"
+                        }
+                    ]
+                },
+                {
+                    "id": "searchCriteria",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-3",
+                    "controlGroup": [
+                        {
+                            "id": "passOutYear",
+                            "type": "SEARCH_FILTER",
+                            "className": "col-md-12",
+                            "props": {
+                                "label": "Pass out Year"
+                            },
+                            "controlGroup": [
+                                {
+                                    "id": "studyYear",
+                                    "type": "LIST",
+                                    "className": "col-md-12",
+                                    "controlGroup": [],
+                                    "props": {
+                                        "label": "Study Year",
+                                        "domainCategoryCode": "STUDY_YEAR_CODE"
+                                    }
+                                },
+                                {
+                                    "id": "profile",
+                                    "type": "LIST",
+                                    "className": "col-md-12",
+                                    "controlGroup": [],
+                                    "props": {
+                                        "label": "Show Profiles",
+                                        "domainCategoryCode": "PROFILE_TYPE_CODE"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "jobGrid",
+                    "type": "SECTION_WITHOUT_HEADER",
+                    "className": "col-md-9",
+                    "controlGroup": [
+                        {
+                            "type": "GRID_CARD",
+                            "className": "col-md-12",
+                            "controlGroup": [
+                                {
+                                    "type": "JOB_CARD"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -53,7 +110,12 @@
                     "sentInterest": 4,
                     "listedByYou": 0
                 }
-            }
+            },
+            "searchCriteria": {
+                "studyYear": [],
+                "profile": []
+            },
+            "jobGrid": [{ "one": 1 }, { "two": 2 }]
         }
     ],
     "CONFIG": [

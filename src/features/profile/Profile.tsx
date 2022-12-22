@@ -37,6 +37,9 @@ const Profile = () => {
                     </div>
                 </section>
             </div>
+            <button className='bg-primary' onClick={() => console.log(state)}>
+                Print State
+            </button>
         </SmartContext.Provider>
     );
 };
