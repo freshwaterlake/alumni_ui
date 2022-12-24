@@ -352,59 +352,21 @@
                 "firstName": "John",
                 "lastName": "Doe"
             },
+            "additionalInfo": {
+                "addressLine1": ""
+            },
+            "studyPreference": {
+                "studyLocationPreference": [],
+                "studyFieldPreference": [],
+                "studyUniversityPreference": []
+            },
+            "achievement": {},
             "searchCriteria": {},
-            "jobPreferences": {
-                "preferredJobLocation": [
-                    {
-                        "countryCode": "INDIA",
-                        "cityCode": "HYDERABAD",
-                        "locationPreferenceCode": "MAY_CONSIDER_CHANGING"
-                    },
-                    {
-                        "countryCode": "INDIA",
-                        "cityCode": "PUNE",
-                        "locationPreferenceCode": "WONT_CHANGE"
-                    },
-                    {
-                        "countryCode": "INDIA",
-                        "cityCode": "BANGALORE",
-                        "locationPreferenceCode": "WONT_CHANGE"
-                    }
-                ],
-                "preferredIndustry": [
-                    {
-                        "industryCode": "ACCOUNTING_AUDITING_AND_FINANCIAL_SERVICES",
-                        "industryPreferenceCode": "TOTALLY_SURE"
-                    },
-                    {
-                        "industryCode": "FASHION_AND_TEXTILE",
-                        "industryPreferenceCode": "TOTALLY_SURE"
-                    },
-                    {
-                        "industryCode": "HOSPITALITY_TOURISM",
-                        "industryPreferenceCode": "NEED_GUIDANCE"
-                    }
-                ],
-                "preferredFunctionalArea": [
-                    {
-                        "functionalAreaCode": "QUALITY_ASSURANCE",
-                        "functionalAreaPreferenceCode": "TOTALLY_CONFIDENT"
-                    },
-                    {
-                        "functionalAreaCode": "SOURCING_AND_PROCUREMENT",
-                        "functionalAreaPreferenceCode": "TOTALLY_CONFIDENT"
-                    },
-                    {
-                        "functionalAreaCode": "LEGAL",
-                        "functionalAreaPreferenceCode": "SOMEWHAT_CONFIDENT"
-                    }
-                ],
-                "dreamCompanies": [
-                    {
-                        "companyCode": "MICROSOFT",
-                        "companyPreferenceCode": "SOMEWHAT_CONFIDENT"
-                    }
-                ]
+            "jobPreference": {
+                "jobLocationPreference": [],
+                "jobIndustryPreference": [],
+                "jobFunctionalAreaPreference": [],
+                "jobCompanyPreference": []
             },
             "higherStudiesPreferences": {
                 "preferredLocationOfStudy": [],

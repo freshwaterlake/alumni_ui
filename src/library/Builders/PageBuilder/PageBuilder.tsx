@@ -29,7 +29,11 @@ const PageBuilder = (args: PageBuilderArguments) => {
                                 <FormBuilder
                                     key={section}
                                     section={getSectionConfig(section) as FormSection}
-                                    dataKey={getSectionConfig(section)?.id as string}
+                                    dataKey={
+                                        getSectionConfig(section)?.dataId
+                                            ? (getSectionConfig(section)?.dataId as string)
+                                            : (getSectionConfig(section)?.id as string)
+                                    }
                                 />
                             ))}
                         </div>

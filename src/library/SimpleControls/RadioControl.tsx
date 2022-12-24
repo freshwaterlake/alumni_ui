@@ -19,30 +19,31 @@ const RadioControl = (args: SimpleFormControlArguments) => {
                 <div className='row my-1 flex-column flex-md-row'>
                     <div className='col-auto'>
                         <div className='row'>
-                            {controlDomain.map((domain) => (
-                                <div className='col-auto mb-2 mb-md-0' key={dataKey + domain.code}>
-                                    <div className='d-flex flex-wrap align-items-start ps-md-4'>
-                                        <input
-                                            id={control.id}
-                                            data-testid={control.id}
-                                            className={`form-check-input rounded-circle p-1 m-1`}
-                                            type='radio'
-                                            name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
-                                            value={domain.code}
-                                            checked={data === domain.code}
-                                            onChange={(event) =>
-                                                handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
-                                            }
-                                            ref={formControlRef}
-                                        />
-                                        <div className='col blue d-flex flex-wrap mb-3 mb-md-0'>
-                                            <label className='form-check-label m-0 mb-1 font-16 font-500 w-100' htmlFor={control.id}>
-                                                {domain.value}
-                                            </label>
+                            {controlDomain?.length > 0 &&
+                                controlDomain.map((domain) => (
+                                    <div className='col-auto mb-2 mb-md-0' key={domain.code}>
+                                        <div className='d-flex flex-wrap align-items-start ps-md-4'>
+                                            <input
+                                                id={control.id}
+                                                data-testid={control.id}
+                                                className={`form-check-input rounded-circle p-1 m-1`}
+                                                type='radio'
+                                                name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
+                                                value={domain.code}
+                                                checked={data === domain.code}
+                                                onChange={(event) =>
+                                                    handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
+                                                }
+                                                ref={formControlRef}
+                                            />
+                                            <div className='col blue d-flex flex-wrap mb-3 mb-md-0'>
+                                                <label className='form-check-label m-0 mb-1 font-16 font-500 w-100' htmlFor={control.id}>
+                                                    {domain.value}
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
                         </div>
                     </div>
                 </div>

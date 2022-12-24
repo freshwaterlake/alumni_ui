@@ -8,8 +8,6 @@ const FormBuilder = (args: FormBuilderArguments) => {
     const { state } = useContext(SmartContext);
     const { section, dataKey } = args;
 
-    const getChildKey = (type: string) => {};
-
     const getControl = (control: FormControl) => {
         const childDataKey = control.id ? dataKey + '.' + control.id : dataKey;
 

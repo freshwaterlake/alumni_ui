@@ -4,7 +4,7 @@ import { convertDomainArrayToMap } from '../../library/Core/SmartFunctions';
 const ProfileLoader = (params: any) => {
     const URL_FOR_CONFIG = `http://localhost:3009/api/v1/pageConfig/${params.pageName}`;
     const URL_FOR_FORM_DATA = `http://localhost:3007/alumni/${params.id}`;
-    const URL_FOR_DOMAIN_DATA = `http://localhost:3007/domain`;
+    const URL_FOR_DOMAIN_DATA = `http://localhost:3009/api/v1/appConfig/domain_data`;
 
     const state: any = {};
 
