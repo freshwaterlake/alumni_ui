@@ -57,28 +57,33 @@ const MenuLayout = () => {
                                 </div>
                                 <ul className='dropdown-menu'>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/mySkillsInfo'>
+                                        <a className='dropdown-item' href='/alumni/1000/skill'>
                                             Skill Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/myHigherStudiesInfo'>
+                                        <a className='dropdown-item' href='/alumni/1000/studyPreference'>
                                             Study Preferences
                                         </a>
                                     </li>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/myJobPreferInfo'>
+                                        <a className='dropdown-item' href='/alumni/1000/jobPreference'>
                                             Job Preferences
                                         </a>
                                     </li>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/myAchieveInfo'>
+                                        <a className='dropdown-item' href='/alumni/1000/achievement'>
                                             Achievements
                                         </a>
                                     </li>
                                     <li>
-                                        <a className='dropdown-item' href='/alumni/1000/myBasicInfo'>
+                                        <a className='dropdown-item' href='/alumni/1000/basicInfo'>
                                             Basic Info
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a className='dropdown-item' href='/alumni/1000/additionalInfo'>
+                                            Additional Info
                                         </a>
                                     </li>
                                 </ul>

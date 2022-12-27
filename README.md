@@ -7,6 +7,8 @@
 ### References
 
 https://github.com/SrinivasPT/dynamic-react-forms
+https://www.robinwieruch.de/local-storage-react/
+https://www.robinwieruch.de/react-hooks-fetch-data/
 
 # To Run
 

@@ -104,7 +104,7 @@
         {
             "id": 1000,
             "summary": {
-                "jobListingCounts": {
+                "jobPostingSummaryMetric": {
                     "activeListing": 28,
                     "saved": 0,
                     "sentInterest": 4,
@@ -112,10 +112,12 @@
                 }
             },
             "searchCriteria": {
-                "studyYear": [],
-                "profile": []
+                "jobFilters": {
+                    "studyYear": [],
+                    "profile": []
+                }
             },
-            "jobGrid": [{ "one": 1 }, { "two": 2 }]
+            "jobPosting": [{ "one": 1 }, { "two": 2 }]
         }
     ],
     "CONFIG": [

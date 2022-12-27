@@ -20,7 +20,7 @@ import { ChildWrapperControl } from './ChildWrapperControl';
 import { FormControl } from './SmartTypes';
 
 export const getControlFromFactory = (control: FormControl, dataKey: string, childDataKey: string, handleChangeEvent: any = undefined) => {
-    const keyVal = control.id ? control.id : 1 + Math.random() * 99999;
+    const keyVal = control.id ? childDataKey + '.' + control.id : 1 + Math.random() * 99999;
     let element;
 
     switch (control.type) {

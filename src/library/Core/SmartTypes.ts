@@ -18,6 +18,7 @@ export type FormSection = {
 
 export type FormControl = {
     id: string;
+    dataId: string;
     fields: string[];
     type: string;
     dataKey: 'USE_PARENT' | string;

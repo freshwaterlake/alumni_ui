@@ -2,10 +2,10 @@ import axios from 'axios';
 import { convertDomainArrayToMap } from '../../library/Core/SmartFunctions';
 
 const JobLoader = (params: any) => {
-    const URL_FOR_CONFIG = `http://localhost:3007/LISTING/jobListing`;
+    const URL_FOR_CONFIG = `http://localhost:3009/api/v1/pageConfig/jobListing`;
     const URL_FOR_SUMMARY_DATA = `http://localhost:3007/DATA/1000`;
     const URL_FOR_FORM_DATA = `http://localhost:3007/DATA/1000`;
-    const URL_FOR_DOMAIN_DATA = `http://localhost:3007/domain`;
+    const URL_FOR_DOMAIN_DATA = `http://localhost:3009/api/v1/appConfig/domain_data`;
 
     const state: any = {};
 

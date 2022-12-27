@@ -8,8 +8,19 @@ const FormBuilder = (args: FormBuilderArguments) => {
     const { state } = useContext(SmartContext);
     const { section, dataKey } = args;
 
+    const getChildKey = (control: FormControl, parentDataKey: string) => {
+        if (!control.id) return parentDataKey;
+
+        if (control.id && control?.dataId === 'USE_PARENT') return parentDataKey;
+
+        if (control.id && control?.dataId?.length > 0 && control?.dataId !== 'USE_PARENT') return control.dataId;
+
+        return parentDataKey + '.' + control.id;
+    };
+
     const getControl = (control: FormControl) => {
-        const childDataKey = control.id ? dataKey + '.' + control.id : dataKey;
+        //const childDataKey = control.id ? dataKey + '.' + control.id : dataKey;
+        const childDataKey = getChildKey(control, dataKey);
 
         const getSectionConfig = (sectionName: string) =>
             state?.formConfig?.sectionRepository.find((section) => section.id === sectionName);
