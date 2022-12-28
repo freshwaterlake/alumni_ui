@@ -3,6 +3,7 @@ import { DispatchEvent, DomainElement, FormControl, ObjectWithKeys, State } from
 export const isEmpty = (obj: any) => {
     if (obj === null || obj === undefined) return true;
     if (Array.isArray(obj) && obj.length === 0) return true;
+    if (obj instanceof Map) return obj.size;
     return Object.entries(obj).length === 0 ? true : false;
 };
 

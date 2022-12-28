@@ -80,6 +80,14 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             }
             break;
 
+        case 'SHOW_ERRORS':
+            state.flags.showFormErrors += 1;
+            break;
+
+        case 'HIDE_ERRORS':
+            state.flags.showFormErrors = 0;
+            break;
+
         default:
             throw new Error();
     }

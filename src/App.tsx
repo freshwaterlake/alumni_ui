@@ -13,10 +13,8 @@ import DashboardLoader from './features/dashboard/DashboardLoader';
 import Demo from './features/demo/Demo';
 import Directory from './features/directory/Directory';
 import DirectoryLoader from './features/directory/DirectoryLoader';
-import JobListing from './features/job/JobListing';
-import JobLoader from './features/job/JobLoader';
 import Profile from './features/profile/Profile';
-import ProfileLoader from './features/profile/ProfileLoader';
+import pageLoader from './library/Core/PageLoader';
 
 function App() {
     useEffect(() => {
@@ -31,7 +29,7 @@ function App() {
                 {
                     path: 'alumni/:id/:pageName',
                     loader: async ({ params }) => {
-                        return await ProfileLoader(params);
+                        return pageLoader(params);
                     },
                     element: <Profile />,
                 },
@@ -48,9 +46,9 @@ function App() {
                     element: <Directory />,
                 },
                 {
-                    path: '/jobListing',
-                    loader: async ({ params }) => await JobLoader(params),
-                    element: <JobListing />,
+                    path: '/jobPosting',
+                    loader: async ({ params }) => await pageLoader({ pageName: 'jobPosting' }),
+                    element: <Profile />,
                 },
             ],
         },

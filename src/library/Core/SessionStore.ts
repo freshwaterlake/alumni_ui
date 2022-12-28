@@ -3,13 +3,14 @@ export type StoredItem = {
     storedAt: Date;
 };
 
-const storeDomainData = (data: any) => sessionStorage.setItem('domainData', data);
+const storeDomainData = (data: any) => sessionStorage.setItem('domain-data', JSON.stringify(Array.from(data.entries())));
 
-const storePageConfig = (pageName: string, data: any) => sessionStorage.setItem(`page-config-${pageName}`, data);
+const storePageConfig = (pageName: string, data: any) => sessionStorage.setItem(`page-config-${pageName}`, JSON.stringify(data));
 
-const storePageData = (pageName: string, data: any, id: number) => sessionStorage.setItem(`page-data-${id}-${pageName}`, data);
+const storePageData = (pageName: string, data: any, id: number) =>
+    sessionStorage.setItem(`page-data-${id}-${pageName}`, JSON.stringify(data));
 
-export const getValueFromSessionStore = (key: string) => sessionStorage.get(key);
+export const getValueFromSessionStore = (key: string) => sessionStorage.getItem(key);
 
 export const storeInLocalStorage = (pageName: string, state: any, id: number) => {
     storeDomainData(state['domain']);

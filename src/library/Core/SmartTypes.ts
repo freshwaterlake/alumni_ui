@@ -4,6 +4,7 @@ export type Page = {
     title: string;
     urlPath: string;
     sections: string[];
+    buttons: string;
     sectionRepository: FormSection[];
 };
 
@@ -94,6 +95,7 @@ export type GridInternalData = {
 
 export type StateFlags = {
     isDataLoading: boolean;
+    showFormErrors: number;
 };
 
 export type DomainElement = {

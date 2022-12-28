@@ -2,6 +2,7 @@ import { useContext, useRef } from 'react';
 import { SmartContext } from '../Core/SmartContext';
 import { getControlValueFromState, getDomainValueForCode, handleControlValueChange } from '../Core/SmartFunctions';
 import { SimpleFormControlArguments, State } from '../Core/SmartTypes';
+import ErrorControl from './ErrorControl';
 
 const TextControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
@@ -20,7 +21,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                     className={`form-control form-control-lg flex-1`}
                     placeholder={control.props?.placeholder}
                     inputMode={control.props?.inputMode}
-                    value={data}
+                    value={data || ''}
                     required={control.props?.required}
                     onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
                     minLength={control.props?.minLength}
@@ -30,12 +31,15 @@ const TextControl = (args: SimpleFormControlArguments) => {
                     ref={formControlRef}
                 />
                 {control?.props?.isCode && (
-                    <input
-                        type={control.type}
-                        className={`form-control form-control-lg`}
-                        value={getDomainValueForCode(data as string, state?.domain?.get(control.props.domainCategoryCode) as any[])}
-                        onChange={() => {}}
-                    />
+                    <>
+                        <input
+                            type={control.type}
+                            className={`form-control form-control-lg`}
+                            value={getDomainValueForCode(data as string, state?.domain?.get(control.props.domainCategoryCode) as any[])}
+                            onChange={() => {}}
+                            ref={formControlRef}
+                        />
+                    </>
                 )}
             </>
         );
@@ -44,19 +48,20 @@ const TextControl = (args: SimpleFormControlArguments) => {
     return (
         <>
             {control.props?.label && (
-                <label htmlFor={control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
+                <label htmlFor={control.id} className="form-label m-0 mb-1 font-16 font-500 w-100">
                     {`${control.props.label} ${control.props.required ? '*' : ''}`}
                 </label>
             )}
             {control?.props?.icon && (
-                <div className='input-group mb-3'>
-                    <span className='input-group-text'>
+                <div className="input-group mb-3">
+                    <span className="input-group-text">
                         <i className={control.props?.icon}></i>
                     </span>
                     {getTextControl()}
                 </div>
             )}
             {!control.props?.icon && getTextControl()}
+            <ErrorControl formControlRef={formControlRef} controlConfig={control} />
         </>
     );
 };
