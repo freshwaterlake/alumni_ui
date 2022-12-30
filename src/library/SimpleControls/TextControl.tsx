@@ -1,6 +1,6 @@
 import { useContext, useRef } from 'react';
 import { SmartContext } from '../Core/SmartContext';
-import { getControlValueFromState, getDomainValueForCode, handleControlValueChange } from '../Core/SmartFunctions';
+import { evaluateExpression, getControlValueFromState, getDomainValueForCode, handleControlValueChange } from '../Core/SmartFunctions';
 import { SimpleFormControlArguments, State } from '../Core/SmartTypes';
 import ErrorControl from './ErrorControl';
 
@@ -9,6 +9,9 @@ const TextControl = (args: SimpleFormControlArguments) => {
     const { control, dataKey } = { ...args };
     const data = getControlValueFromState(dataKey, state as State);
     const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
+    const isHidden = evaluateExpression(control.hideExpression, state?.data);
+
+    if (isHidden) return <></>;
 
     const getTextControl = () => {
         return (
@@ -17,7 +20,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                     id={control.id}
                     data-testid={control.id}
                     type={control.type}
-                    hidden={control.props.isCode}
+                    hidden={control.props?.isCode || isHidden}
                     className={`form-control form-control-lg flex-1`}
                     placeholder={control.props?.placeholder}
                     inputMode={control.props?.inputMode}
@@ -61,7 +64,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                 </div>
             )}
             {!control.props?.icon && getTextControl()}
-            <ErrorControl formControlRef={formControlRef} controlConfig={control} />
+            <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
         </>
     );
 };

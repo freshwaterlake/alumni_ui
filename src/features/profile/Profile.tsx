@@ -11,6 +11,7 @@ const Profile = () => {
 
     const [state, dispatch] = useImmerReducer<State, DispatchEvent>(smartReducer, {
         flags: { isDataLoading: true, showFormErrors: 0 },
+        formValidationErrors: {},
     } as any);
 
     const { formConfig, data, domain, internal } = useLoaderData() as State;

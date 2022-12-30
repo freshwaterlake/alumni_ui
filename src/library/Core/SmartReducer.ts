@@ -88,6 +88,10 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             state.flags.showFormErrors = 0;
             break;
 
+        case 'SET_FIELD_VALIDATION_ERRORS':
+            state.formValidationErrors = Object.assign(state?.formValidationErrors, action.payload);
+            break;
+
         default:
             throw new Error();
     }

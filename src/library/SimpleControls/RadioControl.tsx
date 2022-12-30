@@ -2,6 +2,7 @@ import { useContext, useRef } from 'react';
 import { SmartContext } from '../Core/SmartContext';
 import { getControlValueFromState, handleControlValueChange } from '../Core/SmartFunctions';
 import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartTypes';
+import ErrorControl from './ErrorControl';
 
 const RadioControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
@@ -14,20 +15,20 @@ const RadioControl = (args: SimpleFormControlArguments) => {
 
     return (
         <fieldset>
-            {control.props.label && <legend className='col-form-label m-0 mb-1 font-16 font-500 w-100'>{control.props.label}</legend>}
-            <div className='form-check'>
-                <div className='row my-1 flex-column flex-md-row'>
-                    <div className='col-auto'>
-                        <div className='row'>
-                            {controlDomain?.length > 0 &&
-                                controlDomain.map((domain) => (
-                                    <div className='col-auto mb-2 mb-md-0' key={domain.code}>
-                                        <div className='d-flex flex-wrap align-items-start ps-md-4'>
+            {control.props.label && <legend className="col-form-label m-0 mb-1 font-16 font-500 w-100">{control.props.label}</legend>}
+            <div className="form-check">
+                <div className="row my-1 flex-column flex-md-row">
+                    <div className="col-auto">
+                        <div className="row">
+                            <div className="d-flex flex-wrap align-items-start justify-content-between">
+                                {controlDomain?.length > 0 &&
+                                    controlDomain.map((domain) => (
+                                        <div key={domain.code} className="col-md-5 px-3">
                                             <input
                                                 id={control.id}
                                                 data-testid={control.id}
                                                 className={`form-check-input rounded-circle p-1 m-1`}
-                                                type='radio'
+                                                type="radio"
                                                 name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
                                                 value={domain.code}
                                                 checked={data === domain.code}
@@ -36,14 +37,15 @@ const RadioControl = (args: SimpleFormControlArguments) => {
                                                 }
                                                 ref={formControlRef}
                                             />
-                                            <div className='col blue d-flex flex-wrap mb-3 mb-md-0'>
-                                                <label className='form-check-label m-0 mb-1 font-16 font-500 w-100' htmlFor={control.id}>
+                                            <div className="col blue d-flex flex-wrap mb-3 mb-md-0">
+                                                <label className="form-check-label m-0 mb-1 font-16 font-500 w-100" htmlFor={control.id}>
                                                     {domain.value}
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
+                            </div>
                         </div>
                     </div>
                 </div>

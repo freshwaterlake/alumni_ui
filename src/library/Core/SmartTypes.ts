@@ -22,6 +22,7 @@ export type FormControl = {
     dataId: string;
     fields: string[];
     type: string;
+    hideExpression: string;
     dataKey: 'USE_PARENT' | string;
     defaultValue?: any;
     width: number;
@@ -76,6 +77,7 @@ export type State = {
     domain?: Map<string, DomainElement[]>;
     flags: StateFlags;
     internal: InternalState;
+    formValidationErrors: any;
     customControls?: ObjectWithComponents;
     actions: any;
 };

@@ -1,17 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SmartContext } from '../Core/SmartContext';
+import { evaluateExpression } from '../Core/SmartFunctions';
 
 const ErrorControl = (props) => {
-    const { state } = useContext(SmartContext);
-    const { formControlRef, controlConfig } = { ...props };
+    const { state, dispatch } = useContext(SmartContext);
+    const { formControlRef, controlConfig, data, dataKey } = { ...props };
 
     const errorMessages = [];
     const label = controlConfig?.props?.label;
 
     const checkForRequiredField = () =>
-        controlConfig?.props?.required && errorMessages.length === 0 && formControlRef.current.value
-            ? errorMessages.push(`Please enter ${label}`)
-            : null;
+        controlConfig?.required && (data === undefined || data.length === 0) ? errorMessages.push(`Please enter ${label}`) : null;
 
     const checkForMinAndMaxLength = () => {
         const violatingMinLength = controlConfig?.props?.minLength && formControlRef.current.value.length < controlConfig?.props?.minLength;
@@ -29,21 +28,40 @@ const ErrorControl = (props) => {
 
     const checkForMinAndMaxValue = () => {};
 
+    const checkCustomValidations = () => {
+        if (controlConfig?.customValidations === undefined) return;
+        const customValidations = JSON.parse(controlConfig?.customValidations);
+        customValidations.map((validation) => {
+            if (!evaluateExpression(validation.expression, state.data)) errorMessages.push(validation.message);
+        });
+    };
+
     const validate = () => {
         checkForMinAndMaxLength();
         checkForMinAndMaxValue();
         checkForRequiredField();
+        checkCustomValidations();
         return errorMessages;
     };
 
-    // useEffect(() => {
-    //     validate();
-    // }, [state?.flags?.showFormErrors]);
+    useEffect(() => {
+        validate();
+        if (errorMessages.length > 0) dispatch({ type: 'SET_FIELD_VALIDATION_ERRORS', payload: { [dataKey]: errorMessages } });
+    }, []);
 
     if (state.flags.showFormErrors === 0) return <></>;
 
-    // return state.flags.showFormErrors && validate().length > 0 ? <div className="text-bg-danger">{errorMessages.concat()}</div> : <></>;
-    return <>{state?.flags?.showFormErrors > 0 && validate().length > 0 && <div className="text-danger">{errorMessages.concat()}</div>}</>;
+    return (
+        <>
+            {state?.flags?.showFormErrors > 0 &&
+                validate().length > 0 &&
+                errorMessages.map((message) => (
+                    <div key={message} className="text-danger">
+                        {message}
+                    </div>
+                ))}
+        </>
+    );
 };
 
 export default ErrorControl;

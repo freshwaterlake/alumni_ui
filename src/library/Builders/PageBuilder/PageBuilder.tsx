@@ -7,11 +7,12 @@ const PageBuilder = (args: PageBuilderArguments) => {
     const { state, dispatch } = useContext(SmartContext);
 
     const handleSubmit = (event: any) => {
-        const isValid = event.target.checkValidity();
-        // isValid ? dispatch({ type: 'SHOW_ERRORS' }) : dispatch({ type: 'HIDE_ERRORS' });
-        dispatch({ type: 'SHOW_ERRORS' });
-        console.log(state?.data);
-        console.log(state);
+        if (Object.values(state?.formValidationErrors).flat().length > 0) {
+            dispatch({ type: 'SHOW_ERRORS' });
+        } else {
+            console.log(state?.data);
+            console.log(state);
+        }
         event.preventDefault();
         //axios.put(URL_FOR_FORM_DATA, state?.data);
     };

@@ -2,6 +2,7 @@ import { useContext, useRef } from 'react';
 import { SmartContext } from '../Core/SmartContext';
 import { getControlValueFromState, handleControlValueChange } from '../Core/SmartFunctions';
 import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartTypes';
+import ErrorControl from './ErrorControl';
 
 const SelectControl = (args: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
@@ -23,7 +24,7 @@ const SelectControl = (args: SimpleFormControlArguments) => {
     return (
         <>
             {control.props.label && (
-                <label htmlFor={control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
+                <label htmlFor={control.id} className="form-label m-0 mb-1 font-16 font-500 w-100">
                     {`${control.props.label} ${control.props.required ? '*' : ''}`}
                 </label>
             )}
@@ -37,8 +38,7 @@ const SelectControl = (args: SimpleFormControlArguments) => {
                         ? handleChangeEvent(control.id, event.target.value, dataKey)
                         : handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
                 }
-                ref={formControlRef}
-            >
+                ref={formControlRef}>
                 {!controlDomain.some((domain) => domain.code === '') && <option value={''}>{'--Select--'}</option>}
                 {controlDomain.map((domain) => (
                     <option key={domain.code} value={domain.code} defaultValue={data}>
@@ -46,6 +46,7 @@ const SelectControl = (args: SimpleFormControlArguments) => {
                     </option>
                 ))}
             </select>
+            <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
         </>
     );
 };

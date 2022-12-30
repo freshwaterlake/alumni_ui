@@ -58,3 +58,9 @@ export const findTheRightDataKey = (control: FormControl, dataKey: string, paren
     if (!control?.dataKey) return dataKey;
     return control?.dataKey === 'USE_PARENT' ? parentDataKey : control.dataKey;
 };
+
+export const evaluateExpression = (expression: string, model: any) => {
+    if (isEmpty(model) || isEmpty(expression)) return;
+    const dynamicFunc = (expression: string, model: any) => new Function('model', 'return ' + expression + ';');
+    return dynamicFunc(expression, model)(model);
+};
