@@ -1,4 +1,5 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import { validateFormField } from '../Core/FormFieldValidation';
 import { SmartContext } from '../Core/SmartContext';
 import { getControlValueFromState, handleControlValueChange } from '../Core/SmartFunctions';
 import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartTypes';
@@ -21,6 +22,11 @@ const SelectControl = (args: SimpleFormControlArguments) => {
         else return domain.parentCode === parentData;
     });
 
+    useEffect(() => {
+        const errorMessages = validateFormField(control, data, state, control?.props?.label, dataKey);
+        dispatch({ type: 'SET_FIELD_VALIDATION_ERRORS', payload: { dataKey, errorMessages } });
+    }, []);
+
     return (
         <>
             {control.props.label && (
@@ -36,7 +42,7 @@ const SelectControl = (args: SimpleFormControlArguments) => {
                 onChange={(event) =>
                     handleChangeEvent
                         ? handleChangeEvent(control.id, event.target.value, dataKey)
-                        : handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
+                        : handleControlValueChange(control, event.target.value, dataKey, state as State, dispatch)
                 }
                 ref={formControlRef}>
                 {!controlDomain.some((domain) => domain.code === '') && <option value={''}>{'--Select--'}</option>}
@@ -46,7 +52,7 @@ const SelectControl = (args: SimpleFormControlArguments) => {
                     </option>
                 ))}
             </select>
-            <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
+            <ErrorControl errorMessages={state?.formValidationErrors[dataKey]} />
         </>
     );
 };

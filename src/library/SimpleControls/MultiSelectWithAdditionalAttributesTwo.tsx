@@ -13,17 +13,16 @@ const MultiSelectWithAdditionalInputsTwo = (args: SimpleFormControlArguments) =>
     return (
         <>
             {control.props.label && (
-                <label htmlFor={control.id} className='form-label'>
+                <label htmlFor={control.id} className="form-label">
                     {`${control.props.label} ${control.props.required ? '*' : ''}`}
                 </label>
             )}
-            <div className='mb-2'>
+            <div className="mb-2">
                 <select
                     id={control.id}
                     className={`form-select form-select-lg`}
                     required={control.props.required}
-                    onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
-                >
+                    onChange={(event) => handleControlValueChange(control, event.target.value, dataKey, state as State, dispatch)}>
                     {!controlDomain.some((domain) => domain.code === '') && <option value={''}>{'--Select--'}</option>}
                     {controlDomain.map((domain) => (
                         <option key={domain.code} value={domain.code}>
@@ -34,10 +33,20 @@ const MultiSelectWithAdditionalInputsTwo = (args: SimpleFormControlArguments) =>
             </div>
             {data &&
                 data.map((row, index) => (
-                    <div key={`${dataKey}-${index}`} className='py-1'>
-                        <div className='d-grid bg-light border d-flex'>
-                            {getControlFromFactory(control.controlGroup[0], dataKey, dataKey + `.${index}.` + control.controlGroup[0].id)}
-                            {getControlFromFactory(control.controlGroup[1], dataKey, dataKey + `.${index}.` + control.controlGroup[1].id)}
+                    <div key={`${dataKey}-${index}`} className="py-1">
+                        <div className="d-grid bg-light border d-flex">
+                            {getControlFromFactory(
+                                control.controlGroup[0],
+                                dataKey,
+                                dataKey + `.${index}.` + control.controlGroup[0].id,
+                                state as State
+                            )}
+                            {getControlFromFactory(
+                                control.controlGroup[1],
+                                dataKey,
+                                dataKey + `.${index}.` + control.controlGroup[1].id,
+                                state as State
+                            )}
                         </div>
                     </div>
                 ))}

@@ -11,19 +11,18 @@ const TextAreaControl = (args: SimpleFormControlArguments) => {
 
     return (
         <>
-            <label htmlFor={control.id} className='form-label m-0 mb-1 font-16 font-500 w-100'>
+            <label htmlFor={control.id} className="form-label m-0 mb-1 font-16 font-500 w-100">
                 {`${control.props.label} ${control.props.required ? '*' : ''}`}
             </label>
             <textarea
                 id={control.id}
                 data-testid={control.id}
-                className='form-control'
+                className="form-control"
                 placeholder={control.props.placeholder}
                 value={data}
                 required={control.props.required}
-                onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
-                style={{ height: `${control.props.numLines * 50}px` }}
-            ></textarea>
+                onChange={(event) => handleControlValueChange(control, event.target.value, dataKey, state as State, dispatch)}
+                style={{ height: `${control.props.numLines * 50}px` }}></textarea>
             <label htmlFor={control.id}>Comments</label>
         </>
     );

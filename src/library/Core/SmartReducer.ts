@@ -29,6 +29,11 @@ const smartReducer = (state: State, action: DispatchEvent) => {
                     element[nodes[i]] = action.payload.value;
                 }
             }
+
+            state.formValidationErrors = Object.assign(state?.formValidationErrors, {
+                [action.payload.dataKey]: action.payload.errorMessages,
+            });
+
             break;
 
         case 'ADD_NEW_RECORD_IN_ARRAY':
@@ -89,7 +94,9 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             break;
 
         case 'SET_FIELD_VALIDATION_ERRORS':
-            state.formValidationErrors = Object.assign(state?.formValidationErrors, action.payload);
+            state.formValidationErrors = Object.assign(state?.formValidationErrors, {
+                [action.payload.dataKey]: action.payload.errorMessages,
+            });
             break;
 
         default:

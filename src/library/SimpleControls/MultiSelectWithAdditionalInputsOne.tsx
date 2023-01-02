@@ -37,30 +37,30 @@ const MultiSelectWithAdditionalInputsOne = (args: SimpleFormControlArguments) =>
 
     return (
         <div>
-            <label htmlFor='WhColNme' className='form-label'>
+            <label htmlFor="WhColNme" className="form-label">
                 {control.props.label}
             </label>
-            <div className='input-group'>
+            <div className="input-group">
                 {control.props.icon && (
-                    <span className='input-group-text'>
+                    <span className="input-group-text">
                         <i className={control.props.icon}></i>
                     </span>
                 )}
                 <input
-                    type='text'
-                    className='form-control form-control-lg'
+                    type="text"
+                    className="form-control form-control-lg"
                     placeholder={control.props.placeholder}
-                    aria-label='Username'
-                    aria-describedby='basic-addon1'
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
                     value={searchWord}
                     onChange={handleChange}
                 />
             </div>
             {listData && (
-                <div className='dropdown overflow-auto mb-3'>
-                    <ul className='list-group'>
+                <div className="dropdown overflow-auto mb-3">
+                    <ul className="list-group">
                         {listData.map((item) => (
-                            <button key={item.code} className='dropdown-item' onClick={() => handleItemAdd(item.code)}>
+                            <button key={item.code} className="dropdown-item" onClick={() => handleItemAdd(item.code)}>
                                 {item.value}
                             </button>
                         ))}
@@ -69,11 +69,11 @@ const MultiSelectWithAdditionalInputsOne = (args: SimpleFormControlArguments) =>
             )}
             {data &&
                 data.map((row, index) => (
-                    <div key={`${dataKey}-${index}`} className='card mb-3'>
-                        <div className='card-body bg-light'>
-                            <div className='d-flex flex-wrap'>
+                    <div key={`${dataKey}-${index}`} className="card mb-3">
+                        <div className="card-body bg-light">
+                            <div className="d-flex flex-wrap">
                                 {control.controlGroup.map((subControl) =>
-                                    getControlFromFactory(subControl, dataKey, dataKey + `.${index}.` + subControl.id)
+                                    getControlFromFactory(subControl, dataKey, dataKey + `.${index}.` + subControl.id, state as State)
                                 )}
                             </div>
                         </div>

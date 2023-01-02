@@ -11,7 +11,7 @@ const GridCardsControl = (args: SimpleFormControlArguments) => {
     const data = getControlValueFromState(finalDataKey as string, state as State) as any[];
     console.log(data);
 
-    return <>{data.map((item) => getControlFromFactory(control.controlGroup[0], dataKey, dataKey + `.` + control.id))}</>;
+    return <>{data.map((item) => getControlFromFactory(control.controlGroup[0], dataKey, dataKey + `.` + control.id, state as State))}</>;
 };
 
 export default GridCardsControl;

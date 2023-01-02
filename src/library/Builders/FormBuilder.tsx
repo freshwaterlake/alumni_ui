@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { getControlFromFactory } from '../Core/ControlFactory';
 import { SmartContext } from '../Core/SmartContext';
-import { FormBuilderArguments, FormControl, FormSection } from '../Core/SmartTypes';
+import { FormBuilderArguments, FormControl, FormSection, State } from '../Core/SmartTypes';
 import LayoutBuilder from './LayoutBuilder';
 
 const FormBuilder = (args: FormBuilderArguments) => {
@@ -35,7 +35,7 @@ const FormBuilder = (args: FormBuilderArguments) => {
                 </div>
             );
         else {
-            element = getControlFromFactory(control, dataKey, childDataKey);
+            element = getControlFromFactory(control, dataKey, childDataKey, state as State);
         }
 
         return element;

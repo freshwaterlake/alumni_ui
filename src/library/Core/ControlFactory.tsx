@@ -17,11 +17,20 @@ import TextAsLabelControl from '../SimpleControls/TextAsLabelControl';
 import TextControl from '../SimpleControls/TextControl';
 import YearAndMonthSelector from '../SimpleControls/YearAndMonthSelector';
 import { ChildWrapperControl } from './ChildWrapperControl';
-import { FormControl } from './SmartTypes';
+import { evaluateExpression } from './SmartFunctions';
+import { FormControl, State } from './SmartTypes';
 
-export const getControlFromFactory = (control: FormControl, dataKey: string, childDataKey: string, handleChangeEvent: any = undefined) => {
+export const getControlFromFactory = (
+    control: FormControl,
+    dataKey: string,
+    childDataKey: string,
+    state: State,
+    handleChangeEvent: any = undefined
+) => {
     const keyVal = control.id ? childDataKey + '.' + control.id : 1 + Math.random() * 99999;
     let element;
+
+    const isHidden = evaluateExpression(control.hideExpression, state?.data);
 
     switch (control.type) {
         case 'TEXT':
@@ -140,6 +149,8 @@ export const getControlFromFactory = (control: FormControl, dataKey: string, chi
         default:
             element = <ChildWrapperControl type={control.type} control={control} dataKey={childDataKey} parentDataKey={dataKey} />;
     }
+
+    if (isHidden) return <div></div>;
 
     return (
         <div key={keyVal} className={`has-validation ${control.className} p-2`}>

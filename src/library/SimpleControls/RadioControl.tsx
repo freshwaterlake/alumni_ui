@@ -11,6 +11,11 @@ const RadioControl = (args: SimpleFormControlArguments) => {
     const controlDomain = state?.domain?.get(control.props.domainCategoryCode) as DomainElement[];
     const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
 
+    // useEffect(() => {
+    //     const errorMessages = validateFormField(control, data, state, control?.props?.label, dataKey);
+    //     dispatch({ type: 'SET_FIELD_VALIDATION_ERRORS', payload: { [dataKey]: errorMessages } });
+    // }, []);
+
     //const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => console.log(`${event.target.id} - ${event.target.value}`);
 
     return (
@@ -18,34 +23,32 @@ const RadioControl = (args: SimpleFormControlArguments) => {
             {control.props.label && <legend className="col-form-label m-0 mb-1 font-16 font-500 w-100">{control.props.label}</legend>}
             <div className="form-check">
                 <div className="row my-1 flex-column flex-md-row">
-                    <div className="col-auto">
-                        <div className="row">
-                            <div className="d-flex flex-wrap align-items-start justify-content-between">
-                                {controlDomain?.length > 0 &&
-                                    controlDomain.map((domain) => (
-                                        <div key={domain.code} className="col-md-5 px-3">
-                                            <input
-                                                id={control.id}
-                                                data-testid={control.id}
-                                                className={`form-check-input rounded-circle p-1 m-1`}
-                                                type="radio"
-                                                name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
-                                                value={domain.code}
-                                                checked={data === domain.code}
-                                                onChange={(event) =>
-                                                    handleControlValueChange(control.id, event.target.value, dataKey, dispatch)
-                                                }
-                                                ref={formControlRef}
-                                            />
-                                            <div className="col blue d-flex flex-wrap mb-3 mb-md-0">
-                                                <label className="form-check-label m-0 mb-1 font-16 font-500 w-100" htmlFor={control.id}>
-                                                    {domain.value}
-                                                </label>
-                                            </div>
+                    <div className="row">
+                        <div className="d-flex flex-wrap align-items-start justify-content-start">
+                            {controlDomain?.length > 0 &&
+                                controlDomain.map((domain) => (
+                                    <div key={domain.code} className={`${control.props.radioTextClassName} px-3`}>
+                                        <input
+                                            id={control.id}
+                                            data-testid={control.id}
+                                            className={`form-check-input rounded-circle p-1 m-1`}
+                                            type="radio"
+                                            name={dataKey} // Note: Name need to be different for each row so that selection does not span across the next line item
+                                            value={domain.code}
+                                            checked={data === domain.code}
+                                            onChange={(event) =>
+                                                handleControlValueChange(control, event.target.value, dataKey, state as State, dispatch)
+                                            }
+                                            ref={formControlRef}
+                                        />
+                                        <div className={`${control.props.radioTextClassName} blue d-flex flex-wrap mb-3 mb-md-0`}>
+                                            <label className="form-check-label m-0 mb-1 font-16 font-500 w-100" htmlFor={control.id}>
+                                                {domain.value}
+                                            </label>
                                         </div>
-                                    ))}
-                                <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
-                            </div>
+                                    </div>
+                                ))}
+                            <ErrorControl errorMessages={state?.formValidationErrors[dataKey]} />
                         </div>
                     </div>
                 </div>

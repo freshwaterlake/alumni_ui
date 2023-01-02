@@ -1,4 +1,5 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import { validateFormField } from '../Core/FormFieldValidation';
 import { SmartContext } from '../Core/SmartContext';
 import { evaluateExpression, getControlValueFromState, getDomainValueForCode, handleControlValueChange } from '../Core/SmartFunctions';
 import { SimpleFormControlArguments, State } from '../Core/SmartTypes';
@@ -10,6 +11,11 @@ const TextControl = (args: SimpleFormControlArguments) => {
     const data = getControlValueFromState(dataKey, state as State);
     const formControlRef = useRef(null); // Note: For providing reference to ErrorControl
     const isHidden = evaluateExpression(control.hideExpression, state?.data);
+
+    useEffect(() => {
+        const errorMessages = validateFormField(control, data, state, control?.props?.label, dataKey);
+        dispatch({ type: 'SET_FIELD_VALIDATION_ERRORS', payload: { dataKey, errorMessages } });
+    }, []);
 
     if (isHidden) return <></>;
 
@@ -26,7 +32,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                     inputMode={control.props?.inputMode}
                     value={data || ''}
                     required={control.props?.required}
-                    onChange={(event) => handleControlValueChange(control.id, event.target.value, dataKey, dispatch)}
+                    onChange={(event) => handleControlValueChange(control, event.target.value, dataKey, state as State, dispatch)}
                     minLength={control.props?.minLength}
                     maxLength={control.props?.maxLength}
                     min={control.props?.min}
@@ -64,7 +70,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
                 </div>
             )}
             {!control.props?.icon && getTextControl()}
-            <ErrorControl formControlRef={formControlRef} controlConfig={control} data={data} dataKey={dataKey} />
+            <ErrorControl errorMessages={state?.formValidationErrors[dataKey]} />
         </>
     );
 };

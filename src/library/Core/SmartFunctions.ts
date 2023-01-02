@@ -1,9 +1,11 @@
+import { validateFormField } from './FormFieldValidation';
 import { DispatchEvent, DomainElement, FormControl, ObjectWithKeys, State } from './SmartTypes';
 
 export const isEmpty = (obj: any) => {
     if (obj === null || obj === undefined) return true;
     if (Array.isArray(obj) && obj.length === 0) return true;
     if (obj instanceof Map) return obj.size;
+    if (Object.keys(obj).length === 0) return true;
     return Object.entries(obj).length === 0 ? true : false;
 };
 
@@ -17,8 +19,16 @@ export const getControlValueFromState = (key: string, state: State): any[] | str
     return undefined;
 };
 
-export const handleControlValueChange = (id: string, value: any, dataKey: string, dispatch: (dispatchEvent: DispatchEvent) => void) =>
-    dispatch({ type: 'CONTROL_VALUE_CHANGE', payload: { dataKey, name: id, value } });
+export const handleControlValueChange = (
+    control: FormControl,
+    value: any,
+    dataKey: string,
+    state: State,
+    dispatch: (dispatchEvent: DispatchEvent) => void
+) => {
+    const errorMessages = validateFormField(control, value, state, control.props.label, dataKey);
+    dispatch({ type: 'CONTROL_VALUE_CHANGE', payload: { dataKey, name: control.id, value, errorMessages } });
+};
 
 export const convertDomainArrayToMap = (domain: DomainElement[]) => {
     const domainMap = new Map<string, DomainElement[]>();
@@ -63,4 +73,10 @@ export const evaluateExpression = (expression: string, model: any) => {
     if (isEmpty(model) || isEmpty(expression)) return;
     const dynamicFunc = (expression: string, model: any) => new Function('model', 'return ' + expression + ';');
     return dynamicFunc(expression, model)(model);
+};
+
+export const evaluateExpressionWithValue = (expression: string, data: any, model: any) => {
+    if (isEmpty(model) || isEmpty(expression)) return;
+    const dynamicFunc = (expression: string, data: any, model: any) => new Function('model', 'data', 'return ' + expression + ';');
+    return dynamicFunc(expression, model, data)(model, data);
 };
