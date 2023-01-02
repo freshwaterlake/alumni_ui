@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { pageSave } from '../../Core/PageLoader';
+import { storePageData } from '../../Core/SessionStore';
 import { SmartContext } from '../../Core/SmartContext';
 import { FormSection, PageBuilderArguments } from '../../Core/SmartTypes';
 import FormBuilder from '../FormBuilder';
@@ -9,9 +11,18 @@ const PageBuilder = (args: PageBuilderArguments) => {
     const handleSubmit = (event: any) => {
         if (Object.values(state?.formValidationErrors).flat().length > 0) {
             dispatch({ type: 'SHOW_ERRORS' });
+            alert('Please enter the mandatory fields!');
         } else {
             console.log(state?.data);
             console.log(state);
+            pageSave(state?.data.id, state).then((response: any) => {
+                console.log(response);
+                storePageData(state?.routeInfo.pageName as string, response['data'], state?.data.id);
+                dispatch({
+                    type: 'POST_SAVE_RESPONSE_DATA',
+                    payload: { data: response['data'] },
+                });
+            });
         }
         event.preventDefault();
         //axios.put(URL_FOR_FORM_DATA, state?.data);

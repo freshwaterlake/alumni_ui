@@ -33,6 +33,7 @@ b.json
 b.txt
 a.css
 b.css
+a.sql
 /test-results/
 /playwright-report/
 /playwright/.cache/

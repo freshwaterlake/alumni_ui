@@ -72,6 +72,7 @@ export type ApplicationContext = {
 };
 
 export type State = {
+    routeInfo: RouteInfo;
     formConfig?: Page;
     data?: any;
     domain?: Map<string, DomainElement[]>;
@@ -80,6 +81,11 @@ export type State = {
     formValidationErrors: any;
     customControls?: ObjectWithComponents;
     actions: any;
+};
+
+export type RouteInfo = {
+    id: string;
+    pageName: string;
 };
 
 export type InternalState = {

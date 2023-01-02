@@ -3,11 +3,11 @@ export type StoredItem = {
     storedAt: Date;
 };
 
-const storeDomainData = (data: any) => sessionStorage.setItem('domain-data', JSON.stringify(Array.from(data.entries())));
+export const storeDomainData = (data: any) => sessionStorage.setItem('domain-data', JSON.stringify(Array.from(data.entries())));
 
-const storePageConfig = (pageName: string, data: any) => sessionStorage.setItem(`page-config-${pageName}`, JSON.stringify(data));
+export const storePageConfig = (pageName: string, data: any) => sessionStorage.setItem(`page-config-${pageName}`, JSON.stringify(data));
 
-const storePageData = (pageName: string, data: any, id: number) =>
+export const storePageData = (pageName: string, data: any, id: number) =>
     sessionStorage.setItem(`page-data-${id}-${pageName}`, JSON.stringify(data));
 
 export const getValueFromSessionStore = (key: string) => sessionStorage.getItem(key);

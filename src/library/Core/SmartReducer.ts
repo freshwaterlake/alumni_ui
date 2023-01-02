@@ -15,6 +15,7 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             state.customControls = action.payload.customControls;
             state.actions = action.payload.actions;
             state.flags.isDataLoading = false;
+            state.routeInfo = action.payload.routeInfo;
             break;
 
         case 'CONTROL_VALUE_CHANGE':
@@ -97,6 +98,10 @@ const smartReducer = (state: State, action: DispatchEvent) => {
             state.formValidationErrors = Object.assign(state?.formValidationErrors, {
                 [action.payload.dataKey]: action.payload.errorMessages,
             });
+            break;
+
+        case 'POST_SAVE_RESPONSE_DATA':
+            state.data = action.payload.data;
             break;
 
         default:

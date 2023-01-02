@@ -11,6 +11,7 @@ import MultiSelectWithAdditionalInputsOne from '../SimpleControls/MultiSelectWit
 import PhoneControl from '../SimpleControls/PhoneControl';
 import RadioControl from '../SimpleControls/RadioControl';
 import SelectControl from '../SimpleControls/SelectControl';
+import SpacerControl from '../SimpleControls/SpacerControl';
 import SummaryPillsControl from '../SimpleControls/SummaryPillsControl';
 import TextAreaControl from '../SimpleControls/TextAreaControl';
 import TextAsLabelControl from '../SimpleControls/TextAsLabelControl';
@@ -35,6 +36,9 @@ export const getControlFromFactory = (
     switch (control.type) {
         case 'TEXT':
             element = <TextControl control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
+            break;
+        case 'SPACER':
+            element = <SpacerControl control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;
             break;
         case 'FILE_UPLOAD':
             element = <FileUploader control={control} dataKey={childDataKey} handleChangeEvent={handleChangeEvent} />;

@@ -23,6 +23,13 @@ const checkForMinAndMaxLength = (controlConfig, data, state, dataKey, label, err
 
 const checkForMinAndMaxValue = (controlConfig, data, state, dataKey, label, errorMessages) => {};
 
+const checkForRegExPattern = (controlConfig, data, state, dataKey, label, errorMessages) => {
+    if (controlConfig.props.pattern !== undefined) {
+        const regex = new RegExp(controlConfig.props.pattern);
+        if (!regex.test(data)) errorMessages.push(`Please enter valid value for ${label}`);
+    }
+};
+
 const checkCustomValidations = (controlConfig, data, state, dataKey, label, errorMessages) => {
     if (controlConfig?.customValidations === undefined) return;
     const customValidations = JSON.parse(controlConfig?.customValidations);
@@ -35,9 +42,10 @@ const checkCustomValidations = (controlConfig, data, state, dataKey, label, erro
 export const validateFormField = (controlConfig, data, state, label, dataKey) => {
     const errorMessages = [];
     const localData = data === undefined || data === null ? '' : data;
+    checkForRequiredField(controlConfig, localData, state, dataKey, label, errorMessages);
     checkForMinAndMaxLength(controlConfig, localData, state, dataKey, label, errorMessages);
     checkForMinAndMaxValue(controlConfig, localData, state, dataKey, label, errorMessages);
-    checkForRequiredField(controlConfig, localData, state, dataKey, label, errorMessages);
+    checkForRegExPattern(controlConfig, localData, state, dataKey, label, errorMessages);
     checkCustomValidations(controlConfig, localData, state, dataKey, label, errorMessages);
     return errorMessages;
 };

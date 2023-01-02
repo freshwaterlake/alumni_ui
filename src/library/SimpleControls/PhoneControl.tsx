@@ -5,11 +5,16 @@ import { DomainElement, SimpleFormControlArguments, State } from '../Core/SmartT
 
 const PhoneControl = (props: SimpleFormControlArguments) => {
     const { state, dispatch } = useContext(SmartContext);
+
     const phoneCountryCodeValue = getControlValueFromState(
-        props.parentDataKey + props.control.controlGroup[0]['id'],
+        props.parentDataKey + '.' + props.control.controlGroup[0]['id'],
         state as State
     ) as string;
-    const phoneNumberValue = getControlValueFromState(props.parentDataKey + props.control.controlGroup[1]['id'], state as State) as string;
+
+    const phoneNumberValue = getControlValueFromState(
+        props.parentDataKey + '.' + props.control.controlGroup[1]['id'],
+        state as State
+    ) as string;
 
     return (
         <div>
@@ -18,7 +23,7 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
             </label>
 
             <div className="input-group mb-3">
-                <div className="col-5">
+                <div className="col-4 pe-2">
                     <select
                         id={props.control.controlGroup[0]['id']}
                         data-testid={props.control.controlGroup[0]['id']}
@@ -33,14 +38,14 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                         }
                         className="form-select form-select-lg text-end"
                         aria-label="Default select example">
-                        {state?.domain?.get(props.control.props.domainCategoryCode)?.map((domain: DomainElement) => (
+                        {state?.domain?.get(props.control.controlGroup[0].props.domainCategoryCode)?.map((domain: DomainElement) => (
                             <option key={domain.code} value={domain.code} defaultValue={phoneCountryCodeValue}>
                                 {domain.value}
                             </option>
                         ))}
                     </select>
                 </div>
-                <div className="col-7">
+                <div className="col-8">
                     <input
                         id={props.control.controlGroup[1]['id']}
                         data-testid={props.control.controlGroup[1]['id']}
@@ -56,8 +61,8 @@ const PhoneControl = (props: SimpleFormControlArguments) => {
                             )
                         }
                         className="form-control form-control-lg"
-                        placeholder="Username"
-                        aria-label="Username"
+                        placeholder={props.control.controlGroup[1].props.placeholder}
+                        aria-label={props.control.controlGroup[1].props.placeholder}
                         aria-describedby="basic-addon1"
                     />
                 </div>

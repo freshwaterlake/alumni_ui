@@ -20,7 +20,11 @@ const RadioControl = (args: SimpleFormControlArguments) => {
 
     return (
         <fieldset>
-            {control.props.label && <legend className="col-form-label m-0 mb-1 font-16 font-500 w-100">{control.props.label}</legend>}
+            {control.props.label && (
+                <legend className="col-form-label m-0 mb-1 font-16 font-500 w-100">
+                    {`${control.props.label} `} <span className="text-danger">{`${control.props.required ? '*' : ''}`}</span>
+                </legend>
+            )}
             <div className="form-check">
                 <div className="row my-1 flex-column flex-md-row">
                     <div className="row">

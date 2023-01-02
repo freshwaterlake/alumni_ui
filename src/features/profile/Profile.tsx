@@ -14,12 +14,12 @@ const Profile = () => {
         formValidationErrors: {},
     } as any);
 
-    const { formConfig, data, domain, internal } = useLoaderData() as State;
+    const { formConfig, data, domain, internal, routeInfo } = useLoaderData() as State;
 
     useEffect(() => {
         dispatch({
             type: 'DATA_INIT',
-            payload: { formConfig, data, domain, internal },
+            payload: { formConfig, data, domain, internal, routeInfo },
         });
     }, []);
 

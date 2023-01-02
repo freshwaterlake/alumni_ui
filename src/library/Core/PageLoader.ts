@@ -9,7 +9,7 @@ export type LocalStorageResponse = {
 
 const baseRoutes = {
     pageConfig: `http://localhost:3009/api/v1/pageConfig`,
-    data: `http://localhost:3007/alumni`,
+    data: (id: string) => `http://localhost:10001/api/${id}/student`,
     domainData: `http://localhost:3009/api/v1/appConfig/domain_data`,
 };
 
@@ -26,12 +26,14 @@ const getDomainData = (): Promise<AxiosResponse<any, any>> | Promise<LocalStorag
     return axios.get(`${baseRoutes['domainData']}`);
 };
 
-const getData = (pageName: String, id: number): Promise<AxiosResponse<any, any>> | Promise<LocalStorageResponse> => {
+const getData = (pageName: String, id: string): Promise<AxiosResponse<any, any>> | Promise<LocalStorageResponse> => {
     if (id === undefined) return Promise.resolve({ data: {} });
     const storedEntity = getValueFromSessionStore(`page-data-${id}-${pageName}`);
     if (!isEmpty(storedEntity)) return Promise.resolve({ data: JSON.parse(storedEntity as string) });
-    return axios.get(`${baseRoutes['data']}/${id}`);
+    return axios.get(baseRoutes['data'](id));
 };
+
+const storeDataPostPersistence = () => {};
 
 const initializeDataIfUndefined = (config: Page) => {
     const data = {};
@@ -48,11 +50,16 @@ const pageLoader = (params: any) => {
         state.data = Object.keys(values[1].data).length ? values[1].data : initializeDataIfUndefined(state.formConfig);
         state.domain = values[2].data instanceof Map ? values[2].data : convertDomainArrayToMap(values[2].data);
         state.internal = { gridState: [] };
+        state.routeInfo = { id, pageName };
 
         storeInLocalStorage(pageName, state, id);
 
         return Promise.resolve(state);
     });
+};
+
+export const pageSave = (id: string, state: any): Promise<AxiosResponse<any, any>> => {
+    return axios.put(baseRoutes['data'](id), state.data);
 };
 
 export default pageLoader;
