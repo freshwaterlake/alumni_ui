@@ -14,9 +14,9 @@ export const getControlValueFromState = (key: string, state: State): any[] | str
     try {
         return key.split('.').reduce((a, c) => a[c], state.data);
     } catch (e) {
-        console.error('Error while reading data!!!');
+        return '';
     }
-    return undefined;
+    // return undefined;
 };
 
 export const handleControlValueChange = (

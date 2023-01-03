@@ -9,7 +9,19 @@ export type LocalStorageResponse = {
 
 const baseRoutes = {
     pageConfig: `http://localhost:3009/api/v1/pageConfig`,
-    data: (id: string) => `http://localhost:10001/api/${id}/student`,
+    data: (id: string, pageName: string) => {
+        switch (pageName) {
+            case 'studentBasicInfo':
+            case 'studentAdditionalInfo':
+                return `http://localhost:10001/api/${id}/student`;
+            case 'studyPreference':
+                return `http://localhost:10001/api/${id}/study-preferences`;
+            case 'jobPreference':
+                return `http://localhost:10001/api/${id}/job-preference`;
+            default:
+                return '';
+        }
+    },
     domainData: `http://localhost:3009/api/v1/appConfig/domain_data`,
 };
 
@@ -26,11 +38,11 @@ const getDomainData = (): Promise<AxiosResponse<any, any>> | Promise<LocalStorag
     return axios.get(`${baseRoutes['domainData']}`);
 };
 
-const getData = (pageName: String, id: string): Promise<AxiosResponse<any, any>> | Promise<LocalStorageResponse> => {
+const getData = (pageName: string, id: string): Promise<AxiosResponse<any, any>> | Promise<LocalStorageResponse> => {
     if (id === undefined) return Promise.resolve({ data: {} });
     const storedEntity = getValueFromSessionStore(`page-data-${id}-${pageName}`);
     if (!isEmpty(storedEntity)) return Promise.resolve({ data: JSON.parse(storedEntity as string) });
-    return axios.get(baseRoutes['data'](id));
+    return axios.get(baseRoutes['data'](id, pageName));
 };
 
 const storeDataPostPersistence = () => {};
@@ -58,8 +70,8 @@ const pageLoader = (params: any) => {
     });
 };
 
-export const pageSave = (id: string, state: any): Promise<AxiosResponse<any, any>> => {
-    return axios.put(baseRoutes['data'](id), state.data);
+export const pageSave = (id: string, pageName: string, state: any): Promise<AxiosResponse<any, any>> => {
+    return axios.put(baseRoutes['data'](id, pageName), state.data);
 };
 
 export default pageLoader;

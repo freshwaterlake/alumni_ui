@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { getControlFromFactory } from '../Core/ControlFactory';
 import { SmartContext } from '../Core/SmartContext';
+import { evaluateExpression } from '../Core/SmartFunctions';
 import { FormBuilderArguments, FormControl, FormSection, State } from '../Core/SmartTypes';
 import LayoutBuilder from './LayoutBuilder';
 
@@ -40,6 +41,8 @@ const FormBuilder = (args: FormBuilderArguments) => {
 
         return element;
     };
+
+    if (evaluateExpression(section.hideExpression, state?.data)) return <></>;
 
     return <LayoutBuilder section={section} component={<>{section.controlGroup.map((control) => getControl(control))}</>} />;
 };

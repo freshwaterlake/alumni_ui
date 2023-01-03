@@ -54,22 +54,22 @@ const MenuLayout = () => {
                                 </div>
                                 <ul className="dropdown-menu">
                                     <li>
-                                        <a className="dropdown-item" href="/alumni/1000/skill">
+                                        <a className="dropdown-item" href="/alumni/70c2be67-6a41-11ec-8a00-d8d0905b3cc8/skill">
                                             Skill Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="/alumni/1000/studyPreference">
+                                        <a className="dropdown-item" href="/alumni/70c2be67-6a41-11ec-8a00-d8d0905b3cc8/studyPreference">
                                             Study Preferences
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="/alumni/1000/jobPreference">
+                                        <a className="dropdown-item" href="/alumni/70c2be67-6a41-11ec-8a00-d8d0905b3cc8/jobPreference">
                                             Job Preferences
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="/alumni/1000/achievement">
+                                        <a className="dropdown-item" href="/alumni/70c2be67-6a41-11ec-8a00-d8d0905b3cc8/achievement">
                                             Achievements
                                         </a>
                                     </li>
@@ -79,7 +79,9 @@ const MenuLayout = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="dropdown-item" href="/alumni/1000/additionalInfo">
+                                        <a
+                                            className="dropdown-item"
+                                            href="/alumni/70c2be67-6a41-11ec-8a00-d8d0905b3cc8/studentAdditionalInfo">
                                             Additional Info
                                         </a>
                                     </li>

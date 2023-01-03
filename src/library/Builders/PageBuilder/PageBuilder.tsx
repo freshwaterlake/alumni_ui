@@ -11,11 +11,12 @@ const PageBuilder = (args: PageBuilderArguments) => {
     const handleSubmit = (event: any) => {
         if (Object.values(state?.formValidationErrors).flat().length > 0) {
             dispatch({ type: 'SHOW_ERRORS' });
+            console.log(state?.formValidationErrors);
             alert('Please enter the mandatory fields!');
         } else {
             console.log(state?.data);
             console.log(state);
-            pageSave(state?.data.id, state).then((response: any) => {
+            pageSave(state?.data.id, state?.routeInfo.pageName as string, state).then((response: any) => {
                 console.log(response);
                 storePageData(state?.routeInfo.pageName as string, response['data'], state?.data.id);
                 dispatch({

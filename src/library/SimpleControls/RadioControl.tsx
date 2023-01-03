@@ -22,7 +22,7 @@ const RadioControl = (args: SimpleFormControlArguments) => {
         <fieldset>
             {control.props.label && (
                 <legend className="col-form-label m-0 mb-1 font-16 font-500 w-100">
-                    {`${control.props.label} `} <span className="text-danger">{`${control.props.required ? '*' : ''}`}</span>
+                    {`${control.props.label} `} <span className="text-danger">{`${control.required ? '*' : ''}`}</span>
                 </legend>
             )}
             <div className="form-check">

@@ -58,7 +58,7 @@ const TextControl = (args: SimpleFormControlArguments) => {
         <>
             {control.props?.label && (
                 <label htmlFor={control.id} className="form-label m-0 mb-1 font-16 font-500 w-100">
-                    {`${control.props.label} `} <span className="text-danger">{`${control.props.required ? '*' : ''}`}</span>
+                    {`${control.props.label} `} <span className="text-danger">{`${control.required ? '*' : ''}`}</span>
                 </label>
             )}
             {control?.props?.icon && (

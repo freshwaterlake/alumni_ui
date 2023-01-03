@@ -21,6 +21,7 @@ export type FormControl = {
     width: number;
     className?: string;
     dataKey?: 'USE_PARENT' | 'USE_SELF' | string;
+    required: number;
     props: ControlProperties;
 };
 

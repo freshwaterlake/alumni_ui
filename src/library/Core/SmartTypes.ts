@@ -14,6 +14,7 @@ export type FormSection = {
     title: string;
     type: 'COMPLEX_CONTROL' | 'SECTION_WITH_HEADER' | 'SECTION_WITHOUT_HEADER';
     className: string;
+    hideExpression: string;
     controlGroup: FormControl[];
 };
 
@@ -23,6 +24,7 @@ export type FormControl = {
     fields: string[];
     type: string;
     hideExpression: string;
+    required: number;
     dataKey: 'USE_PARENT' | string;
     defaultValue?: any;
     width: number;

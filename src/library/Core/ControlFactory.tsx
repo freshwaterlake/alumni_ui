@@ -154,7 +154,7 @@ export const getControlFromFactory = (
             element = <ChildWrapperControl type={control.type} control={control} dataKey={childDataKey} parentDataKey={dataKey} />;
     }
 
-    if (isHidden) return <div></div>;
+    if (isHidden) return <div key={keyVal}></div>;
 
     return (
         <div key={keyVal} className={`has-validation ${control.className} p-2`}>
